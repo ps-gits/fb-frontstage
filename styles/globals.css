@@ -342,6 +342,10 @@ img {
   font-size: 10px;
 }
 
+.text-content {
+  font-size: 20px;
+}
+
 .layout-content {
   flex-grow: 1;
   background: #fff;
