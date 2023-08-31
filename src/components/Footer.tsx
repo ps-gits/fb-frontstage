@@ -57,6 +57,7 @@ type FooterProps = ComponentProps & {
     termsConditions: Field<string>;
     emailPlaceholder: Field<string>;
     signUpForNewsLetter: Field<string>;
+    termsAndConditions: Field<string>;
   };
 };
 
@@ -293,12 +294,12 @@ const Footer = (props: FooterProps): JSX.Element => {
                       <div className="py-3">
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer ">
                           <Link
-                            href={`/${props.fields.termsConditions.value
+                            href={`/${props.fields.termsAndConditions.value
                               ?.toLowerCase()
                               ?.replace(/\s/g, '')}`}
                             onClick={() => dispatch(setFooterTC(true))}
                           >
-                            <Text field={props.fields.termsConditions} />
+                            <Text field={props.fields.termsAndConditions} />
                           </Link>
                         </div>
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
