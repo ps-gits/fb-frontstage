@@ -295,7 +295,6 @@ const Footer = (props: FooterProps): JSX.Element => {
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer ">
                           <Link
                             href={`/${props.fields.termsAndConditions.value
-                              ?.toLowerCase()
                               ?.replace(/\s/g, '')}`}
                             onClick={() => dispatch(setFooterTC(true))}
                           >
