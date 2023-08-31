@@ -81,14 +81,14 @@ const NewsList = (props: NewsListProps): JSX.Element => {
         />
       )}
 
-      <div
-        className={`${
+      <section
+        className={`latest-news-section ${
           readNewsInDetails !== undefined && !readNewsInDetails
             ? 'bg-white'
             : 'xl:py-16 bg-silver xs:py-16'
         }`}
       >
-        <div className="xl:w-5/6 md:w-5/6 m-auto xl:px-0 xs:px-4 md:px-0">
+        <div className="container">
           <div className="text-black font-black text-4xl pb-10">
             {readNewsInDetails ? (
               <Text field={props.fields.relatedNews} />
@@ -96,7 +96,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
               <Text field={props.fields.heading} />
             )}
           </div>
-          <div className="xl:flex flex-wrap md:flex xs:block ">
+          <div className="my-row">
             {props.fields.news
 
               ?.slice(0, readNewsInDetails ? 3 : props.fields.news?.length)
@@ -108,9 +108,9 @@ const NewsList = (props: NewsListProps): JSX.Element => {
               )
               ?.map((item, index) => {
                 return (
-                  <div key={index} className="xl:w-2/6 md:w-1/3  xs:w-full">
+                  <div key={index} className="col-4">
                     <div className="mr-3">
-                      <div>
+                      <div className="blog-img md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden rounded-xl">
                         <Image
                           src={
                             item.fields.newsImages?.find(
@@ -121,7 +121,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
                                 imageItem.fields.image.value.src !== undefined
                             )?.fields.image.value.src as string
                           }
-                          className="xl:w-full xl:h-52 xs:w-full xs:h-96 rounded-xl"
+                          className="h-full w-full"
                           alt="image"
                           width={
                             item.fields.newsImages?.find(
@@ -197,7 +197,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
             </div>
           )}
         </div>
-      </div>
+      </section>
     </>
   );
 };
