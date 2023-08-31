@@ -1,4 +1,4 @@
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import {
   Text,
@@ -21,7 +21,7 @@ type BookYourDreamFlightProps = ComponentProps & {
 };
 
 const BookYourDreamFlight = (props: BookYourDreamFlightProps): JSX.Element => {
-  // const router = useRouter();
+  const router = useRouter();
   //const win: Window = window;
 
   const load = useSelector((state: RootState) => state?.loader?.loader);
