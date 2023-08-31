@@ -27,10 +27,10 @@ const HomepageBanner = (props: HomepageBannerProps): JSX.Element => {
   const load = useSelector((state: RootState) => state?.loader?.loader);
 
   useEffect(() => {
-    const element = document.getElementById('landing-page-search');
-    if (!load?.show && element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    // const element = document.getElementById('landing-page-search');
+    // if (!load?.show && element) {
+    //   element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // }
   }, [load?.show]);
 
   return (
