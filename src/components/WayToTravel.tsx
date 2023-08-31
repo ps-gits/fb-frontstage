@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -35,6 +36,8 @@ type WayToTravelProps = ComponentProps & {
 };
 
 const WayToTravel = (props: WayToTravelProps): JSX.Element => {
+  const router = useRouter();
+
   const load = useSelector((state: RootState) => state?.loader?.loader);
 
   return (
@@ -50,6 +53,7 @@ const WayToTravel = (props: WayToTravelProps): JSX.Element => {
                 <div className="xl:py-0 xs:py-3">
                   <button
                     type="submit"
+                    onClick={() => router.push('/Experience')}
                     className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
                   >
                     {props.fields.learnMoreButton?.value}
