@@ -804,11 +804,18 @@ svg.h-6.w-6.shrink-0 {
   margin-right: -6px;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .col-6 {
   flex: 0 0 50%;
   width: 50%;
+  padding: 0 6px;
+}
+
+.col-4 {
+  flex: 0 0 33.333%;
+  width: 33.333%;
   padding: 0 6px;
 }
 
@@ -827,25 +834,25 @@ svg.h-6.w-6.shrink-0 {
 .farelist ul {
   text-align: left;
   padding-left: 25px;
-  color: black !important;
 }
 
 .farelist ul li {
   list-style: disc;
   margin: 0 0 8px;
-  color: black !important;
 }
 
 .farelist ul ul li {
   list-style: circle;
   margin: 0 0 8px;
-  color: black !important;
 }
 
 .farelist ul ul ul li {
   list-style: square;
   margin: 0 0 8px;
-  color: black !important;
+}
+
+.error {
+  margin: 3px 0 0 0;
 }
 
 @media screen and (max-width: 1536.1px) {
@@ -875,6 +882,25 @@ svg.h-6.w-6.shrink-0 {
   .gallery-images {
     width: 230px;
     height: 336px;
+  }
+}
+
+@media screen and (max-width: 1023.5px) {
+
+  .my-row {
+    justify-content: center;
+  }
+
+  .col-3 {
+    flex: 0 0 50%;
+    width: 50%;
+    margin-bottom: 12px;
+  }
+
+  .col-75 {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 12px;
   }
 }
 
@@ -916,5 +942,26 @@ svg.h-6.w-6.shrink-0 {
 
   .blog-img {
     height: auto !important;
+  }
+
+  .col-6,
+  .col-3 {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+
+@media screen and (max-width: 381.1px) {
+  .gallery-images {
+    margin-top: 15px;
+  }
+}
+
+
+@media screen and (max-width: 359px) {
+  .mob-dream {
+    top: 25rem !important;
   }
 }
