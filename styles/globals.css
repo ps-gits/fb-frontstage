@@ -863,6 +863,10 @@ svg.h-6.w-6.shrink-0 {
   margin: 3px 0 0 0;
 }
 
+.scroll-hidden {
+  overflow: hidden;
+}
+
 @media screen and (max-width: 1536.1px) {
   .flight-img {
     width: 650px;

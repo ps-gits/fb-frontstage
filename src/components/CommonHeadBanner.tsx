@@ -80,8 +80,10 @@ const CommonHeadBanner = (props: CommonHeadBannerProps): JSX.Element => {
                         <Text field={props.fields.heading} />
                       </h1>
                       {props.fields.content.value && (
-                        <h1 className="xs:w-full  xl:text-xl  rounded-lg  inline-flex items-center  py-3 font-normal text-black text-xl">
+                        <h1 className="xs:w-full  xl:text-xl  rounded-lg  inline-flex items-center  py-3 text-black text-xl font-light">
+                          <div className="scroll-hidden">
                           {parse(props.fields.content.value)}
+                          </div>
                         </h1>
                       )}
                     </div>
