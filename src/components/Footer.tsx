@@ -37,11 +37,6 @@ type FooterProps = ComponentProps & {
     contact: Field<string>;
     support: Field<string>;
     careers: Field<string>;
-    contactUs:Field<string>;
-    imprint:Field<string>;
-    noticeOfPassenger:Field<string>;
-    conditionsOfCarriage:Field<string>;
-    cookiePolicy:Field<string>;
     company: Field<string>;
     content: Field<string>;
     followUs: Field<string>;
@@ -57,7 +52,12 @@ type FooterProps = ComponentProps & {
     termsConditions: Field<string>;
     emailPlaceholder: Field<string>;
     signUpForNewsLetter: Field<string>;
-    termsAndConditions: Field<string>;
+    contactUs:Field<string>;
+    imprint:Field<string>;
+    noticeOfPassenger:Field<string>;
+    conditionsOfCarriage:Field<string>;
+    cookiePolicy:Field<string>;
+    termsAndConditions:Field<string>;
   };
 };
 
@@ -282,7 +282,7 @@ const Footer = (props: FooterProps): JSX.Element => {
                               }}
                             >
                               <Text field={props.fields.cookies} />
-                            </div> 
+                            </div>
                           </div>
                         </div> */}
                       </div>
@@ -293,14 +293,14 @@ const Footer = (props: FooterProps): JSX.Element => {
                       </div>
                       <div className="py-3">
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer ">
-                          <Link
-                            href={`/${props.fields.termsAndConditions.value
-                              ?.replace(/\s/g, '')}`}
-                            onClick={() => dispatch(setFooterTC(true))}
-                          >
-                            <Text field={props.fields.termsAndConditions} />
-                          </Link>
-                        </div>
+                            <Link
+                              href={`/${props.fields.termsAndConditions.value
+                                ?.replace(/\s/g, '')}`}
+                              onClick={() => dispatch(setFooterTC(true))}
+                            >
+                              <Text field={props.fields.termsAndConditions} />
+                            </Link>
+                          </div>
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
                           <Link
                             href={`/${props.fields.privacyPolicy.value
@@ -328,13 +328,6 @@ const Footer = (props: FooterProps): JSX.Element => {
                         </div>
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
                           <Link
-                            href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/CoC_Beond_MS_080823_v2.pdf"
-                          >
-                            <Text field={props.fields.conditionsOfCarriage} />
-                          </Link>
-                        </div>
-                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
-                          <Link
                             href={`/${props.fields.imprint.value?.replace(/\s/g, '')}`}
                           >
                             <Text field={props.fields.imprint} />
@@ -342,7 +335,15 @@ const Footer = (props: FooterProps): JSX.Element => {
                         </div>
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
                           <Link
-                            href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/Notice-Of-Passenger-Rights.pdf"
+                            href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/CoC_Beond_MS_080823_v2.pdf"
+                          >
+                            <Text field={props.fields.conditionsOfCarriage} />
+                          </Link>
+                        </div>
+                      
+                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
+                          <Link
+                            href={`/${props.fields.noticeOfPassenger.value?.replace(/\s/g, '')}`}
                           >
                             <Text field={props.fields.noticeOfPassenger} />
                           </Link>
