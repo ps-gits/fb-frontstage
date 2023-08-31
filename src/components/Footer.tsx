@@ -37,10 +37,11 @@ type FooterProps = ComponentProps & {
     contact: Field<string>;
     support: Field<string>;
     careers: Field<string>;
-    contactus:Field<string>;
+    contactUs:Field<string>;
     imprint:Field<string>;
     noticeOfPassenger:Field<string>;
     conditionsOfCarriage:Field<string>;
+    cookiePolicy:Field<string>;
     company: Field<string>;
     content: Field<string>;
     followUs: Field<string>;
@@ -232,11 +233,11 @@ const Footer = (props: FooterProps): JSX.Element => {
                         </div>
                         <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer  ">
                           <Link
-                            href={`/${props.fields.contactus.value
+                            href={`/${props.fields.contactUs.value
                               ?.toLowerCase()
                               ?.replace(/\s/g, '')}`}
                           >
-                            <Text field={props.fields.contact} />
+                            <Text field={props.fields.contactUs} />
                           </Link>
                         </div>
                         {/* <div className="xs:w-2/4">
