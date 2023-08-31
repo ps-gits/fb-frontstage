@@ -22,7 +22,7 @@ type BookYourDreamFlightProps = ComponentProps & {
 
 const BookYourDreamFlight = (props: BookYourDreamFlightProps): JSX.Element => {
   // const router = useRouter();
-  const win: Window = window;
+  //const win: Window = window;
 
   const load = useSelector((state: RootState) => state?.loader?.loader);
 
