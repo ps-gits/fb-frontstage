@@ -326,6 +326,34 @@ const Footer = (props: FooterProps): JSX.Element => {
                         >
                           <Text field={props.fields.cookies} />
                         </div>
+                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
+                          <Link
+                            href={`/${props.fields.conditionsOfCarriage.value?.toLowerCase()?.replace(/\s/g, '')}`}
+                          >
+                            <Text field={props.fields.conditionsOfCarriage} />
+                          </Link>
+                        </div>
+                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
+                          <Link
+                            href={`/${props.fields.imprint.value?.toLowerCase()?.replace(/\s/g, '')}`}
+                          >
+                            <Text field={props.fields.imprint} />
+                          </Link>
+                        </div>
+                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
+                          <Link
+                            href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/Notice-Of-Passenger-Rights.pdf"
+                          >
+                            <Text field={props.fields.noticeOfPassenger} />
+                          </Link>
+                        </div>
+                        <div className="text-sm font-normal text-Silvergray py-1 cursor-pointer z-50">
+                          <Link
+                            href={`/${props.fields.cookiePolicy.value?.toLowerCase()?.replace(/\s/g, '')}`}
+                          >
+                            <Text field={props.fields.cookiePolicy} />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
