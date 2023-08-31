@@ -1,0 +1,920 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+
+
+
+@media (min-width: 320px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 900.1px) {
+  .container {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 1535.1px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+h1 {
+  font-size: 42px;
+}
+
+p {
+  font-weight: 300;
+}
+
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 300;
+  font-style: normal;
+  src: local('Avenir Book'), local('Avenir-300'), url('/fonts/Avenir-Book.woff') format('woff'),
+    url('/fonts/Avenir-Book/Avenir-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 500;
+  font-style: normal;
+  src: local('Avenir Medium'), local('Avenir-500'), url('/fonts/Avenir-Medium.woff') format('woff'),
+    url('/fonts/Avenir-Medium/Avenir-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 700;
+  font-style: normal;
+  src: local('Avenir Heavy'), local('Avenir-700'), url('/fonts/Avenir-Heavy.woff') format('woff'),
+    url('/fonts/Avenir-Heavy/Avenir-Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 900;
+  font-style: normal;
+  src: local('Avenir Black'), local('Avenir-900'), url('/fonts/Avenir-Black.woff') format('woff'),
+    url('/fonts/Avenir-Black/Avenir-Black.ttf') format('truetype');
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #f0f0f1 !important;
+  font-family: 'Avenir' !important;
+  font-style: normal !important;
+  text-rendering: inherit !important;
+}
+
+.react-datepicker {
+  font-family: 'Avenir' !important;
+}
+
+.city-text {
+  z-index: -1 !important;
+}
+
+.maldivtext {
+  /* font-family: 'Playfair Display' !important; */
+  font-family: 'Playfair Display' !important;
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.calendar-modal {
+  background-color: #fff !important;
+  height: auto !important;
+}
+
+._1aDvk {
+  display: none !important;
+}
+
+._24OKz {
+  display: none !important;
+}
+
+._3curk {
+  background-color: rgb(249 249 249 / 50%) !important;
+  position: relative !important;
+}
+
+.select__value-container.css-1fdsijx-ValueContainer {
+  padding: 0px !important;
+}
+
+.calendarstyle {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+._yof3Q select {
+  background-color: #ffffff !important;
+}
+
+.react-datepicker {
+  border: 1px solid #fff !important;
+
+  width: 93% !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  width: 3rem !important;
+}
+
+.react-datepicker__header {
+  background-color: #fff !important;
+  border-bottom: 1px solid #aeaeae !important;
+  border-bottom: 1px solid #fff9f9 !important;
+}
+
+.react-datepicker__day-names {
+  border-top: 1px solid #ffffff !important;
+  margin-top: 10px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  margin-top: 0;
+  color: #9d9b9b !important;
+  font-family: 'Avenir' !important;
+}
+
+.react-datepicker__today-button {
+  background-color: #fff !important;
+  border-top: 1px solid #ddd6d6 !important;
+  color: #1890ff !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.react-datepicker__day--highlighted {
+  background-color: #d1ffd9 !important;
+  color: black !important;
+}
+
+.arrow-modal {
+  position: absolute !important;
+  left: 27px !important;
+  top: 25px;
+}
+
+.intl-tel-input {
+  display: flex !important;
+}
+
+.react-datepicker__month-container {
+  float: center !important;
+  width: 100% !important;
+}
+
+.linear {
+  opacity: 1.6 !important;
+  backdrop-filter: brightness(0.4);
+  z-index: 99;
+}
+
+.header-index {
+  z-index: 99 !important;
+}
+
+.button-style {
+  width: 48% !important;
+  margin: 0 auto !important;
+}
+
+.left-percentage {
+  left: 18.5%;
+}
+
+.css-1nmdiq5-menu {
+  margin-top: 10px !important;
+  width: 100% !important;
+}
+
+.family-style {
+  font-family: 'Playfair Display';
+}
+
+.tab-box {
+  width: 31.5% !important;
+}
+
+.css-1xc3v61-indicatorContainer {
+  color: #2d3648 !important;
+}
+
+.flexbox {
+  display: flex;
+  align-items: self-start;
+}
+
+.banner-fix {
+  width: 87%;
+  margin: 0 auto;
+}
+
+.width-auto {
+  width: 87%;
+}
+
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #a9d1d1 !important;
+  border-radius: 5px !important;
+  color: black !important;
+}
+
+.react-datepicker__navigation-icon {
+  top: 0 !important;
+  font-size: 20px !important;
+  left: 0 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  top: calc(50% - 5px) !important;
+  width: 9px !important;
+}
+
+.react-datepicker__day-name {
+  color: #808089 !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.react-datepicker__navigation--previous {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.react-datepicker__navigation--next {
+  right: 0 !important;
+  top: 0 !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #2A2E36 !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: #1d7d92 !important;
+  padding: 10px 0px;
+  border-radius: 5px !important;
+  color: #fff !important;
+}
+
+.react-datepicker__day--range-end {
+  background-color: #1d7d92 !important;
+  border-radius: 5px;
+}
+
+.react-datepicker__day,
+.react-datepicker__time-name {
+  padding: 10px 0px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #1d7d92 !important;
+}
+
+.text-small {
+  font-size: 10px;
+}
+
+.layout-content {
+  flex-grow: 1;
+  background: #fff;
+  margin-top: 0px;
+}
+
+.react-datepicker__year-select {
+  padding: 1px 6px 0px 9px !important;
+  background: #ffff !important;
+}
+
+.react-datepicker__month-select {
+  padding: 1px 6px 0px 9px !important;
+  background: #ffff !important;
+}
+
+.price-modal {
+  width: 22.9%;
+}
+
+.banner {
+  width: 83% !important;
+}
+
+@media screen and (max-width: 460px) and (min-width: 200px) {
+  .calendar-modal {
+    background-color: #fff !important;
+    position: fixed;
+    height: auto !important;
+    width: 100%;
+    border-radius: 30px 30px 0px 0px;
+    z-index: 99999999 !important;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  }
+
+  .linear {
+    opacity: 1.6 !important;
+    backdrop-filter: brightness(0.4);
+  }
+
+  .calendarstyle {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+
+  ._yof3Q select {
+    background-color: #ffffff !important;
+  }
+
+  .react-datepicker__month-container {
+    float: center !important;
+    width: 100% !important;
+  }
+
+  .react-datepicker {
+    border: 1px solid #fff !important;
+
+    width: 93% !important;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    width: 2.5rem !important;
+  }
+
+  .react-datepicker__header {
+    background-color: #fff !important;
+    border-bottom: 1px solid #aeaeae !important;
+    border-bottom: 1px solid #fff9f9 !important;
+  }
+
+  .react-datepicker__day-names {
+    border-top: 1px solid #ffffff !important;
+    margin-top: 10px;
+  }
+
+  .react-datepicker__current-month,
+  .react-datepicker-time__header,
+  .react-datepicker-year-header {
+    margin-top: 0;
+    color: #9d9b9b !important;
+    font-family: 'Avenir' !important;
+  }
+
+  .react-datepicker__today-button {
+    background-color: #fff !important;
+    border-top: 1px solid #ddd6d6 !important;
+    color: #1890ff !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  .arrow-modal {
+    position: absolute !important;
+    left: 27px !important;
+    top: 25px;
+  }
+
+  .intl-tel-input {
+    display: flex !important;
+  }
+
+  .modal-height {
+    height: 280px !important;
+  }
+}
+
+@media screen and (max-width: 1279.80px) and (min-width: 200px) {
+  .tab-box {
+    width: 100% !important;
+  }
+
+  .button-style {
+    width: 49% !important;
+    margin: 0 auto !important;
+  }
+
+  .layout-content {
+    flex-grow: 1;
+    background: #edf0f7;
+  }
+
+  .left-percentage {
+    left: 4%;
+  }
+
+  .index-style {
+    z-index: 9;
+  }
+
+  .search-field {
+    width: 100% !important;
+  }
+
+  /* .top-style {
+    top: 23rem !important;
+  } */
+}
+
+@media screen and (max-width: 500px) and (min-width: 200px) {
+  .top-style {
+    /* top: 38rem !important; */
+    bottom: -10px !important;
+  }
+
+  .banner-style {
+    top: 36rem !important;
+
+  }
+}
+
+.banner-style {
+  top: 28rem;
+
+}
+
+.top-style {
+  top: 31rem;
+}
+
+@media screen and (max-width: 700px) and (min-width: 200px) {
+  /* #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+  } */
+
+  .dream-img {
+    height: auto !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    margin-left: -25px !important;
+  }
+
+  .small-modal {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
+  /* .search-input {
+    width: 49% !important;
+  }
+
+  .search-promo {
+    width: 48.7% !important;
+  } */
+}
+
+/* #navbar {
+  position: fixed;
+  top: 0 !important;
+  width: 100%;
+
+} */
+@media screen and (max-width: 766px) {
+  .dream-img {
+    height: auto !important;
+    width: 100%;
+    height: 26rem !important;
+  }
+
+  .mob-dream {
+    position: absolute !important;
+    top: 22rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.seats-class {
+  border: 1px solid;
+  width: 10%;
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+
+.seats-class-1 {
+  border: 1px solid;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.country-list {
+  width: 100% !important;
+}
+
+/* .top-style {
+  top: 31rem;
+} */
+
+.slide-bpx {
+  width: 97%;
+  margin: 0 auto;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute !important;
+  top: 116% !important;
+
+  transform: translate(0, -50%);
+}
+
+.slick-next {
+  right: 46% !important;
+}
+
+.slick-prev {
+  left: 46% !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 28px !important;
+  border-radius: 50px;
+  background: #0f100f;
+  padding: 2px 0px 0px 0px;
+}
+
+.dream-img {
+  height: 100%;
+}
+
+.journey-img {
+  height: 420px;
+}
+
+.slick-dots {
+  position: absolute !important;
+  bottom: 72px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important;
+  color: #fff !important;
+}
+
+/* .search-field {
+  width: 98.5%;
+} */
+
+::-webkit-scrollbar {
+  cursor: pointer;
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 0 6px rgba(136, 134, 134, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #a3a7a6;
+}
+
+.img-banner {
+  width: 100% !important;
+}
+
+summary::-webkit-details-marker {
+  display: none !important;
+}
+
+#countries {
+  background-color: #fff !important;
+  height: 35px !important;
+}
+
+summary.text-white.text-sm {
+  display: block !important;
+}
+
+.close-icon {
+  z-index: 999999 !important;
+}
+
+.addon-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+input[type='checkbox']:checked {
+  background-color: #a77e2d !important;
+  color: #ffffff !important;
+}
+
+.small-modal {
+  width: 30%;
+}
+
+.compare-modal {
+  height: 450px;
+}
+
+.intl-tel-input .country-list .flag-box,
+.intl-tel-input .country-list .country-name {
+  color: black !important;
+}
+
+.cross-icon {
+  z-index: 99999 !important;
+}
+
+.recomend-font {
+  font-size: 6px;
+}
+
+.card-width {
+  width: 67%;
+
+}
+
+.search-boxes {
+  width: 100%;
+}
+
+
+.whileimg {
+  width: 4.4rem;
+}
+
+/* accordion css */
+
+.divide-y.divide-gray-200.border-gray-200.dark\:divide-gray-700.dark\:border-gray-700.rounded-lg.border {
+  border: none;
+}
+
+.py-5.px-5.last\:rounded-b-lg.dark\:bg-gray-900.first\:rounded-t-lg {
+  padding: 0px 12px 12px 12px;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+button.flex.w-full.items-center.justify-between.first\:rounded-t-lg.last\:rounded-b-lg.py-5.px-5.text-left.font-medium.text-gray-500.dark\:text-gray-400.hover\:bg-gray-100.focus\:ring-4.focus\:ring-gray-200.dark\:hover\:bg-gray-800.dark\:focus\:ring-gray-800.text-gray-900.bg-gray-100.dark\:bg-gray-800.dark\:text-white.py-0.border-none {
+  padding: 12px;
+  outline: none;
+  --tw-ring-color: none;
+  background-color: #fff;
+  margin-bottom: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+button.flex.w-full.items-center.justify-between.first\:rounded-t-lg.last\:rounded-b-lg.py-5.px-5.text-left.font-medium.text-gray-500.dark\:text-gray-400.hover\:bg-gray-100.focus\:ring-4.focus\:ring-gray-200.dark\:hover\:bg-gray-800.dark\:focus\:ring-gray-800.py-0.border-none {
+  padding: 12px;
+  outline: none;
+  --tw-ring-color: none;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+button.flex.w-full.items-center.justify-between.first\:rounded-t-lg.last\:rounded-b-lg.py-5.px-5.text-left.font-medium.text-gray-500.dark\:text-gray-400.hover\:bg-gray-100.focus\:ring-4.focus\:ring-gray-200.dark\:hover\:bg-gray-800.dark\:focus\:ring-gray-800 {
+  padding: 12px;
+  outline: none;
+  --tw-ring-color: none;
+  background-color: #fff;
+  margin-top: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+button.flex.w-full.items-center.justify-between.first\:rounded-t-lg.last\:rounded-b-lg.py-5.px-5.text-left.font-medium.text-gray-500.dark\:text-gray-400.hover\:bg-gray-100.focus\:ring-4.focus\:ring-gray-200.dark\:hover\:bg-gray-800.dark\:focus\:ring-gray-800.text-gray-900.bg-gray-100.dark\:bg-gray-800.dark\:text-white {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+svg.h-6.w-6.shrink-0 {
+  color: #c8cacc;
+}
+
+.mob-dream {
+  height: 671px;
+  width: 598px;
+}
+
+
+.flight-img {
+  width: 700px;
+  height: 600px;
+}
+
+.gallery-images {
+  margin-left: 2.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 283px;
+  height: 389px;
+}
+
+.my-row {
+  margin-left: -6px;
+  margin-right: -6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  width: 50%;
+  padding: 0 6px;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+  width: 25%;
+  padding: 0 6px;
+}
+
+.col-75 {
+  flex: 0 0 75%;
+  width: 75%;
+  padding: 0 6px;
+}
+
+.farelist ul {
+  text-align: left;
+  padding-left: 25px;
+  color: black !important;
+}
+
+.farelist ul li {
+  list-style: disc;
+  margin: 0 0 8px;
+  color: black !important;
+}
+
+.farelist ul ul li {
+  list-style: circle;
+  margin: 0 0 8px;
+  color: black !important;
+}
+
+.farelist ul ul ul li {
+  list-style: square;
+  margin: 0 0 8px;
+  color: black !important;
+}
+
+@media screen and (max-width: 1536.1px) {
+  .flight-img {
+    width: 650px;
+    height: 550px;
+  }
+
+  .gallery-images {
+    margin-left: 2rem;
+    width: 270px;
+    height: 376px;
+  }
+}
+
+@media screen and (max-width: 1280.5px) {
+  .mob-dream {
+    height: 550px;
+    width: 400px;
+  }
+
+  .flight-img {
+    width: 480px;
+    height: 420px;
+  }
+
+  .gallery-images {
+    width: 230px;
+    height: 336px;
+  }
+}
+
+@media screen and (max-width: 900.1px) {
+  .mob-dream {
+    height: 450px;
+    width: 300px;
+  }
+
+  .flight-img {
+    width: 400px;
+    height: 380px;
+  }
+
+  .gallery-images {
+    width: 160px;
+    height: 250px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 14px;
+  }
+
+  .blog-img {
+    height: 9rem !important;
+  }
+}
+
+@media screen and (max-width: 767.1px) {
+  .mob-dream {
+    height: 400px;
+    width: 280px;
+  }
+
+  .flight-img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 25px;
+  }
+
+  .blog-img {
+    height: auto !important;
+  }
+}
