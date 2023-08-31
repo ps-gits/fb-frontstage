@@ -282,7 +282,7 @@ const Footer = (props: FooterProps): JSX.Element => {
                               }}
                             >
                               <Text field={props.fields.cookies} />
-                            </div>
+                            </div> 
                           </div>
                         </div> */}
                       </div>
