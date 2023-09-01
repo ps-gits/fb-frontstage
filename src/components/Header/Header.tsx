@@ -193,7 +193,7 @@ const Header = () => {
                       aria-expanded="true"
                       onClick={() => {
                         setNavbar(!navbar);
-                        document.body.style.overflow = 'clip';
+                        document.body.style.overflow = 'hidden';
                       }}
                     >
                       <FontAwesomeIcon
@@ -236,8 +236,9 @@ const Header = () => {
                         href={`/${getFieldName(headerContent, 'destinations')
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
-                        className="block text-white text-base py-2  font-medium "
+                        className="block text-white text-base py-2  font-medium menu-item-open"
                         aria-current="page"
+                        
                       >
                         {getFieldName(headerContent, 'destinations')}
                       </Link>
