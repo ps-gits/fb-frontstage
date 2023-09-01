@@ -236,7 +236,7 @@ const Header = () => {
                         href={`/${getFieldName(headerContent, 'destinations')
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
-                        className="block text-white text-base py-2  font-medium menu-item-open"
+                        className="block text-white text-base py-2  font-medium"
                         aria-current="page"
                         onClick={() => {
                           setNavbar(false);
@@ -254,6 +254,10 @@ const Header = () => {
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2  font-medium"
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'experience')}
                       </Link>
@@ -266,6 +270,10 @@ const Header = () => {
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2  font-medium"
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'resorts')}
                       </Link>
@@ -315,6 +323,10 @@ const Header = () => {
                                       )
                                         ?.toLowerCase()
                                         ?.replace(/\s/g, '')}`}
+                                        onClick={() => {
+                                          setNavbar(false);
+                                          document.body.style.overflow = 'unset';
+                                        }}
                                   >
                                     {getFieldName(headerContent, 'companyDropdownItem1')}
                                   </Link>
@@ -331,23 +343,27 @@ const Header = () => {
                                       )
                                         ?.toLowerCase()
                                         ?.replace(/\s/g, '')}`}
+                                        onClick={() => {
+                                          setNavbar(false);
+                                          document.body.style.overflow = 'unset';
+                                        }}
                                   >
                                     {getFieldName(headerContent, 'companyDropdownItem2')}
                                   </Link>
                                 </p>
                               </div>
-                              <div className="py-1">
+                              {/* <div className="py-1">
                                 <p className=" text-Silvergray text-sm  cursor-pointer ">
                                   <Link href={`/resorts`}>
                                     {getFieldName(headerContent, 'companyDropdownItem3')}
                                   </Link>
                                 </p>
-                              </div>
-                              <div className="py-1">
+                              </div> */}
+                              {/* <div className="py-1">
                                 <p className=" text-Silvergray text-sm  cursor-pointer">
                                   {getFieldName(headerContent, 'companyDropdownItem4')}
                                 </p>
-                              </div>
+                              </div> */}
                             </div>
                           )}
                         </div>
@@ -356,7 +372,12 @@ const Header = () => {
                   )}
                   {headerSearch('mediaCenter') && (
                     <li>
-                      <Link href="#" className="block text-white text-base py-2 font-medium">
+                      <Link href="#" className="block text-white text-base py-2 font-medium"
+                      onClick={() => {
+                        setNavbar(false);
+                        document.body.style.overflow = 'unset';
+                      }}
+                      >
                         {getFieldName(headerContent, 'mediaCenter')}
                       </Link>
                     </li>
@@ -380,6 +401,10 @@ const Header = () => {
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2 font-medium"
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'careers')}
                       </Link>
@@ -392,6 +417,10 @@ const Header = () => {
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2 font-medium"
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'faqs')}
                       </Link>
@@ -404,6 +433,10 @@ const Header = () => {
                           ?.toLowerCase()
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2 font-medium"
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'contact')}
                       </Link>

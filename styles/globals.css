@@ -72,6 +72,7 @@
 
 h1 {
   font-size: 42px;
+  font-family: 'Avenir-Book';
 }
 
 p {
@@ -888,10 +889,6 @@ svg.h-6.w-6.shrink-0 {
 
 .scroll-hidden {
   overflow: hidden;
-}
-
-.menu-item-open {
-  overflow: unset;
 }
 
 @media screen and (max-width: 1536.1px) {
