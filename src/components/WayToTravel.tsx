@@ -74,10 +74,10 @@ const WayToTravel = (props: WayToTravelProps): JSX.Element => {
                       />
                     </div>
                     <div className="pt-5">
-                      <div className="font-black text-2xl text-black">
+                      <div className="text-2xl text-black card-heading">
                         {item.fields.heading.value}
                       </div>
-                      <div className="text-base font-normal text-neviblue py-2">
+                      <div className="text-base text-neviblue py-2 card-description">
                         {item.fields.content.value}
                       </div>
                     </div>
