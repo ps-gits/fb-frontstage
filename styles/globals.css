@@ -111,6 +111,13 @@ p {
     url('/fonts/Avenir-Black/Avenir-Black.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Avenir-Heavy';
+  font-style: normal;
+  src: local('Avenir Book'), url('/fonts/Avenir-Heavy.woff') format('woff'),
+    url('/fonts/Avenir-Book/Avenir-Book.ttf') format('truetype');
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: #f0f0f1 !important;
@@ -121,6 +128,10 @@ body {
 
 .react-datepicker {
   font-family: 'Avenir' !important;
+}
+
+.card-heading {
+  font-family: 'Avenir-Heavy';
 }
 
 .city-text {
