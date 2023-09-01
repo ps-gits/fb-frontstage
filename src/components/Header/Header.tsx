@@ -238,7 +238,10 @@ const Header = () => {
                           ?.replace(/\s/g, '')}`}
                         className="block text-white text-base py-2  font-medium menu-item-open"
                         aria-current="page"
-                        
+                        onClick={() => {
+                          setNavbar(false);
+                          document.body.style.overflow = 'unset';
+                        }}
                       >
                         {getFieldName(headerContent, 'destinations')}
                       </Link>
