@@ -193,7 +193,7 @@ const Header = () => {
                       aria-expanded="true"
                       onClick={() => {
                         setNavbar(!navbar);
-                        document.body.style.overflow = 'hidden';
+                        document.body.style.overflow = 'clip';
                       }}
                     >
                       <FontAwesomeIcon
