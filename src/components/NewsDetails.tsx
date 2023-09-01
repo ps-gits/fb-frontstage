@@ -125,10 +125,10 @@ const NewsDetails = (props: {
               <div className="xl:w-full m-auto xl:pt-10 xl:pb-14 xs:py-10">
                 <div className="relative">
                   <div className="bg-purpal p-10 rounded-3xl ">
-                    <div className="text-2xl font-black text-black card-heading">
+                    <div className="text-2xl font-black text-black">
                       {furtherInformationData?.heading?.value}
                     </div>
-                    <div className="text-xl text-pearlgray font-light py-6">
+                    <div className="text-xl text-pearlgray font-extrabold py-6">
                       {furtherInformationData?.content?.value}
                     </div>
                     <div className="flex items-center gap-3 xl:py-2 xs:py-2">

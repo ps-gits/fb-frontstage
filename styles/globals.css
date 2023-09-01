@@ -114,7 +114,15 @@ p {
 @font-face {
   font-family: 'Avenir-Heavy';
   font-style: normal;
-  src: local('Avenir Book'), url('/fonts/Avenir-Heavy.woff') format('woff'),
+  src: local('Avenir Heavy'), url('/fonts/Avenir-Heavy.woff') format('woff'),
+    url('/fonts/Avenir-Book/Avenir-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir-Book';
+  font-weight: 300;
+  font-style: normal;
+  src: local('Avenir Book'), url('/fonts/Avenir-Book.woff') format('woff'),
     url('/fonts/Avenir-Book/Avenir-Book.ttf') format('truetype');
 }
 
@@ -132,6 +140,10 @@ body {
 
 .card-heading {
   font-family: 'Avenir-Heavy';
+}
+
+.card-description {
+  font-family: 'Avenir-Book';
 }
 
 .city-text {
