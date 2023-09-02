@@ -9,16 +9,20 @@ const FlightSchedule = (props: flightSchedule) => {
   const {
     index,
     seats,
+    Stops,
+    Remarks,
     originCode,
     arrivalDate,
     arrivalTime,
     FlightNumber,
     loungeAccess,
     luxuryPickup,
+    selectedItem,
     bagAllowances,
     departureDate,
     departureTime,
     destinationCode,
+    setSelectedItem,
     originAirportName,
     destinationAirportName,
     seatsOriginToDestination,
@@ -28,9 +32,9 @@ const FlightSchedule = (props: flightSchedule) => {
   const flightScheduleContent = useSelector(
     (state: RootState) => state?.sitecore?.commonImages?.fields
   );
-
+  console.log('Stops', Stops, 'Remarks', Remarks);
   return (
-    <div>
+    <div key={index}>
       <div className="flex gap-4 relative mt-6">
         <div
           className={`${
@@ -46,6 +50,39 @@ const FlightSchedule = (props: flightSchedule) => {
           />
         </div>
         <div className="absolute h-full top-4 left-5 border-dashed border-Silvergray border "></div>
+        <div className="absolute w-11 left-0 top-1/2 flex flex-col items-center group">
+          <div
+            key={index}
+            className="bg-white text-center flex flex-col group items-center relative"
+          >
+            <span className="cursor-pointer">
+              <input
+                type="radio"
+                checked={index === selectedItem}
+                className="cursor-pointer"
+                onClick={() => {
+                  if (Stops?.length > 0 && Stops[0]?.LocationCode !== null) {
+                    setSelectedItem((index === selectedItem ? null : index) as null);
+                  }
+                }}
+              />
+              <br />
+              {Stops?.length > 0 && Stops[0]?.LocationCode !== null
+                ? Stops[0]?.LocationCode
+                : originCode}
+            </span>
+            <div
+              className={`absolute bottom-5 flex flex-col items-center ${
+                index === selectedItem ? '' : 'hidden'
+              } mb-6 w-64 pl-3`}
+            >
+              <span className="relative z-10 p-2 text-xs whitespace-no-wrap  bg-white border rounded-lg border-graylight text-pearlgray font-normal leading-normal">
+                {Remarks !== null ? Remarks : 'No Data Found'}
+              </span>
+              <div className="w-4 h-4 -mt-2 rotate-45 border border-t-0 border-l-0 z-50 shadow-lg border-graylight bg-white"></div>
+            </div>
+          </div>
+        </div>
         <div className="w-full">
           <div className="flex justify-between w-full">
             <div className="">
