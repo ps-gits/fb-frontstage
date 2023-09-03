@@ -50,7 +50,9 @@ const FlightSchedule = (props: flightSchedule) => {
           />
         </div>
         <div className="absolute h-full top-4 left-5 border-dashed border-Silvergray border "></div>
-        <div className="absolute w-11 left-0 top-1/2 flex flex-col items-center group">
+        
+        { Stops && Stops.length>0 && (
+          <div className="absolute w-11 left-0 top-1/2 flex flex-col items-center group">
           <div
             key={index}
             className="bg-white text-center flex flex-col group items-center relative"
@@ -69,7 +71,7 @@ const FlightSchedule = (props: flightSchedule) => {
               <br />
               {Stops?.length > 0 && Stops[0]?.LocationCode !== null
                 ? Stops[0]?.LocationCode
-                : originCode}
+                : ""}
             </span>
             <div
               className={`absolute bottom-5 flex flex-col items-center ${
@@ -82,7 +84,7 @@ const FlightSchedule = (props: flightSchedule) => {
               <div className="w-4 h-4 -mt-2 rotate-45 border border-t-0 border-l-0 z-50 shadow-lg border-graylight bg-white"></div>
             </div>
           </div>
-        </div>
+        </div> )}
         <div className="w-full">
           <div className="flex justify-between w-full">
             <div className="">
