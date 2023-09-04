@@ -1,4 +1,4 @@
-export const url = 'https://api.scxmcloudbeond.com'
+export const url = 'https://api.scxmcloudbeond.com/'
 // export const url = 'https://flight.manageprojects.in/';
 // export const url = 'https://apis.flybeond.com/';
 
