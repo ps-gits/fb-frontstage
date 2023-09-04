@@ -835,7 +835,7 @@ const FlightAvailability = () => {
                                       {item?.Stops &&
                                         item?.Stops?.length > 0 &&
                                         item?.Stops[0]?.LocationCode !== null && (
-                                          <div className="flex">
+                                          <div className="flex items-center">
                                             <div className="pr-1">
                                               <Image
                                                 src={getImageSrc(
