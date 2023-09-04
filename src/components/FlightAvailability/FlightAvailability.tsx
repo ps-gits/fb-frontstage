@@ -848,7 +848,7 @@ const FlightAvailability = () => {
                                                 height={201}
                                               />
                                             </div>
-                                            <div className="pl-1 text-pearlgray">
+                                            <div className="pl-1 text-pearlgray text-xs">
                                               {item?.Remarks !== null && item?.Remarks}
                                             </div>
                                           </div>
