@@ -886,6 +886,10 @@ svg.h-6.w-6.shrink-0 {
   color: black !important;
 }
 
+.color-black {
+  color: black !important;
+}
+
 .error {
   margin: 3px 0 0 0;
 }
