@@ -64,8 +64,7 @@ const CorporateTeam = (props: CorporateTeamProps): JSX.Element => {
                 type="submit"
                 className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
                 onClick={() =>
-                (win.location =
-                  'https://apply.workable.com/beond/')
+                (win.open('https://apply.workable.com/beond/','_blank'))
                 }
               >
                 <Text field={props.fields.viewCurrentOpeningsButton} />
