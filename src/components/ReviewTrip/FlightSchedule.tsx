@@ -112,7 +112,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <div>
                   <p className="font-black text-sm text-black">Luxury Pick-up</p>
                   <p className="font-medium text-xs text-slategray">Service offered at select airports only. Not available in Male.</p>
-                </>
+                </div>
               </div>
             )}
             {loungeAccess && (
