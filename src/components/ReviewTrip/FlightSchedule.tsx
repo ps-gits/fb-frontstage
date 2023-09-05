@@ -110,6 +110,7 @@ const FlightSchedule = (props: flightSchedule) => {
                   height={8}
                 />
                 <p className="font-black text-sm text-black">Luxury Pick-up</p>
+                <p className="font-medium text-xs text-slategray">Service offered at select airports only. Not available in Male.</p>
               </div>
             )}
             {loungeAccess && (
@@ -143,7 +144,7 @@ const FlightSchedule = (props: flightSchedule) => {
                               ? item?.Text
                               : item?.Text + ' , '
                           )
-                        : '6D, 6F, 7D, 7F'
+                        : ''
                       : seatsDestinationToOrigin && seatsDestinationToOrigin?.length > 0
                       ? seatsDestinationToOrigin?.map((item, index) =>
                           index === seatsDestinationToOrigin?.length - 1

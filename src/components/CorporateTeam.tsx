@@ -21,6 +21,9 @@ type CorporateTeamProps = ComponentProps & {
 };
 
 const CorporateTeam = (props: CorporateTeamProps): JSX.Element => {
+  
+  const win: Window = window;
+  
   return (
     <div className="bg-white">
       <div className="xl:w-5/6 md:w-5/6 m-auto">
@@ -60,6 +63,10 @@ const CorporateTeam = (props: CorporateTeamProps): JSX.Element => {
               <button
                 type="submit"
                 className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
+                onClick={() =>
+                (win.location =
+                  'https://apply.workable.com/beond/')
+                }
               >
                 <Text field={props.fields.viewCurrentOpeningsButton} />
               </button>
