@@ -5,13 +5,13 @@ import React from 'react';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 
-import {
-  Placeholder,
-  getPublicUrl,
-  LayoutServiceData,
-  Field,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import Scripts from 'src/Scripts';
+// import {
+//   Placeholder,
+//   getPublicUrl,
+//   LayoutServiceData,
+//   Field,
+// } from '@sitecore-jss/sitecore-jss-nextjs';
+// import Scripts from 'src/Scripts';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
