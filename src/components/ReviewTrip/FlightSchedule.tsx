@@ -72,7 +72,7 @@ const FlightSchedule = (props: flightSchedule) => {
                   style={{
                     display: 'block',
                     whiteSpace: 'normal',
-                    wordBreak: 'break-all',
+                    // wordBreak: 'break-all',
                   }}
                   className="relative z-10 p-2 text-xs whitespace-no-wrap w-24 md:w-auto bg-white border rounded-lg border-graylight text-pearlgray font-normal leading-normal"
                 >
