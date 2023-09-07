@@ -1127,7 +1127,7 @@ const PassengerDetails = () => {
                                           disabled={tabIndex === index}
                                           type="button"
                                         >
-                                          <div className="flex gap-2 text-black items-center">
+                                          <div className="flex gap-2 text-black items-center text-slate-800	">
                                             <Image
                                               className="h-4 w-4 object-cover"
                                               src={
@@ -1182,7 +1182,7 @@ const PassengerDetails = () => {
                                             }
                                           }}
                                         >
-                                          <div className="flex gap-2 text-black items-center">
+                                          <div className="flex gap-2 text-black items-center text-slate-800">
                                             <Image
                                               className="h-5 w-4 object-cover"
                                               src={
