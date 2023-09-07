@@ -63,7 +63,24 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                               .subtract(12, 'year')
                               .format('YYYY-MM-DD')
                           )
-                        : new Date()
+                        : new Date(
+                          moment(returnDate ? new Date(returnDate) : new Date())
+                            .subtract(5, 'year')
+                            .format('YYYY-MM-DD')
+                        )
+                    }
+                    minDate={
+                      name === 'Adult'
+                        ? new Date(
+                            moment(returnDate ? new Date(returnDate) : new Date())
+                              .subtract(120, 'year')
+                              .format('YYYY-MM-DD')
+                          )
+                        : new Date(
+                          moment(returnDate ? new Date(returnDate) : new Date())
+                            .subtract(12, 'year')
+                            .format('YYYY-MM-DD')
+                        )
                     }
                     dropdownMode="select"
                     scrollableYearDropdown
