@@ -370,7 +370,7 @@ const Header = () => {
                       </div>
                     </li>
                   )}
-                  {headerSearch('mediaCenter') && (
+                  {/* {headerSearch('mediaCenter') && (
                     <li>
                       <Link href="#" className="block text-white text-base py-2 font-medium"
                       onClick={() => {
@@ -393,7 +393,7 @@ const Header = () => {
                         {getFieldName(headerContent, 'sustainability')}
                       </Link>
                     </li>
-                  )}
+                  )} */}
                   {headerSearch('careers') && (
                     <li>
                       <Link
