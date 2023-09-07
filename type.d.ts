@@ -337,7 +337,7 @@ interface flightAvaliabilityTab {
 }
 
 interface detailsObj {
-  Email: string;
+  Email?: string;
   Mobile: string;
   Firstname: string;
   Middlename: string;
@@ -346,6 +346,9 @@ interface detailsObj {
   CivilityCode: string;
   Traveldocument: string;
   Homecontact: string;
+  flagMobile?: string;
+  validMobile?: string;
+  dialCodeMobile: string;
 }
 
 interface flightDetails {
