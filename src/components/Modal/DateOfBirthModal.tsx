@@ -70,6 +70,12 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                     onChange={(date) => {
                       setDateSelected(moment(new Date(String(date[0]))).format('MM-DD-YYYY'));
                     }}
+                    onYearChange={(date) => {
+                      setDateSelected(moment(new Date(String(date))).format('MM-DD-YYYY'));
+                    }}
+                    onMonthChange={(date) => {
+                      setDateSelected(moment(new Date(String(date))).format('MM-DD-YYYY'));
+                    }}
                     selected={
                       selectedDate?.length > 0 ? new Date(selectedDate?.replace(/-/g, '/')) : null
                     }

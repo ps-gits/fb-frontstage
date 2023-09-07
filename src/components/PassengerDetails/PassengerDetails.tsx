@@ -532,7 +532,22 @@ const PassengerDetails = () => {
         } else {
           finalSubmit(values);
         }
-        setPassengerValues(values?.details);
+        // setPassengerValues(values?.details);
+        const newData = values?.details?.map((item, index) => {
+          const data = {
+            ...item,
+            Email: passengerDetails[index] === 'Adult' ? values?.details[0]?.Email : '',
+            Mobile: values?.details[0]?.Mobile,
+            flagMobile: values?.details[0]?.flagMobile,
+            validMobile: values?.details[0]?.validMobile,
+            dialCodeMobile: values?.details[0]?.dialCodeMobile,
+          };
+          if (passengerDetails[index] === 'Child') {
+            delete data?.Email;
+          }
+          return data;
+        });
+        setPassengerValues(newData);
       }
     } else {
       name === 'previous' && setTabIndex((prev) => prev - 1);
@@ -1054,7 +1069,7 @@ const PassengerDetails = () => {
                 </div>
                 <div></div>
                 <div>
-                  <p  className="xs:w-full rounded-lg inline-flex xl:text-xl xs:text-sm font-normal text-black">
+                  <p className="xs:w-full rounded-lg inline-flex xl:text-xl xs:text-sm font-normal text-black">
                     {getFieldName(passengerDetailsContent, 'infoProvided')}
                   </p>
                 </div>
@@ -1428,10 +1443,11 @@ const PassengerDetails = () => {
                                                                       }) => {
                                                                         setFieldValue(
                                                                           `details[${index}].${fieldItem?.name}`,
-                                                                          e.target.value?.replace(
-                                                                            /[^A-Z]/gi,
-                                                                            ''
-                                                                          )
+                                                                          e.target.value
+                                                                          // ?.replace(
+                                                                          //   /[^A-Z]/gi,
+                                                                          //   ''
+                                                                          // )
                                                                         );
                                                                       }}
                                                                       autoComplete="off"
