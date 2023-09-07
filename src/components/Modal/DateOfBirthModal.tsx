@@ -21,7 +21,7 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
     (state: RootState) => state?.flightDetails?.selectedFlightCodesWithDate
   );
 
-  const { departDate } = selectedFlightInfo;
+  const { returnDate } = selectedFlightInfo;
 
   const [dateSelected, setDateSelected] = useState<string>();
 
@@ -59,7 +59,7 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                     maxDate={
                       name === 'Adult'
                         ? new Date(
-                            moment(departDate ? new Date(departDate) : new Date())
+                            moment(returnDate ? new Date(returnDate) : new Date())
                               .subtract(12, 'year')
                               .format('YYYY-MM-DD')
                           )
