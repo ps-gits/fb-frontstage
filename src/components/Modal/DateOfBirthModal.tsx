@@ -75,7 +75,7 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                             moment(returnDate ? new Date(returnDate) : new Date())
                               .subtract(120, 'year')
                               .format('YYYY-MM-DD')
-                          )
+                          ) 
                         : new Date(
                           moment(returnDate ? new Date(returnDate) : new Date())
                             .subtract(12, 'year')
