@@ -1400,7 +1400,7 @@ const ChooseSeats = () => {
                                             key={passengerIndex}
                                           >
                                             <button
-                                              className={`xl:w-full xs:w-full inline-block p-4  ${
+                                              className={`xl:w-full xs:w-full inline-block p-4 color-black ${
                                                 selectedPerson?.passengerIndex === passengerIndex &&
                                                 selectedPerson?.mapIndex === index
                                                   ? 'inline-block py-2 px-2 bg-lightsky rounded-2xl border-aqua border text-aqua font-black'
