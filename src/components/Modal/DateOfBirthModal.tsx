@@ -48,6 +48,7 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                 <h3 className="mb-0 text-xl text-black font-semibold">
                   {getFieldName(dateOfBirthModalContent, 'selectDateOfBirth')}
                 </h3>
+                {console.log(returnDate, departDate)}
                 { returnDate && (
                   <div>
                     <ReactDatePicker
@@ -79,6 +80,58 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                             ) 
                           : new Date(
                             moment(returnDate ? new Date(returnDate) : new Date())
+                              .subtract(12, 'year')
+                              .format('YYYY-MM-DD')
+                          )
+                      }
+                      dropdownMode="select"
+                      scrollableYearDropdown
+                      onChange={(date) => {
+                        setDateSelected(moment(new Date(String(date[0]))).format('MM-DD-YYYY'));
+                      }}
+                      onYearChange={(date) => {
+                        setDateSelected(moment(new Date(String(date))).format('MM-DD-YYYY'));
+                      }}
+                      onMonthChange={(date) => {
+                        setDateSelected(moment(new Date(String(date))).format('MM-DD-YYYY'));
+                      }}
+                      selected={
+                        selectedDate?.length > 0 ? new Date(selectedDate?.replace(/-/g, '/')) : null
+                      }
+                    />
+                  </div>
+                )}
+                { departDate && (
+                  <div>
+                    <ReactDatePicker
+                      inline
+                      selectsRange
+                      peekNextMonth
+                      locale="en-gb"
+                      showYearDropdown
+                      showMonthDropdown
+                      maxDate={
+                        name === 'Adult'
+                          ? new Date(
+                              moment(departDate ? new Date(departDate) : new Date())
+                                .subtract(12, 'year')
+                                .format('YYYY-MM-DD')
+                            )
+                          : new Date(
+                            moment(departDate ? new Date(departDate) : new Date())
+                              .subtract(5, 'year')
+                              .format('YYYY-MM-DD')
+                          )
+                      }
+                      minDate={
+                        name === 'Adult'
+                          ? new Date(
+                              moment(departDate ? new Date(departDate) : new Date())
+                                .subtract(120, 'year')
+                                .format('YYYY-MM-DD')
+                            ) 
+                          : new Date(
+                            moment(departDate ? new Date(departDate) : new Date())
                               .subtract(12, 'year')
                               .format('YYYY-MM-DD')
                           )
