@@ -490,7 +490,7 @@ const PassengerDetails = () => {
     if (validateValues(values?.details, index)) {
       if (
         values?.details[index]?.Dob?.length > 0 &&
-        calculateDob(values?.details[index]?.Dob) < 5
+        calculateDob(values?.details[index]?.Dob) < 6
       ) {
         setShowModal({
           young: true,

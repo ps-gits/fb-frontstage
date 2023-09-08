@@ -201,6 +201,12 @@ img {
   width: 93% !important;
 }
 
+.error-container {
+  background-color: #FFF5CC !important;
+  border-color: #FFCC00;
+  color: #997A00;
+}
+
 .react-datepicker__day-name,
 .react-datepicker__day,
 .react-datepicker__time-name {
