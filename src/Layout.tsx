@@ -42,11 +42,11 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <meta name="description" content={fields?.MetaDescription?.value?.toString() || 'Description'} />
         <meta name="keywords" content={fields?.MetaKeywords?.value?.toString() || 'Keywords'} />
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
-        <Scripts strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `consenTag.init({
+        {/* <Scripts strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `consenTag.init({
           containerId: "79117570",
           silentMode: true
           }, true);`}}>
-        </Scripts>
+        </Scripts> */}
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
@@ -61,6 +61,17 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           <div>{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </section>
       </div>
+      <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              consenTag.init({
+                containerId: "79117570",
+                silentMode: true
+              }, true);
+            `,
+          }}
+        />
       <Analytics />
     </>
   );
