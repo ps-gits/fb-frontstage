@@ -43,7 +43,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <meta name="description" content={fields?.MetaDescription?.value?.toString() || 'Description'} />
         <meta name="keywords" content={fields?.MetaKeywords?.value?.toString() || 'Keywords'} />
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
-        <script src="https://consentag.eu/public/3.1.1/consenTag.js"></script>
+        <script src="https://consentag.eu/public/3.1.1/consenTag.js" defer/>
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
