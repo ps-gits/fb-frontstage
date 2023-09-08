@@ -61,6 +61,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           <div>{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </section>
       </div>
+      <script src="https://consentag.eu/public/3.1.1/consenTag.js"></script>
       <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
