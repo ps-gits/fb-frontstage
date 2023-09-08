@@ -57,6 +57,14 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         </section>
       </div>
       <Analytics />
+      <script src="https://consentag.eu/public/3.1.1/consenTag.js"></script>
+        <script type="text/javascript">
+            consenTag.init({
+                containerId: "79117570",
+                silentMode: true
+            }, true);
+      </script>
+      {/* <!-- END: 79124012 pixels, are aggregated in consenTag container --> */}
     </>
   );
 };

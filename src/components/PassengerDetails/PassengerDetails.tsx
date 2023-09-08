@@ -2274,6 +2274,9 @@ const PassengerDetails = () => {
       ) : (
         <SavingDataLoader open={load?.show} />
       )}
+      {/* <!-- START: Pixel '79124016' --> */}
+      <img src='https://ipac.ctnsnet.com/int/integration?pixel=79124016&nid=2142538&cont=i' width='1' height='1' border='0' alt=''/>
+      {/* <!-- END: Pixel '79124016' --> */}
     </main>
   );
 };
