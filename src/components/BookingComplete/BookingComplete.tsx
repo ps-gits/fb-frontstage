@@ -745,9 +745,11 @@ const BookingComplete = () => {
       ) : (
         load?.name === 'payment' && <PaymentGatewayLoader open={load?.show} />
       )}
-      {/* <!-- START: Pixel '79124023' --> */}
-      <img src='https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i' width='1' height='1' border='0' alt='' />
-      {/* <!-- END: Pixel '79124023' --> */}
+      <Image 
+        src='https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i'
+        width={1}
+        height={1}
+        />
     </main>
   );
 };

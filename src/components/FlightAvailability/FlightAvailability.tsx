@@ -1946,6 +1946,12 @@ const FlightAvailability = () => {
       )}
       {/* <!-- START: Pixel '79124014' --> */}
       <img src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i' width='1' height='1' border='0' alt=''/>
+      
+      <Image 
+        src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'
+        width={1}
+        height={1}
+        />
       {/* <!-- END: Pixel '79124014' --> */}
     </main>
   );

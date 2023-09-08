@@ -2067,9 +2067,11 @@ const ChooseSeats = () => {
       ) : (
         load.name === 'save' && <SavingDataLoader open={load?.show} />
       )}
-      {/* <!-- START: Pixel '79124019' --> */}
-      <img src='https://ipac.ctnsnet.com/int/integration?pixel=79124019&nid=2142538&cont=i' width='1' height='1' border='0' alt=''/>
-      {/* <!-- END: Pixel '79124019' --> */}
+      <Image 
+        src='https://ipac.ctnsnet.com/int/integration?pixel=79124019&nid=2142538&cont=i'
+        width={1}
+        height={1}
+        />
 
     </main>
   );
