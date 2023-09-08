@@ -1944,8 +1944,6 @@ const FlightAvailability = () => {
       ) : (
         load.name === 'exp' && <SavingExpLoader open={load?.show} />
       )}
-      {/* <!-- START: Pixel '79124014' --> */}
-      <img src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i' width='1' height='1' border='0' alt=''/>
       
       <Image 
         src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'
