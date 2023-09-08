@@ -4,6 +4,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
+import Script from 'next/Script';
 
 import {
   Placeholder,
@@ -57,7 +58,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           <div>{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </section>
       </div>
-      <Scripts src="https://consentag.eu/public/3.1.1/consenTag.js"/>
+      <Script src="https://consentag.eu/public/3.1.1/consenTag.js"/>
       <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
