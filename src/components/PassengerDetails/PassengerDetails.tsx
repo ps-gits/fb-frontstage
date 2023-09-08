@@ -2278,6 +2278,7 @@ const PassengerDetails = () => {
         src='https://ipac.ctnsnet.com/int/integration?pixel=79124016&nid=2142538&cont=i'
         width={1}
         height={1}
+        alt="pixel"
         />
     </main>
   );
