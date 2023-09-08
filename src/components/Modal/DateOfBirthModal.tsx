@@ -101,7 +101,7 @@ const DateOfBirthModal = (props: DateOfBirthModal) => {
                     />
                   </div>
                 )}
-                { departDate && (
+                { departDate && !returnDate &&(
                   <div>
                     <ReactDatePicker
                       inline
