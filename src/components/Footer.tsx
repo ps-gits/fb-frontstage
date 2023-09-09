@@ -11,7 +11,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Form, Formik, ErrorMessage, Field } from 'formik';
 import { RootState } from 'src/redux/store';
 import CookiesModal from './Modal/CookiesModal';
 import { ComponentProps } from 'lib/component-props';
@@ -84,6 +84,43 @@ const Footer = (props: FooterProps): JSX.Element => {
     dispatch(getSitecoreContent('Terms-Conditions') as unknown as AnyAction);
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   export const postModifyBooking =
+  // (bookingDetails: { ID: string; PassengerName: string; PnrCode: string }, router: NextRouter) =>
+  // (dispatch: Dispatch) => {
+  //   axios
+  //     .post(`${url}LoadBooking`, bookingDetails, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Access-Control-Allow-Origin': '*',
+  //       },
+  //     })
+  //     .then((res) => {
+  //       router.push('/modifybooking');
+  //       dispatch(setModifyData(true));
+  //       dispatch(setFindBookingData(bookingDetails));
+  //       dispatch(setModifyBookingData(res?.data?.data));
+  //       setTimeout(() => {
+  //         dispatch(
+  //           loader({
+  //             show: false,
+  //             name: '',
+  //           })
+  //         );
+  //       }, 1000);
+  //     })
+  //     .catch((err) => {
+  //       console.warn(err);
+  //       dispatch(
+  //         loader({
+  //           show: false,
+  //           name: '',
+  //         })
+  //       );
+  //     });
+  // };
+  // })
+
   return (
     <div
       onClick={() => {
@@ -124,24 +161,66 @@ const Footer = (props: FooterProps): JSX.Element => {
                         <Text field={props.fields.content} />
                       </div>
                     </div>
-                    <div className="xs:block md:flex xl:flex xs:items-center gap-2">
+                    
+                    <Formik
+                      initialValues={{
+                        SubscriptionEmail: '',
+                      }}
+                      // validationSchema={Yup.object().shape({
+                      //   SubscriptionEmail: Yup.string()
+                      //   .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Must be valid email')
+                      //   .max(100, 'Max 100 Characters Allowed')
+                      // })}
+                      onSubmit={(values) => {
+                        // dispatch(
+                        //   loader({
+                        //     show: true,
+                        //     name: 'findbooking',
+                        //   })
+                        // );
+                        // dispatch(
+                        //   postModifyBooking(
+                        //     { ...values, ID: values?.PnrCode },
+                        //     router
+                        //   ) as unknown as AnyAction
+                        // );
+                        // dispatch(
+                        //   postPrepareBookingModification({
+                        //     TypeCode: 'PnrCode',
+                        //     ID: values?.PnrCode,
+                        //     PassengerName: values?.PassengerName,
+                        //   }) as unknown as AnyAction
+                        // );
+                      }}
+                    >
+                     {({ handleSubmit, values }) => (
+                        <Form onSubmit={handleSubmit}>
+                          <div className="xs:block md:flex xl:flex xs:items-center gap-2">
                       <div className="text-black xl:w-3/5 xs:w-full z-50">
                         <input
                           type="text"
                           className="menu-mobile-navigate py-3 px-3 rounded-full text-black text-sm xl:w-full xs:w-full"
                           placeholder={props.fields.emailPlaceholder?.value}
+                          value={values?.SubscriptionEmail}
                         />
                       </div>
                       <div className="z-50 xl:py-0 xs:py-2">
                         <button
                           type="submit"
                           className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3 w-full md:w-auto"
+                          onClick
                         >
                           {props.fields.subscribeButton?.value}
                         </button>
                       </div>
                     </div>
                   </div>
+                        </Form>
+                      )}
+                    </Formik>
+
+
+                    
 
                   <div className="flex justify-between xl:w-4/12 xs:w-full">
                     <div className="xs:w-2/4 xl:w-full">
