@@ -209,7 +209,6 @@ const Footer = (props: FooterProps): JSX.Element => {
                               <button
                                 type="submit"
                                 className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3 w-full md:w-auto"
-                                onClick
                               >
                                 {props.fields.subscribeButton?.value}
                               </button>
