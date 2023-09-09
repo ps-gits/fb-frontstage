@@ -11,7 +11,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Formik, ErrorMessage, Field } from 'formik';
+import { Form, Formik } from 'formik';
 import { RootState } from 'src/redux/store';
 import CookiesModal from './Modal/CookiesModal';
 import { ComponentProps } from 'lib/component-props';
