@@ -172,6 +172,7 @@ const Footer = (props: FooterProps): JSX.Element => {
                       //   .max(100, 'Max 100 Characters Allowed')
                       // })}
                       onSubmit={(values) => {
+                        console.log(values);
                         // dispatch(
                         //   loader({
                         //     show: true,
@@ -196,25 +197,25 @@ const Footer = (props: FooterProps): JSX.Element => {
                      {({ handleSubmit, values }) => (
                         <Form onSubmit={handleSubmit}>
                           <div className="xs:block md:flex xl:flex xs:items-center gap-2">
-                      <div className="text-black xl:w-3/5 xs:w-full z-50">
-                        <input
-                          type="text"
-                          className="menu-mobile-navigate py-3 px-3 rounded-full text-black text-sm xl:w-full xs:w-full"
-                          placeholder={props.fields.emailPlaceholder?.value}
-                          value={values?.SubscriptionEmail}
-                        />
-                      </div>
-                      <div className="z-50 xl:py-0 xs:py-2">
-                        <button
-                          type="submit"
-                          className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3 w-full md:w-auto"
-                          onClick
-                        >
-                          {props.fields.subscribeButton?.value}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                            <div className="text-black xl:w-3/5 xs:w-full z-50">
+                              <input
+                                type="text"
+                                className="menu-mobile-navigate py-3 px-3 rounded-full text-black text-sm xl:w-full xs:w-full"
+                                placeholder={props.fields.emailPlaceholder?.value}
+                                value={values?.SubscriptionEmail}
+                              />
+                            </div>
+                            <div className="z-50 xl:py-0 xs:py-2">
+                              <button
+                                type="submit"
+                                className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3 w-full md:w-auto"
+                                onClick
+                              >
+                                {props.fields.subscribeButton?.value}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
                         </Form>
                       )}
                     </Formik>
