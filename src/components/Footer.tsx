@@ -11,7 +11,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import axios from 'axios';
 import { RootState } from 'src/redux/store';
 import CookiesModal from './Modal/CookiesModal';
 import { ComponentProps } from 'lib/component-props';
@@ -70,7 +70,7 @@ const Footer = (props: FooterProps): JSX.Element => {
   // );
   const load = useSelector((state: RootState) => state?.loader?.loader);
   const footerData = useSelector((state: RootState) => state.sitecore.footer);
-
+  const [subscriptionEmail, setSubscriptionEmail] = useState('');
   const [cookiesModal, setCookiesModal] = useState(false);
 
   useEffect(() => {
@@ -83,6 +83,39 @@ const Footer = (props: FooterProps): JSX.Element => {
     // termsConditionsContent === undefined &&
     dispatch(getSitecoreContent('Terms-Conditions') as unknown as AnyAction);
   }, [dispatch]);
+
+  const updateSubscriptionEmail = (text: string) => {
+    setSubscriptionEmail(text);
+  }
+
+  const handleSubscribeClick = async () => {
+    // You can replace this URL with your actual API endpoint
+    // const sitecoreSendUrl = 'https://api.sitecoresend.io/v3/subscribers/838db35f-bedd-4acd-bff7-a811ada0c88f/subscribe.json?apikey=0a46a248-b4d6-48ec-bd15-9fc0d1278191';
+    const sitecoreSendUrl ='https://webhook.site/e6e851c3-4f39-4066-8701-8dc65acdb05d'
+    try {
+      // Make an Axios POST request to your API
+      const response = await axios.post(sitecoreSendUrl,
+      {
+        "Name": "",
+        "Email": subscriptionEmail,
+        "Mobile": ""
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+
+      // Handle the API response here, e.g., show a success message
+      console.log('API response:', response.data);
+
+      // You can also update your state or perform other actions as needed
+    } catch (error) {
+      // Handle any errors that occur during the API call
+      console.error('API error:', error);
+    }
+  };
 
   return (
     <div
@@ -130,12 +163,14 @@ const Footer = (props: FooterProps): JSX.Element => {
                           type="text"
                           className="menu-mobile-navigate py-3 px-3 rounded-full text-black text-sm xl:w-full xs:w-full"
                           placeholder={props.fields.emailPlaceholder?.value}
+                          onChange={(e) => updateSubscriptionEmail(e.target.value)}
                         />
                       </div>
                       <div className="z-50 xl:py-0 xs:py-2">
                         <button
                           type="submit"
                           className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3 w-full md:w-auto"
+                          onClick={handleSubscribeClick}
                         >
                           {props.fields.subscribeButton?.value}
                         </button>
