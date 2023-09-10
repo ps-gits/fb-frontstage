@@ -90,8 +90,8 @@ const Footer = (props: FooterProps): JSX.Element => {
 
   const handleSubscribeClick = async () => {
     // You can replace this URL with your actual API endpoint
-    const sitecoreSendUrl = 'https://api.sitecoresend.io/v3/subscribers/838db35f-bedd-4acd-bff7-a811ada0c88f/subscribe.json?apikey=0a46a248-b4d6-48ec-bd15-9fc0d1278191';
-    // const sitecoreSendUrl ='https://typedwebhook.tools/webhook/77a2a4f1-462c-4ca2-a36b-71d44aaf736d'
+    // const sitecoreSendUrl = 'https://api.sitecoresend.io/v3/subscribers/838db35f-bedd-4acd-bff7-a811ada0c88f/subscribe.json?apikey=0a46a248-b4d6-48ec-bd15-9fc0d1278191';
+    const sitecoreSendUrl ='https://typedwebhook.tools/webhook/77a2a4f1-462c-4ca2-a36b-71d44aaf736d'
     try {
       // Make an Axios POST request to your API
       const response = await axios.post(sitecoreSendUrl,
@@ -104,7 +104,8 @@ const Footer = (props: FooterProps): JSX.Element => {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          "Access-Control-Allow-Headers":'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
         },
       });
 
