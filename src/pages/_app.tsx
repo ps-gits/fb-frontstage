@@ -62,23 +62,23 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   //  }, true)`}
   //     </Script>
   
-  // <Script
-  //         id="g-pixel"
-  //         type="text/javascript"
-  //         dangerouslySetInnerHTML={{
-  //           __html: `console.log("In the dang")`,
-  //         }}
-  //       />
-        <Script
-        src="https://consentag.eu/public/3.1.1/consenTag.js"
-        onLoad={() => {
-          {`consenTag.init({
-            //   containerId: "79117570",
-            //   silentMode: true
-            //  }, true)`}
+  <script
+          id="g-pixel"
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `console.log("In the dang")`,
+          }}
+        />
+        // <Script
+        // src="https://consentag.eu/public/3.1.1/consenTag.js"
+        // onLoad={() => {
+        //   {`consenTag.init({
+        //     //   containerId: "79117570",
+        //     //   silentMode: true
+        //     //  }, true)`}
           
-        }}
-      />
+        // }}
+      // />
     );
     console.log("Inside")
     const timer = setTimeout(() => {
@@ -92,11 +92,45 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
 
   return (
     <>
-      <Script
+      {/* <Script
         id="google-pixel"
         src="https://consentag.eu/public/3.1.1/consenTag.js"
         onLoad={() => setIsLoad(true)}
+      /> */}
+      <Script
+      id='addroll'
+      dangerouslySetInnerHTML={{
+        __html: `
+        adroll_adv_id = "HHDIC2MYFZC7NJPXQ25UIH";
+    adroll_pix_id = "IMDARVLXGJEUZF5RSPKPO6";
+    adroll_version = "2.0";
+
+    (function(w, d, e, o, a) {
+        w.__adroll_loaded = true;
+        w.adroll = w.adroll || [];
+        w.adroll.f = [ 'setProperties', 'identify', 'track' ];
+        var roundtripUrl = https://s.adroll.com/j/ + adroll_adv_id
+                + "/roundtrip.js";
+        for (a = 0; a < w.adroll.f.length; a++) {
+            w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
+                return function() {
+                    w.adroll.push([ n, arguments ])
+                }
+            })(w.adroll.f[a])
+        }
+
+        e = d.createElement('script');
+        o = d.getElementsByTagName('script')[0];
+        e.async = 1;
+        e.src = roundtripUrl;
+        o.parentNode.insertBefore(e, o);
+    })(window, document);
+    adroll.track("pageView");
+        `,
+      }}
+    
       />
+        
       {mount && (
         <Provider store={store}>
           <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
