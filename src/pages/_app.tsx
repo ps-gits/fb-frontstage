@@ -82,7 +82,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
         id="google-pixel"
         src="https://consentag.eu/public/3.1.1/consenTag.js"
         onLoad={() => 
-            {`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}
+            {{`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}}
           // setIsLoad(true)
       />
       <Script
