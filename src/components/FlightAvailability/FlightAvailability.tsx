@@ -1946,7 +1946,7 @@ const FlightAvailability = () => {
       )}
       
       <Image 
-        src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'
+        src=''
         width={1}
         height={1}
         alt="pixel"
