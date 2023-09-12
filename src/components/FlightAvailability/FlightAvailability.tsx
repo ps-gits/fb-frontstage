@@ -1951,6 +1951,7 @@ const FlightAvailability = () => {
         height={1}
         alt="pixel"
         blurDataURL='data:https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'
+        placeholder='blur'
         />
 
       {/* <!-- END: Pixel '79124014' --> */}

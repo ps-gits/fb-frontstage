@@ -2280,6 +2280,7 @@ const PassengerDetails = () => {
         height={1}
         alt="pixel"
         blurDataURL='data:https://ipac.ctnsnet.com/int/integration?pixel=79124016&nid=2142538&cont=i'
+        placeholder='blur'
         />
     </main>
   );
