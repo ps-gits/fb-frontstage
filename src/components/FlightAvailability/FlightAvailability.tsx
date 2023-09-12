@@ -297,6 +297,12 @@ const FlightAvailability = () => {
         };
       }}
     >
+      <Image 
+        src={'https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'}
+        width={1}
+        height={1}
+        alt="pixel"
+        />
       {!load?.show ? (
         <Fragment>
           <div className="relative">
@@ -1945,12 +1951,7 @@ const FlightAvailability = () => {
         load.name === 'exp' && <SavingExpLoader open={load?.show} />
       )}
       
-      <Image 
-        src='https://ipac.ctnsnet.com/int/integration?pixel=79124014&nid=2142538&cont=i'
-        width={1}
-        height={1}
-        alt="pixel"
-        />
+      
         
       {/* <!-- END: Pixel '79124014' --> */}
     </main>
