@@ -78,6 +78,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   }, [isLoad]);
 
   useEffect(() => {
+    console.log("Here");
     const adrollScriptCode = `
       adroll_adv_id = "HHDIC2MYFZC7NJPXQ25UIH";
       adroll_pix_id = "IMDARVLXGJEUZF5RSPKPO6";
@@ -123,7 +124,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
             // {{`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}}
           setIsLoad(true)}
       />
-      <Script
+      {/* <Script
       id='addroll'
       dangerouslySetInnerHTML={{
         __html: `
@@ -156,7 +157,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
         `,
       }}
     
-      />
+      /> */}
         
       {mount && (
         <Provider store={store}>
