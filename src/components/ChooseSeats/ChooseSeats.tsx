@@ -970,6 +970,10 @@ const ChooseSeats = () => {
     </div>
   );
 
+  const imageLoader = () => {
+    return `https://ipac.ctnsnet.com/int/integration?pixel=79124019&nid=2142538&cont=i`
+  }
+
   return (
     <main
       onClick={() => {
@@ -1002,6 +1006,7 @@ const ChooseSeats = () => {
     >
       <Image 
         src={'https://ipac.ctnsnet.com/int/integration?pixel=79124019&nid=2142538&cont=i'}
+        loader={imageLoader}
         width={1}
         height={1}
         alt="pixel"
