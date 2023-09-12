@@ -39,28 +39,48 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    console.log("Here",isLoad);
-    
+    const scriptCode = `
+      consenTag.init({
+        containerId: "79117570",
+        silentMode: true
+      }, true);
+    `;
 
-    isLoad && (
-      <Script id="g-pixel" type="text/javascript">
-        {`consenTag.init({
-    containerId: "79117570",
-    silentMode: true
-   }, true)`}
-      </Script>
+    if(isLoad){
+    try {
+      const executeScript = new Function(scriptCode);
+      executeScript();
+    } catch (error) {
+      console.error("Error executing script:", error);
+    }
+  }
+  const timer = setTimeout(() => {
+    setIsLoad(false);
+  }, 1000);
+
+  return () => {
+    clearTimeout(timer);
+  };
+}, [isLoad]);
+
+  //   isLoad && (
+  //     <Script 
+  //     id="g-pixel" 
+  //     type="text/javascript"
+     
+  //    />
   
   
-    );
-    console.log("Inside")
-    const timer = setTimeout(() => {
-      setIsLoad(false);
-    }, 1000);
+  //   );
+  //   console.log("Inside")
+  //   const timer = setTimeout(() => {
+  //     setIsLoad(false);
+  //   }, 1000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [isLoad]);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [isLoad]);
  
   return (
     <>

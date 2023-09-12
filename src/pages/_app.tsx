@@ -53,26 +53,49 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   }, []);
 
   useEffect(() => {
-    console.log("Here",isLoad);
-    isLoad && (
-      <Script id="g-pixel" type="text/javascript">
-        {`consenTag.init({
-    containerId: "79117570",
-    silentMode: true
-   }, true)`}
-      </Script>
-  
-  
-    );
-    console.log("Inside")
-    const timer = setTimeout(() => {
-      setIsLoad(false);
-    }, 1000);
+    const scriptCode = `
+      consenTag.init({
+        containerId: "79117570",
+        silentMode: true
+      }, true);
+    `;
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [isLoad]);
+    if(isLoad){
+    try {
+      const executeScript = new Function(scriptCode);
+      executeScript();
+    } catch (error) {
+      console.error("Error executing script:", error);
+    }
+  }
+  const timer = setTimeout(() => {
+    setIsLoad(false);
+  }, 1000);
+
+  return () => {
+    clearTimeout(timer);
+  };
+}, [isLoad]);
+  //   console.log("Here",isLoad);
+  //   isLoad && (
+  //     <Script id="g-pixel" type="text/javascript">
+  //       {`consenTag.init({
+  //   containerId: "79117570",
+  //   silentMode: true
+  //  }, true)`}
+  //     </Script>
+  
+  
+  //   );
+  //   console.log("Inside")
+  //   const timer = setTimeout(() => {
+  //     setIsLoad(false);
+  //   }, 1000);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [isLoad]);
 
   return (
     <>
