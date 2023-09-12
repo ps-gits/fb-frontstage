@@ -62,13 +62,23 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   //  }, true)`}
   //     </Script>
   
-  <Script
-          id="g-pixel"
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `console.log("In the dang")`,
-          }}
-        />
+  // <Script
+  //         id="g-pixel"
+  //         type="text/javascript"
+  //         dangerouslySetInnerHTML={{
+  //           __html: `console.log("In the dang")`,
+  //         }}
+  //       />
+        <Script
+        src="https://consentag.eu/public/3.1.1/consenTag.js"
+        onLoad={() => {
+          {`consenTag.init({
+            //   containerId: "79117570",
+            //   silentMode: true
+            //  }, true)`}
+          
+        }}
+      />
     );
     console.log("Inside")
     const timer = setTimeout(() => {
