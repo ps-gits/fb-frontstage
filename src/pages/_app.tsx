@@ -61,41 +61,58 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
     `;
 
     if(isLoad){
+      try {
+        const executeScript = new Function(scriptCode);
+        executeScript();
+      } catch (error) {
+        console.error("Error executing script:", error);
+      }
+    }
+    const timer = setTimeout(() => {
+      setIsLoad(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isLoad]);
+
+  useEffect(() => {
+    const adrollScriptCode = `
+      adroll_adv_id = "HHDIC2MYFZC7NJPXQ25UIH";
+      adroll_pix_id = "IMDARVLXGJEUZF5RSPKPO6";
+      adroll_version = "2.0";
+
+      (function(w, d, e, o, a) {
+          w.__adroll_loaded = true;
+          w.adroll = w.adroll || [];
+          w.adroll.f = [ 'setProperties', 'identify', 'track' ];
+          var roundtripUrl = https://s.adroll.com/j/ + adroll_adv_id
+                  + "/roundtrip.js";
+          for (a = 0; a < w.adroll.f.length; a++) {
+              w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
+                  return function() {
+                      w.adroll.push([ n, arguments ])
+                  }
+              })(w.adroll.f[a])
+          }
+
+          e = d.createElement('script');
+          o = d.getElementsByTagName('script')[0];
+          e.async = 1;
+          e.src = roundtripUrl;
+          o.parentNode.insertBefore(e, o);
+      })(window, document);
+      adroll.track("pageView");
+    `;
+
     try {
-      const executeScript = new Function(scriptCode);
-      executeScript();
+      const executeAdrollScript = new Function(adrollScriptCode);
+      executeAdrollScript();
     } catch (error) {
       console.error("Error executing script:", error);
     }
-  }
-  const timer = setTimeout(() => {
-    setIsLoad(false);
-  }, 1000);
-
-  return () => {
-    clearTimeout(timer);
-  };
-}, [isLoad]);
-  //   console.log("Here",isLoad);
-  //   isLoad && (
-  //     <Script id="g-pixel" type="text/javascript">
-  //       {`consenTag.init({
-  //   containerId: "79117570",
-  //   silentMode: true
-  //  }, true)`}
-  //     </Script>
-  
-  
-  //   );
-  //   console.log("Inside")
-  //   const timer = setTimeout(() => {
-  //     setIsLoad(false);
-  //   }, 1000);
-
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [isLoad]);
+  }, []);
 
   return (
     <>

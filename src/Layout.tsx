@@ -4,9 +4,6 @@
 import React from 'react';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
-// import { useEffect, useState } from 'react';
-// import Script from 'next/script';
-
 
 import {
   Placeholder,
@@ -36,43 +33,10 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
-  // const [isLoad, setIsLoad] = useState(false);
-
-//   useEffect(() => {
-//     const scriptCode = `
-//       consenTag.init({
-//         containerId: "79117570",
-//         silentMode: true
-//       }, true);
-//     `;
-
-//     if(isLoad){
-//     try {
-//       const executeScript = new Function(scriptCode);
-//       executeScript();
-//     } catch (error) {
-//       console.error("Error executing script:", error);
-//     }
-//   }
-//   const timer = setTimeout(() => {
-//     setIsLoad(false);
-//   }, 1000);
-
-//   return () => {
-//     clearTimeout(timer);
-//   };
-// }, [isLoad]);
-
+  
   return (
     <>
       <Scripts />
-      {/* <Script
-        id="google-pixel"
-        src="https://consentag.eu/public/3.1.1/consenTag.js"
-        onLoad={() => 
-            // {{`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}}
-          setIsLoad(true)}
-      /> */}
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <meta name="description" content={fields?.MetaDescription?.value?.toString() || 'Description'} />
@@ -91,10 +55,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <section id="footer">
           <div>{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </section>
-
       </div>
-      
-      
       <Analytics />
     </>
   );
