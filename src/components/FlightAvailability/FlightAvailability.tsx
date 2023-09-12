@@ -307,7 +307,7 @@ const FlightAvailability = () => {
         loader={imageLoader}
         width={1}
         height={1}
-        alt="pixel"
+        alt="pixel" 
         />
       {!load?.show ? (
         <Fragment>
