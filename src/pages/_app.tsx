@@ -55,15 +55,13 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   useEffect(() => {
     console.log("Here",isLoad);
     isLoad && (
-  //     <Script id="g-pixel" type="text/javascript">
-  //       {`consenTag.init({
-  //   containerId: "79117570",
-  //   silentMode: true
-  //  }, true)`}
-  //     </Script>
-  <Script id="g-pixel" type="text/javascript">
-        {`console.log("adasd")`}
+      <Script id="g-pixel" type="text/javascript">
+        {`consenTag.init({
+    containerId: "79117570",
+    silentMode: true
+   }, true)`}
       </Script>
+  
   
     );
     console.log("Inside")
@@ -82,8 +80,8 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
         id="google-pixel"
         src="https://consentag.eu/public/3.1.1/consenTag.js"
         onLoad={() => 
-            {{`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}}
-          // setIsLoad(true)
+            // {{`consenTag.init({containerId: "79117570",silentMode: true}, true)`}}}
+          setIsLoad(true)}
       />
       <Script
       id='addroll'
