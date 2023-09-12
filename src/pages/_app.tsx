@@ -81,7 +81,10 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
       <Script
         id="google-pixel"
         src="https://consentag.eu/public/3.1.1/consenTag.js"
-        onLoad={() => setIsLoad(true)}
+        onLoad={() => 
+          {console.log("dfds")}
+          // setIsLoad(true)
+        }
       />
       <Script
       id='addroll'
