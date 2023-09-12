@@ -92,11 +92,11 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
 
   return (
     <>
-      {/* <Script
+      <Script
         id="google-pixel"
         src="https://consentag.eu/public/3.1.1/consenTag.js"
         onLoad={() => setIsLoad(true)}
-      /> */}
+      />
       <Script
       id='addroll'
       dangerouslySetInnerHTML={{
