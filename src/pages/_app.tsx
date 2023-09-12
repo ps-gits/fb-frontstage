@@ -67,6 +67,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
+            console.log("InConsen",consenTag);
               consenTag.init({
                 containerId: "79117570",
                 silentMode: true
