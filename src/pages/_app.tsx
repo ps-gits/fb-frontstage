@@ -55,13 +55,27 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   useEffect(() => {
     console.log("Here",isLoad);
     isLoad && (
-      <Script id="g-pixel" type="text/javascript">
-        {`consenTag.init({
-    containerId: "79117570",
-    silentMode: true
-   }, true)`}
-      </Script>
+  //     <Script id="g-pixel" type="text/javascript">
+  //       {`consenTag.init({
+  //   containerId: "79117570",
+  //   silentMode: true
+  //  }, true)`}
+  //     </Script>
+  
+  <Script
+          id="g-pixel"
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              consenTag.init({
+                containerId: "79117570",
+                silentMode: true
+              }, true);
+            `,
+          }}
+        />
     );
+    console.log("Inside")
     const timer = setTimeout(() => {
       setIsLoad(false);
     }, 1000);
