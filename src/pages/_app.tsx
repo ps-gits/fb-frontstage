@@ -101,6 +101,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
       id='addroll'
       dangerouslySetInnerHTML={{
         __html: `
+        console.log("insude tis")
         adroll_adv_id = "HHDIC2MYFZC7NJPXQ25UIH";
     adroll_pix_id = "IMDARVLXGJEUZF5RSPKPO6";
     adroll_version = "2.0";
