@@ -1671,11 +1671,23 @@ const FlightAvailability = () => {
                       >
                         <div className="flex">
                           <div className=" absolute rounded-2xl wedge-container">
-                              <div className="flex">
-                              <p className='wedge-content'>SPECIAL OFFER ⓘ </p>
-                              <svg width="101" height="87" viewBox="0 0 101 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M101 0L0 87V0H101Z" fill="#1D7D92"></path>
-                              </svg>
+                              <div className="flex group">
+                                <p className='wedge-content'>SPECIAL OFFER ⓘ </p>
+                                <svg width="101" height="87" viewBox="0 0 101 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M101 0L0 87V0H101Z" fill="#1D7D92"></path>
+                                </svg>
+                                <div className={`absolute wedge-tooltip flex flex-col items-center hidden mb-6 group-hover:flex w-28 lg:w- pl-3`}>
+                                  <span
+                                    style={{
+                                      display: 'block',
+                                      whiteSpace: 'normal',
+                                    }}
+                                    className="relative z-10 p-2 text-xs whitespace-no-wrap w-24 md:w-auto bg-white border rounded-lg border-graylight text-pearlgray font-normal leading-normal"
+                                  >
+                                  <div>Special Offer: Book now until 30th Sep, 2023 to enjoy complimentary private chauffeur service.</div><div>*Terms and conditions apply</div>  
+                                  </span>
+                                  <div className="w-4 h-4 -mt-2 rotate-45 border border-t-0 border-l-0 z-50 shadow-lg border-graylight bg-white"/>
+                                </div>
                               </div>
                           </div>
                         </div>

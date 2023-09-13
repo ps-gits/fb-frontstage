@@ -312,7 +312,7 @@ img {
 
 .wedge-container {
   top: -0.1rem;
-  left: -5.6rem;
+  left: -5.7rem;
 }
 
 .wedge-content {
@@ -328,6 +328,11 @@ img {
     position: relative;
     left: 2.1rem;
     top: -2rem;
+}
+
+.wedge-tooltip {
+  bottom: 60px;
+  left: 80px;
 }
 
 .react-datepicker__day--in-selecting-range,
