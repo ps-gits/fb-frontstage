@@ -1670,7 +1670,7 @@ const FlightAvailability = () => {
                         }`}
                       >
                         <div className="flex">
-                          <div className=" absolute rounded-2xl -wedge-2">
+                          <div className=" absolute rounded-2xl wedge-container">
                               <div className="flex">
                               <p className='wedge-content'>SPECIAL OFFER ⓘ </p>
                               <svg width="101" height="87" viewBox="0 0 101 87" fill="none" xmlns="http://www.w3.org/2000/svg">
