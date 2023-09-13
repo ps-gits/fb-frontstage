@@ -310,6 +310,26 @@ img {
   width: 87%;
 }
 
+.wedge-container {
+  top: -0.1rem;
+  left: -0.1rem;
+}
+
+.wedge-content {
+    height: 0.2px;
+    transform: rotate(-40.272deg);
+    color: #FFF;
+    text-align: left;
+    font-family: Avenir;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 17;
+    position: relative;
+    left: -3.2rem;
+    top: -2rem;
+}
+
 .react-datepicker__day--in-selecting-range,
 .react-datepicker__day--in-range {
   background-color: #a9d1d1 !important;
@@ -840,6 +860,10 @@ svg.h-6.w-6.shrink-0 {
   height: 389px;
 }
 
+.gallery-images:nth-child(1) {
+  margin-left: 0 !important;
+}
+
 .my-row {
   margin-left: -6px;
   margin-right: -6px;
@@ -894,6 +918,28 @@ svg.h-6.w-6.shrink-0 {
   list-style: square;
   margin: 0 0 8px;
   color: black !important;
+}
+
+.theme-accordian {
+  border-radius: 8px;
+  border: 1px solid #F0F0F1 !important;
+  background: #FFF;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.theme-accordian button {
+  margin: 0 !important;
+  align-items: flex-start;
+}
+
+.shedule-accordian button {
+  padding: 0px !important;
+  margin: 5px 0 0 !important;
+}
+
+.shedule-accordian .py-5.px-5 {
+  padding: 0 0 12px !important;
+  margin-bottom: 0 !important;
 }
 
 .color-black {
@@ -1019,6 +1065,12 @@ svg.h-6.w-6.shrink-0 {
 
   .mob-dream {
     margin: -80px auto 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .mob-dream {
+    margin: -30px auto 0;
   }
 }
 

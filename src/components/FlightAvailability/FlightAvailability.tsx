@@ -1388,7 +1388,7 @@ const FlightAvailability = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="xl:w-1/3 xs:w-full">
+                  {/* <div className="xl:w-1/3 xs:w-full">
                     <div
                       className={`${
                         selectFlight?.name === getFieldName(flightAvailabilityContent, 'bliss')
@@ -1552,6 +1552,284 @@ const FlightAvailability = () => {
                                         className="px-2 py-4 font-medium  text-slategeay"
                                       >
                                         <div className="flex items-center ">
+                                          <div className="w-1/4">
+                                            <Image
+                                              src={
+                                                item?.bliss?.information?.toLowerCase() === 'no'
+                                                  ? getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'circleCancelIcon'
+                                                    )
+                                                  : getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'circleCheckIcon'
+                                                    )
+                                              }
+                                              className="h-6 w-6"
+                                              alt=""
+                                              width={336}
+                                              height={201}
+                                            />
+                                          </div>
+                                          <div className="w-full">
+                                            <h6 className="font-medium text-xs text-black">
+                                              {item?.label}
+                                            </h6>
+                                          </div>
+                                        </div>
+                                      </th>
+                                      <td className="px-2 py-4 ">
+                                        <div
+                                          className={`font-extrabold text-xs w-full flex items-center gap-1 justify-between text-black items-center ${
+                                            item?.bliss?.information?.toLowerCase() === 'free'
+                                              ? 'text-green'
+                                              : 'text-black'
+                                          }`}
+                                        >
+                                          {item?.bliss?.information}
+                                          {item?.bliss?.description?.length > 0 &&
+                                            item?.bliss?.description?.toLowerCase() !== 'null' && (
+                                              <div className="relative flex flex-col items-center group">
+                                                <span className="pl-1">
+                                                  <Image
+                                                    src={getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'infoIcon'
+                                                    )}
+                                                    className=" w-5 h-5 object-cover"
+                                                    alt="tooltip"
+                                                    width={336}
+                                                    height={201}
+                                                  />
+                                                </span>
+                                                <div className="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex  w-64 pl-3">
+                                                  <span className="relative z-10 p-2 text-xs   whitespace-no-wrap  bg-white border rounded-lg border-graylight text-pearlgray font-normal leading-normal">
+                                                    {item?.bliss?.description}
+                                                  </span>
+                                                  <div className="w-4 h-4 -mt-2 rotate-45 border border-t-0 border-l-0 z-50 shadow-lg border-graylight bg-white"></div>
+                                                </div>
+                                              </div>
+                                            )}
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  )
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
+                          {selectFlight?.name ===
+                            getFieldName(flightAvailabilityContent, 'bliss') && (
+                            <button
+                              type="button"
+                              className="w-full xs:justify-center font-extrabold xs:text-center text-white  bg-aqua  rounded-lg text-lg inline-flex items-center px-3 py-2 text-center border border-aqua"
+                              onClick={continueButton}
+                            >
+                              {getFieldName(flightAvailabilityContent, 'continue')}
+                            </button>
+                          )}
+                          <button
+                            type="button"
+                            className="w-full xs:justify-center font-extrabold xs:text-center text-aqua border border-aqua  rounded-lg text-lg inline-flex items-center px-2 py-2 text-center mt-3 "
+                            onClick={() => {
+                              selectFlight?.name ===
+                              getFieldName(flightAvailabilityContent, 'bliss')
+                                ? updateFareFamily(
+                                    getFieldName(flightAvailabilityContent, 'opulence')
+                                  )
+                                : updateFareFamily(
+                                    getFieldName(flightAvailabilityContent, 'bliss')
+                                  );
+                            }}
+                          >
+                            {selectFlight?.name === getFieldName(flightAvailabilityContent, 'bliss')
+                              ? getFieldName(flightAvailabilityContent, 'upgradeOpulence')
+                              : getFieldName(flightAvailabilityContent, 'choosePackage') +
+                                ' ' +
+                                getFieldName(flightAvailabilityContent, 'bliss') +
+                                ' ' +
+                                getFieldName(flightAvailabilityContent, 'experience')}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+                  <div className="xl:w-1/3 xs:w-full">
+                    <div
+                      className={`${
+                        selectFlight?.name === getFieldName(flightAvailabilityContent, 'bliss')
+                          ? ''
+                          : 'xl:not-sr-only	xs:sr-only'
+                      } `}
+                    >
+                      <div
+                        className={`bg-white p-4 rounded-2xl relative ${
+                          selectFlight?.name === getFieldName(flightAvailabilityContent, 'bliss')
+                            ? 'border border-aqua'
+                            : 'my-8'
+                        }`}
+                      >
+                        <div className="flex">
+                          <div className=" absolute rounded-2xl -wedge-2">
+                              <div className="flex">
+                              <p className='wedge-content'>SPECIAL OFFER ⓘ </p>
+                              <svg width="101" height="87" viewBox="0 0 101 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M101 0L0 87V0H101Z" fill="#1D7D92"></path>
+                              </svg>
+                              </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2 items-center justify-center py-3 xl:mt-0 xs:mt-3">
+                          <div>
+                            <Image
+                              src={getImageSrc(flightAvailabilityContent, 'blissLogo')}
+                              className="h-5 w-5"
+                              alt=""
+                              width={50}
+                              height={50}
+                            />
+                          </div>
+
+                          <h1 className="font-extrabold text-2xl text-black">
+                            {getFieldName(flightAvailabilityContent, 'bliss')}{' '}
+                            {getFieldName(flightAvailabilityContent, 'experience')}
+                          </h1>
+                        </div>
+                        <div>
+                          <Image
+                            src={getImageSrc(flightAvailabilityContent, 'blissBanner')}
+                            className="h-44 w-full rounded-md"
+                            alt=""
+                            width={338}
+                            height={200}
+                          />
+                        </div>
+                        <div className="border border-cadetgray p-3 rounded-2xl my-3 ">
+                          <div className="my-3">
+                            <p className="font-extrabold text-sm text-black">
+                              {getFieldName(flightAvailabilityContent, 'included')}
+                            </p>
+                          </div>
+                          <div>
+                            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
+                              <tbody>
+                                {fareFamilyDetails?.included?.map(
+                                  (
+                                    item: {
+                                      bliss: {
+                                        information: string;
+                                        description: string;
+                                      };
+                                      label: string;
+                                    },
+                                    index: number
+                                  ) => (
+                                    <tr
+                                      className={index % 2 === 0 ? 'bg-skylight' : 'bg-white'}
+                                      key={index}
+                                    >
+                                      <th
+                                        scope="row"
+                                        className="px-2 py-4 font-medium  text-slategeay"
+                                      >
+                                        <div className="flex items-center">
+                                          <div className="w-1/4">
+                                            <Image
+                                              src={
+                                                item?.bliss?.information?.toLowerCase() === 'no'
+                                                  ? getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'circleCancelIcon'
+                                                    )
+                                                  : getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'checkIcon'
+                                                    )
+                                              }
+                                              className="h-6 w-6"
+                                              alt=""
+                                              width={336}
+                                              height={201}
+                                            />
+                                          </div>
+                                          <div className="w-full">
+                                            <h6 className="font-medium text-xs text-black">
+                                              {item?.label}
+                                            </h6>
+                                          </div>
+                                        </div>
+                                      </th>
+                                      <td className="px-2 py-4 ">
+                                        <div
+                                          className={`font-extrabold text-xs w-full flex items-center gap-1 justify-between text-black items-center ${
+                                            item?.bliss?.information?.toLowerCase() === 'free'
+                                              ? 'text-green'
+                                              : 'text-black'
+                                          }`}
+                                        >
+                                          {item?.bliss?.information}
+                                          {item?.bliss?.description?.length > 0 &&
+                                            item?.bliss?.description?.toLowerCase() !==
+                                              'null' && (
+                                              <div className="relative flex flex-col items-center group">
+                                                <span className="pl-1">
+                                                  <Image
+                                                    src={getImageSrc(
+                                                      flightAvailabilityContent,
+                                                      'infoIcon'
+                                                    )}
+                                                    className=" w-5 h-5 object-cover"
+                                                    alt="tooltip"
+                                                    width={336}
+                                                    height={201}
+                                                  />
+                                                </span>
+                                                <div className="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex  w-64 pl-3">
+                                                  <span className="relative z-10 p-2 text-xs   whitespace-no-wrap  bg-white border rounded-lg border-graylight text-pearlgray font-normal leading-normal">
+                                                    {item?.bliss?.description}
+                                                  </span>
+                                                  <div className="w-4 h-4 -mt-2 rotate-45 border border-t-0 border-l-0 z-50 shadow-lg border-graylight bg-white"></div>
+                                                </div>
+                                              </div>
+                                            )}
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  )
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div className="border border-cadetgray p-3 rounded-2xl my-3 ">
+                          <div className="my-3">
+                            <p className="font-extrabold text-sm text-black">
+                              {getFieldName(flightAvailabilityContent, 'luxuryBenefits')}
+                            </p>
+                          </div>
+                          <div>
+                            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
+                              <tbody>
+                                {fareFamilyDetails?.luxuryBenefit?.map(
+                                  (
+                                    item: {
+                                      bliss: {
+                                        information: string;
+                                        description: string;
+                                      };
+                                      label: string;
+                                    },
+                                    index: number
+                                  ) => (
+                                    <tr
+                                      className={index % 2 === 0 ? 'bg-skylight' : 'bg-white'}
+                                      key={index}
+                                    >
+                                      <th
+                                        scope="row"
+                                        className="px-2 py-4 font-medium  text-slategeay"
+                                      >
+                                        <div className="flex items-center">
                                           <div className="w-1/4">
                                             <Image
                                               src={
