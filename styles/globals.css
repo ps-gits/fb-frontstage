@@ -335,6 +335,11 @@ img {
   left: 80px;
 }
 
+.wedge-logo {
+  left: -95px;
+  position: relative;
+}
+
 .react-datepicker__day--in-selecting-range,
 .react-datepicker__day--in-range {
   background-color: #a9d1d1 !important;
