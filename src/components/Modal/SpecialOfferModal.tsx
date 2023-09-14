@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import DarkCar from '../../assets/images/black-dark-car.png';
 
 const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }) => {
   const { showOffer, closeModal } = props;
+  const router = useRouter();
+
   return (
     <>
       {showOffer && (
@@ -46,7 +49,11 @@ const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }
                       <div>
                         <button
                           type="button"
-                          onClick={closeModal}
+                          //onClick={closeModal}
+                          onClick={() => {
+                            router.push('/');
+                            closeModal
+                          }}
                           className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
                         >
                           Book Now
