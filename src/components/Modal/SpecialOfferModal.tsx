@@ -51,7 +51,7 @@ const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }
                           type="button"
                           //onClick={closeModal}
                           onClick={() => {
-                            {closeModal}
+                            {closeModal()}
                             router.push('/')
                           }}
                           className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
