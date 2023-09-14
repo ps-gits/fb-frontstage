@@ -14,13 +14,13 @@ const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }
         <div>
           <div
             style={{ display: 'flex' }}
-            className="linear h-screen fixed top-0 left-0 right-0 z-50 hidden xl:p-4 sm:p-0 overflow-y-auto md:inset-0 xl:h-[calc(100% 1rem)] max-h-full xl:flex justify-center items-center flex h-screen"
+            className="linear h-screen fixed top-0 left-0 right-0 z-50 hidden xl:p-4 sm:p-0 overflow-x-hidden overflow-y-auto md:inset-0 xl:h-[calc(100% 1rem)] max-h-full xl:flex justify-center items-center flex h-screen"
           >
             <div className="relative lg:w-10/12 xl:w-6/12 max-h-full m-auto">
               <div className="relative bg-white">
                 <div className="xl:flex md:flex xs:block w-80 lg:w-full xs:h-auto relative flex-wrap">
                   <div className="w-full xl:w-5/12 lg:w-1/2">
-                    <div className=" w-full h-80 lg:h-full lg:w-full">
+                    <div className="overflow-hidden w-full h-80 lg:h-full lg:w-full">
                       <Image
                         src={DarkCar}
                         alt="Sitecore"
@@ -51,9 +51,8 @@ const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }
                           type="button"
                           //onClick={closeModal}
                           onClick={() => {
-                            closeModal
+                            {closeModal}
                             router.push('/')
-                            
                           }}
                           className="text-white bg-lightorange font-medium rounded-full text-base px-5 py-3"
                         >
