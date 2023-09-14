@@ -97,22 +97,22 @@ const DepartReturnDateModal = (props: modalType) => {
     return allowedDates.includes(moment(calendarDate).format('YYYY-MM-DD'));
   };
 
-  const highlightDates = () => {
-    const datesToHighlight = (
-      name === 'Departure' ? originToDestinationDates : destinationToOriginDates
-    )?.map((item: { TargetDate: string }) => {
-      return item?.TargetDate?.split('T')[0];
-    });
+  // const highlightDates = () => {
+  //   const datesToHighlight = (
+  //     name === 'Departure' ? originToDestinationDates : destinationToOriginDates
+  //   )?.map((item: { TargetDate: string }) => {
+  //     return item?.TargetDate?.split('T')[0];
+  //   });
 
-    const datesArray = datesToHighlight
-      ?.filter(
-        (item: string) =>
-          new Date(item).valueOf() >= new Date(new Date().toJSON().split('T')[0]).valueOf()
-      )
-      ?.map((item: string) => new Date(item));
+  //   const datesArray = datesToHighlight
+  //     ?.filter(
+  //       (item: string) =>
+  //         new Date(item).valueOf() >= new Date(new Date().toJSON().split('T')[0]).valueOf()
+  //     )
+  //     ?.map((item: string) => new Date(item));
 
-    return datesArray;
-  };
+  //   return datesArray;
+  // };
 
   const tripLength = () => {
     const count =
@@ -331,18 +331,18 @@ const DepartReturnDateModal = (props: modalType) => {
                         : () => false
                     }
                     endDate={name === 'Return' ? datesInfo?.returnDate : undefined}
-                    highlightDates={
-                      (name === 'Departure'
-                        ? originToDestinationDates
-                        : destinationToOriginDates
-                      )?.filter(
-                        (item: { OriginCode: string }) =>
-                          item?.OriginCode === originCode && destinationCode?.length
-                      )?.length
-                        // ? highlightDates()
-                        ? []
-                        : []
-                    }
+                    // highlightDates={
+                    //   (name === 'Departure'
+                    //     ? originToDestinationDates
+                    //     : destinationToOriginDates
+                    //   )?.filter(
+                    //     (item: { OriginCode: string }) =>
+                    //       item?.OriginCode === originCode && destinationCode?.length
+                    //   )?.length
+                    //     // ? highlightDates()
+                    //     ? []
+                    //     : []
+                    // }
                     onChange={(date) => {
                       name === 'Return' &&
                         Date.parse(String(date[0] as Date)) >=
