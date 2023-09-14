@@ -339,7 +339,8 @@ const DepartReturnDateModal = (props: modalType) => {
                         (item: { OriginCode: string }) =>
                           item?.OriginCode === originCode && destinationCode?.length
                       )?.length
-                        ? highlightDates()
+                        // ? highlightDates()
+                        ? []
                         : []
                     }
                     onChange={(date) => {
