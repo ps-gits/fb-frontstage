@@ -172,7 +172,7 @@ const LandingPageSearch = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
       const timer = setTimeout(() => {
         setShowOffer(true);
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
       }, 5000);
       return () => {
         clearTimeout(timer);

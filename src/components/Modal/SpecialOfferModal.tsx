@@ -49,7 +49,6 @@ const SpecialOfferModal = (props: { showOffer: boolean; closeModal: () => void }
                       <div>
                         <button
                           type="button"
-                          //onClick={closeModal}
                           onClick={() => {
                             {closeModal()}
                             router.push('/')
