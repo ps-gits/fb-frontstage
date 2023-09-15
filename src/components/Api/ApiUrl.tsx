@@ -1,6 +1,6 @@
-// export const url = 'https://api.scxmcloudbeond.com/'
+export const url = 'https://api.scxmcloudbeond.com/'
 // export const url = 'https://flight.manageprojects.in/';
-export const url = 'https://apis.flybeond.com/';
+// export const url = 'https://apis.flybeond.com/';
 
 export const graphQLUrl = 'https://edge.sitecorecloud.io/api/graphql/v1';
 export const graphQLToken =
