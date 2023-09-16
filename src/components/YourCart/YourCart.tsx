@@ -36,13 +36,24 @@ const YourCart = () => {
     (state: RootState) =>
       state?.flightDetails?.prepareBookingModification?.Passengers?.map(
         (item: { NameElement: { Firstname: string; Surname: string } }, index: number) => {
+          // const otherFields = Object.fromEntries(
+          //   state?.flightDetails?.prepareBookingModification?.PassengersDetails[index]?.fields.map(
+          //     (dt: { Code: string; Text: string }) => [
+          //       fieldsWithCode?.find((item1) => item1?.Code === dt?.Code)?.name,
+          //       dt.Text,
+          //     ]
+          //   )
+          // );
           const otherFields = Object.fromEntries(
-            state?.flightDetails?.prepareBookingModification?.PassengersDetails[index]?.fields.map(
-              (dt: { Code: string; Text: string }) => [
-                fieldsWithCode?.find((item1) => item1?.Code === dt?.Code)?.name,
-                dt.Text,
-              ]
+            (
+              state?.flightDetails?.prepareBookingModification?.PassengersDetails[index]?.fields ||
+              []
             )
+              .map((dt: { Code: string; Text: string }) => {
+                const matchingItem = fieldsWithCode?.find((item1) => item1?.Code === dt?.Code);
+                return matchingItem ? [matchingItem?.name, dt?.Text] : null;
+              })
+              ?.filter(Boolean)
           );
           return {
             ...item?.NameElement,

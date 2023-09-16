@@ -61,12 +61,12 @@ const DepartReturnDateModal = (props: modalType) => {
   const modifyBookingInfo = useSelector((state: RootState) => state?.flightDetails?.modifyBooking);
 
   const [datesInfo, setDatesInfo] = useState({
-    departDate: new Date(
-      (departDate as Date).setHours(0, -(departDate as Date).getTimezoneOffset(), 0, 0)
-    ),
-    returnDate: new Date(
-      (returnDate as Date).setHours(0, -(returnDate as Date).getTimezoneOffset(), 0, 0)
-    ),
+    departDate: departDate
+      ? new Date((departDate as Date).setHours(0, -(departDate as Date).getTimezoneOffset(), 0, 0))
+      : new Date(),
+    returnDate: returnDate
+      ? new Date((returnDate as Date).setHours(0, -(returnDate as Date).getTimezoneOffset(), 0, 0))
+      : new Date(),
     dateFlexible: dateFlexible,
   });
 
@@ -368,9 +368,9 @@ const DepartReturnDateModal = (props: modalType) => {
                             : {
                                 ...datesInfo,
                                 returnDate: new Date(
-                                  (date[0] as Date).setHours(
+                                  (date[date[1] === null ? 0 : 1] as Date).setHours(
                                     0,
-                                    -(date[0] as Date).getTimezoneOffset(),
+                                    -(date[date[1] === null ? 0 : 1] as Date).getTimezoneOffset(),
                                     0,
                                     0
                                   )
