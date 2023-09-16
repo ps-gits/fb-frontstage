@@ -124,7 +124,7 @@ const FlightSchedule = (props: flightSchedule) => {
             </div>
             {FlightNumber && (
               <div className="flex gap-3 py-2">
-                <Image
+                <img
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'plane_icon') as string}
                   alt="loungeAccessLogo"
@@ -136,7 +136,7 @@ const FlightSchedule = (props: flightSchedule) => {
               </div>
             )}
             <div className="flex gap-3 py-2">
-              <Image
+              <img
                 className="h-6 w-6 object-cover"
                 src={getImageSrc(flightScheduleContent, 'plane_icon') as string}
                 alt="loungeAccessLogo"
