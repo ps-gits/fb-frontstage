@@ -46,7 +46,7 @@ const FlightSchedule = (props: flightSchedule) => {
   // }
 
   const imageLoaderPlane = () => {
-    return getImageSrc(flightScheduleContent, 'planeblue') as string
+    return getImageSrc(flightScheduleContent, 'plane_icon') as string
   }
 
   return (
@@ -149,7 +149,7 @@ const FlightSchedule = (props: flightSchedule) => {
               <Image
                 className="h-6 w-6 object-cover"
                 src={getImageSrc(flightScheduleContent, 'plane_icon') as string}
-                // loader={getImageSrc(flightScheduleContent, 'plane_icon') as any}
+                // loader={getImageSrc(flightScheduleContent, 'plane_icon')}
                 alt="loungeAccessLogo"
                 width={8}
                 height={8}
