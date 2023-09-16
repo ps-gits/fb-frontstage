@@ -46,7 +46,7 @@ const FlightSchedule = (props: flightSchedule) => {
   // }
 
   const imageLoaderPlane = () => {
-    console.log(getImageSrc(flightScheduleContent, 'plane_icon') as string)
+    console.log("Here", getImageSrc(flightScheduleContent, 'plane_icon') as string)
     return getImageSrc(flightScheduleContent, 'plane_icon') as string
   }
 
