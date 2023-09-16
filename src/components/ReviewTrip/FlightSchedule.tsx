@@ -41,6 +41,14 @@ const FlightSchedule = (props: flightSchedule) => {
     (state: RootState) => state?.sitecore?.commonImages?.fields
   );
 
+  // const imageLoader = (src : String) => {
+  //   return ""
+  // }
+
+  const imageLoaderPlane = () => {
+    return getImageSrc(flightScheduleContent, 'planeblue') as string
+  }
+
   return (
     <div key={index}>
       <div className="flex gap-4 relative mt-6">
@@ -124,9 +132,10 @@ const FlightSchedule = (props: flightSchedule) => {
             </div>
             {FlightNumber && (
               <div className="flex gap-3 py-2">
-                <img
+                <Image
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'planeblue') as string}
+                  loader={imageLoaderPlane}
                   alt="loungeAccessLogo"
                   width={8}
                   height={8}
@@ -135,6 +144,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <p className="font-normal text-xs text-pearlgray">{FlightNumber}</p>
               </div>
             )}
+            
             <div className="flex gap-3 py-2">
               <img
                 className="h-6 w-6 object-cover"
