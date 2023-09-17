@@ -106,7 +106,7 @@ const FlightSchedule = (props: flightSchedule) => {
               <p className="font-extrabold text-2xl text-black">{originCode}</p>
               <p className="font-normal text-xs text-pearlgray">{originAirportName}</p>
               <p className="font-normal text-xs text-pearlgray">
-                {' '}
+                {/* {' '} */}
                 {OriginAirportTerminal ? `Terminal : ${OriginAirportTerminal}` : ''}{' '}
               </p>
             </div>
@@ -157,7 +157,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <p className="font-black text-sm text-black">AircraftType : </p>
                 <p className="font-normal text-xs text-pearlgray">{AircraftType}</p>
               </div>
-            {Remarks && (
+            {/* {Remarks && (
               <div className="flex gap-3 py-2">
                 <Image
                   className="h-6 w-6 object-cover"
@@ -169,7 +169,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <p className="font-black text-sm text-black">Technical Stops : </p>
                 <p className="font-normal text-xs text-pearlgray">{Remarks}</p>
               </div>
-            )}
+            )} */}
             {/* {luxuryPickup && (
               <div className="flex gap-3 items-center my-1">
                 <Image

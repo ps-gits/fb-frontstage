@@ -168,7 +168,7 @@ const ReviewTripComplete = () => {
                             <Image className="h-5 w-5 object-contain" src={chair} alt="" />
                             <div>
                               <p className="font-black text-sm text-black">Seats</p>
-                              <p className="font-medium text-xs text-slategray">6D, 6F, 7D, 7F</p>
+                              <p className="font-medium text-xs text-slategray"></p>
                             </div>
                           </div>
                           <div className="flex gap-3 py-2">
@@ -236,7 +236,7 @@ const ReviewTripComplete = () => {
                             <Image className="h-5 w-5 object-contain" src={chair} alt="" />
                             <div>
                               <p className="font-black text-sm text-black">Seats</p>
-                              <p className="font-medium text-xs text-slategray">6D, 6F, 7D, 7F</p>
+                              <p className="font-medium text-xs text-slategray"></p>
                             </div>
                           </div>
                           <div className="flex gap-3 py-2">
