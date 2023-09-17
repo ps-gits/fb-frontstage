@@ -110,8 +110,8 @@ const FlightInfo = (props: flightDetails) => {
                               ? selectedFlight?.details?.DestinationCode
                               : selectedFlight?.details?.OriginCode
                           }
-                          Duration={''}
-                          AircraftType={''}
+                          Duration={item?.Duration}
+                          AircraftType={item?.AircraftType}
                           departureDate={item?.orginDepartureDate}
                           departureTime={item?.orginDepartureTime}
                           arrivalDate={item?.destinationArrivalDate}

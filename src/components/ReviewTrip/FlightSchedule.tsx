@@ -145,17 +145,18 @@ const FlightSchedule = (props: flightSchedule) => {
               </div>
             )}
             
-            <div className="flex gap-3 py-2">
-              <img
-                className="h-6 w-6 object-cover"
-                src={getImageSrc(flightScheduleContent, 'plane_icon') as string}
-                alt="loungeAccessLogo"
-                width={8}
-                height={8}
-              />
-              <p className="font-black text-sm text-black">AircraftType : </p>
-              <p className="font-normal text-xs text-pearlgray">{AircraftType}</p>
-            </div>
+              <div className="flex gap-3 py-2">
+                <Image
+                    className="h-6 w-6 object-cover"
+                    src={getImageSrc(flightScheduleContent, 'planeblue') as string}
+                    loader={imageLoaderPlane}
+                    alt="loungeAccessLogo"
+                    width={8}
+                    height={8}
+                  />
+                <p className="font-black text-sm text-black">AircraftType : </p>
+                <p className="font-normal text-xs text-pearlgray">{AircraftType}</p>
+              </div>
             {Remarks && (
               <div className="flex gap-3 py-2">
                 <Image

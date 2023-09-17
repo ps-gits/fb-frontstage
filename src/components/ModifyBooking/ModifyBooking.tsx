@@ -595,8 +595,8 @@ const ModifyBooking = () => {
                                 meals={true}
                                 special={true}
                                 Stops={item?.Stops}
-                                Duration={''}
-                                AircraftType={''}
+                                Duration={item?.Duration}
+                                AircraftType={item?.AircraftType}
                                 Remarks={item?.Remarks}
                                 loungeAccess={item?.Lounge}
                                 luxuryPickup={item?.Luxury}

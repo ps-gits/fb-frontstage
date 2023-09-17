@@ -231,9 +231,9 @@ const CancelBooking = () => {
                                 loungeAccess={true}
                                 luxuryPickup={true}
                                 Stops={item?.Stops}
-                                Duration={''}
+                                Duration={item?.Duration}
                                 Remarks={item?.Remarks}
-                                AircraftType={''}
+                                AircraftType={item?.AircraftType}
                                 originCode={item?.OriginCode}
                                 arrivalDate={item?.ArrivalDate}
                                 bagAllowances={item.BagAllowances}

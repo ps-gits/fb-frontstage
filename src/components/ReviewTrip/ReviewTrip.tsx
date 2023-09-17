@@ -289,9 +289,9 @@ const ReviewTrip = () => {
                                 meals={true}
                                 special={true}
                                 Stops={item?.Stops}
-                                Duration={''}
+                                Duration={item?.Duration}
                                 Remarks={item?.Remarks}
-                                AircraftType={''}
+                                AircraftType={item?.AircraftType}
                                 loungeAccess={item?.Lounge}
                                 luxuryPickup={item?.Luxury}
                                 WebClass={flightInfo?.name}
