@@ -131,7 +131,7 @@ const FlightSchedule = (props: flightSchedule) => {
               <p className="font-normal text-xs text-pearlgray">{Duration}</p>
             </div>
             {FlightNumber && (
-              <div className="flex gap-3 py-2">
+              <div className="flex gap-3 py-2 items-center">
                 <Image
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'planeblue') as string}
@@ -145,7 +145,7 @@ const FlightSchedule = (props: flightSchedule) => {
               </div>
             )}
             
-              <div className="flex gap-3 py-2">
+              <div className="flex gap-3 py-2 items-center">
                 <Image
                     className="h-6 w-6 object-cover"
                     src={getImageSrc(flightScheduleContent, 'planeblue') as string}
@@ -158,7 +158,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <p className="font-normal text-xs text-pearlgray">{AircraftType}</p>
               </div>
             {/* {Remarks && (
-              <div className="flex gap-3 py-2">
+              <div className="flex gap-3 py-2 items-center">
                 <Image
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'loungeAccess') as string}
@@ -183,7 +183,7 @@ const FlightSchedule = (props: flightSchedule) => {
               </div>
             )} */}
             {/* {loungeAccess && (
-              <div className="flex gap-3 py-2">
+              <div className="flex gap-3 py-2 items-center">
                 <Image
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'loungeAccess') as string}
@@ -195,7 +195,7 @@ const FlightSchedule = (props: flightSchedule) => {
               </div>
             )} */}
             {/* {seats && (
-              <div className="flex gap-3 py-2">
+              <div className="flex gap-3 py-2 items-center">
                 <Image
                   className="h-6 w-6 object-cover"
                   src={getImageSrc(flightScheduleContent, 'seats') as string}
@@ -426,7 +426,7 @@ const FlightSchedule = (props: flightSchedule) => {
                       </div>
                     </Accordion.Title>
                     <Accordion.Content>
-                      <div className="flex gap-3 py-2">
+                      <div className="flex gap-3 py-2 items-center">
                         <div className="flex justify-between w-full" key={index}>
                           <div className="flex items-center gap-2">
                             <div>
@@ -457,7 +457,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 </Accordion>
               </div>
             )}
-            {/* <div className="flex gap-3 py-2">
+            {/* <div className="flex gap-3 py-2 items-center">
               <Image
                 className="h-6 w-6 object-cover"
                 src={getImageSrc(flightScheduleContent, 'baggage') as string}
@@ -483,7 +483,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 <p className="font-medium text-xs text-slategray">Maximum bags allowed - 4</p>
               </div>
             </div> */}
-            {/* <div className="flex gap-3 py-2">
+            {/* <div className="flex gap-3 py-2 items-center">
               <Image
                 className="h-6 w-6 object-cover"
                 src={getImageSrc(flightScheduleContent, 'luxuryDining') as string}
@@ -569,7 +569,7 @@ const FlightSchedule = (props: flightSchedule) => {
                   />
                   <div>
                     <h4 className="text-black text-sm font-black">Luxury Pick-up</h4>
-                    <p className="text-slategray text-xs">Description text goes here</p>
+                    <p className="text-slategray text-xs">Service offered at select airports only. Not available in Male.</p>
                   </div>
                 </div>
               )}
@@ -584,7 +584,7 @@ const FlightSchedule = (props: flightSchedule) => {
                   />
                   <div>
                     <h4 className="text-black text-sm font-black">Lounge Access</h4>
-                    <p className="text-slategray text-xs">Description text goes here</p>
+                    <p className="text-slategray text-xs"></p>
                   </div>
                 </div>
               )}
