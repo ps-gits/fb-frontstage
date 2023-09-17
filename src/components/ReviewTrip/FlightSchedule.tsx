@@ -148,7 +148,7 @@ const FlightSchedule = (props: flightSchedule) => {
             <div className="flex gap-3 py-2">
               <img
                 className="h-6 w-6 object-cover"
-                src={getImageSrc(flightScheduleContent, 'planeblue') as string}
+                src={getImageSrc(flightScheduleContent, 'plane_icon') as string}
                 alt="loungeAccessLogo"
                 width={8}
                 height={8}
