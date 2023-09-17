@@ -3,7 +3,6 @@ import { useState } from 'react';
 import parse from 'html-react-parser';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -22,7 +21,6 @@ import FareBaggageModal from 'components/Modal/FareBaggageModal';
 import SearchFlightLoader from 'components/Loader/SearchFlightLoader';
 import DepartReturnDateModal from 'components/Modal/DepartReturnDateModal';
 import { getImageSrc, getFieldName } from 'components/SearchFlight/SitecoreContent';
-import { postCreateTicket } from 'src/redux/action/SearchFlights';
 
 const ReviewChange = () => {
   const router = useRouter();
@@ -89,25 +87,6 @@ const ReviewChange = () => {
     (item: { OriginCode: string; DestinationCode: string }) =>
       item && item?.OriginCode !== undefined && item?.DestinationCode !== undefined
   );
-
-  const createExchangeTicket = () => {
-    
-    dispatch(
-      postCreateTicket(
-        {
-          ID: createExchangeBookingInfo?.PnrInformation?.PnrCode,
-          PassengerName: passengerDetails[0]?.Surname,
-          Amount: createExchangeBookingInfo?.Amount?.TotalAmount,
-        },
-        router
-      ) as unknown as AnyAction
-    );
-    
-    // updateCart && dispatch(setUpdateCart(false));
-    // modifyMeal && dispatch(setModifyMeal(false));
-    // modifyDates && dispatch(setModifyDates(false));
-    // modifyDataFromBooking && dispatch(setModifyBookingFromBooking(false));
-  };
 
   const TotalPrice = () => {
     return (
@@ -234,58 +213,28 @@ const ReviewChange = () => {
               </label>
             </div>
             <div className="py-3 lg:flex md:flex block h-full items-center justify-center relative gap-3 w-full   m-auto">
-              
-              {(modifyMeal || modifySeat || updateCart ? false : createExchangeBookingInfo)?.Amount?.TotalAmount == 0 && (
-                    <button
-                    type="submit"
-                    form="hpp"
-                    disabled={
-                      !termsConditionsAccepted ||
-                      (modifyMeal || modifySeat || updateCart
-                        ? modifyBookingSeats
-                        : createExchangeBookingInfo
-                      )?.Amount?.TotalAmount === undefined
-                    }
-                    className={`w-full xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center px-5 py-2 text-center ${
-                      !termsConditionsAccepted ||
-                      (modifyMeal || modifySeat || updateCart
-                        ? modifyBookingSeats
-                        : createExchangeBookingInfo
-                      )?.Amount?.TotalAmount === undefined
-                        ? 'opacity-40'
-                        : ''
-                    }`}
-                  >
-                    {getFieldName(reviewChangeContent, 'confirmPayButton')}
-                  </button>  
-                )
-              }
-              {true && (
-                    <button
-                    type="submit"
-                    onClick={createExchangeTicket}
-                    disabled={
-                      !termsConditionsAccepted ||
-                      (modifyMeal || modifySeat || updateCart
-                        ? modifyBookingSeats
-                        : createExchangeBookingInfo
-                      )?.Amount?.TotalAmount === undefined
-                    }
-                    className={`w-full xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center px-5 py-2 text-center ${
-                      !termsConditionsAccepted ||
-                      (modifyMeal || modifySeat || updateCart
-                        ? modifyBookingSeats
-                        : createExchangeBookingInfo
-                      )?.Amount?.TotalAmount === undefined
-                        ? 'opacity-40'
-                        : ''
-                    }`}
-                  >
-                    {getFieldName(reviewChangeContent, 'confirmPayButton')}
-                  </button>  
-                )
-              }
-              
+              <button
+                type="submit"
+                form="hpp"
+                disabled={
+                  !termsConditionsAccepted ||
+                  (modifyMeal || modifySeat || updateCart
+                    ? modifyBookingSeats
+                    : createExchangeBookingInfo
+                  )?.Amount?.TotalAmount === undefined
+                }
+                className={`w-full xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center px-5 py-2 text-center ${
+                  !termsConditionsAccepted ||
+                  (modifyMeal || modifySeat || updateCart
+                    ? modifyBookingSeats
+                    : createExchangeBookingInfo
+                  )?.Amount?.TotalAmount === undefined
+                    ? 'opacity-40'
+                    : ''
+                }`}
+              >
+                {getFieldName(reviewChangeContent, 'confirmPayButton')}
+              </button>
             </div>
           </>
         )}
