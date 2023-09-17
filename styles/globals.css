@@ -822,12 +822,12 @@ input[type='checkbox']:checked {
   right: 40px !important;
 }
 
-.toaster-modal.success {
-  width: Hug (194px);
-  height: Hug (40px);
+.toaster-modal-success {
+  width: 194px;
+  height: 40px;
   top: 20px;
   left: 20px;
-  padding: 12px, 16px, 12px, 16px;
+  padding: 12px 16px 12px 16px;
   border-radius: 4px;
   border: 1px;
   gap: 4px;
@@ -838,12 +838,12 @@ input[type='checkbox']:checked {
   linear-gradient(0deg, #34C759, #34C759);
 }
 
-.toaster-modal.error {
-  width: Hug (194px);
-  height: Hug (40px);
+.toaster-modal-error {
+  width: 194px;
+  height: 40px;
   top: 20px;
   left: 20px;
-  padding: 12px, 16px, 12px, 16px;
+  padding: 12px 16px 12px 16px;
   border-radius: 4px;
   border: 1px;
   gap: 4px;

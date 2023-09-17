@@ -34,7 +34,12 @@ const Toaster = (props: toastMessageType) => {
               {showToaster?.message}
             </p>
           </div> */}
-          <div className={`success ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
+          <div className={`toaster-modal-error ${showToaster?.status === 'error' ? '' : 'hidden'}`}>
+            <p className="text-left text-sm font-normal">
+              {showToaster?.message}
+            </p>
+          </div>
+          <div className={`toaster-modal-success ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
             <p className="text-left text-sm font-normal">
               {showToaster?.message}
             </p>
