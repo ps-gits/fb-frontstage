@@ -17,20 +17,25 @@ const Toaster = (props: toastMessageType) => {
   return (
     <>
       <div
-        className={`fixed top-12 toster-modal ${showToaster.show ? 'right-6' : ''}`}>
+        className={`fixed top-12 toaster-modal ${showToaster.show ? 'right-6' : ''}`}>
         <div className="relative w-full">
-          <div className={`rounded-lg shadow p-5 text-center bg-red border border-red ${showToaster?.status === 'error' ? '' : 'hidden'}`}>
+          {/* <div className={`rounded-lg shadow p-5 text-center bg-red border border-red ${showToaster?.status === 'error' ? '' : 'hidden'}`}>
             <p className="text-left text-white text-sm font-normal">
               {showToaster?.message}
             </p>
-          </div>
+          </div> */}
           {/* <div className={`rounded-lg shadow p-5 text-center bg-yellowLight border-errorText ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
             <p className="text-left text-errorText text-sm font-normal">
               {showToaster?.message}
             </p>
           </div> */}
-          <div className={`rounded-lg shadow p-5 text-center bg-green border-green ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
+          {/* <div className={`rounded-lg shadow p-5 text-center bg-green border-green ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
             <p className="text-left text-white text-sm font-normal">
+              {showToaster?.message}
+            </p>
+          </div> */}
+          <div className={`success ${showToaster?.status === 'success' ? '' : 'hidden'}`}>
+            <p className="text-left text-sm font-normal">
               {showToaster?.message}
             </p>
           </div>
