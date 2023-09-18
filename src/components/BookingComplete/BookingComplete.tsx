@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import moment from 'moment';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnyAction } from 'redux';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -310,7 +310,17 @@ const BookingComplete = () => {
     (item: { mapIndex: number }) => item?.mapIndex === 1
   );
 
+  useEffect(() => {
+    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
+    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
+    console.log("Val3",bookingCompleteInfo?.Amount?.TotalAmount)
+    
+  }, []);
+
   const getPnrDetails = () => {
+    
+    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
+    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
     const val = router?.query?.error !== undefined && router?.query?.error?.length > 0
     ? createBookingInfo?.PnrInformation?.PnrCode
     : bookingCompleteInfo?.PnrInformation?.PnrCode;
