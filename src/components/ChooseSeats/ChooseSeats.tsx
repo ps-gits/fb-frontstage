@@ -291,6 +291,10 @@ const ChooseSeats = () => {
     dispatch(getSitecoreContent('Terms-Conditions') as unknown as AnyAction);
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log("SelectedFlight",selectedFlight);
+  }, []);
+
   const findCodeInModifySeat = (indexNumber: number, codeType: string) => {
     return flightWay?.find(
       (item: object, index: number) => item !== undefined && index === indexNumber

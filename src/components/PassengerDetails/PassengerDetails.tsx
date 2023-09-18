@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { AnyAction } from 'redux';
 import Select from 'react-select';
 import { useRouter } from 'next/router';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Accordion } from 'flowbite-react';
 import IntlTelInput from 'react-intl-tel-input';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,6 +35,10 @@ const PassengerDetails = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const optionalFields = ['Middlename'];
+
+  useEffect(() => {
+    console.log("SelectedDetailsForFlight",selectedDetailsForFlight);
+  }, []);
 
   const modifyDataFromBooking = useSelector(
     (state: RootState) => state?.flightDetails?.modifyDataFromBooking
@@ -146,7 +150,7 @@ const PassengerDetails = () => {
       return filterList;
     });
 
-  const findMobileField = fields?.map((item: { name: string }[]) => {
+    const findMobileField = fields?.map((item: { name: string }[]) => {
     const findField = item?.find((item: { name: string }) => item?.name === 'Mobile');
     return findField;
   });
