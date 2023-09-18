@@ -310,26 +310,13 @@ const BookingComplete = () => {
     (item: { mapIndex: number }) => item?.mapIndex === 1
   );
 
-  useEffect(() => {
-    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
-    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
-    console.log("Val3",bookingCompleteInfo?.Amount?.TotalAmount)
-    
-  }, []);
-
   const getPnrDetails = () => {
     
-    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
-    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
     const val = router?.query?.error !== undefined && router?.query?.error?.length > 0
     ? createBookingInfo?.PnrInformation?.PnrCode
     : bookingCompleteInfo?.PnrInformation?.PnrCode;
-    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
-    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
-    console.log("Val3", val);
-    return router?.query?.error !== undefined && router?.query?.error?.length > 0
-                      ? createBookingInfo?.PnrInformation?.PnrCode
-                      : bookingCompleteInfo?.PnrInformation?.PnrCode
+    
+    return val
   }
 
   const getCurrencyDetails = () => {
@@ -348,7 +335,7 @@ const BookingComplete = () => {
 
   const detailedPixelLoader = () => {
     // return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+${createBookingInfo?.PnrInformation?.PnrCode}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
-    return `https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID=${createBookingInfo?.PnrInformation?.PnrCode}&revenue=+${getFareDetails()}&currency=${bookingCompleteInfo?.Amount?.TotalAmount}`    
+    return `https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID=${getPnrDetails()}&revenue=${getFareDetails()}&currency=${getCurrencyDetails()}`    
   }
 
   return (
