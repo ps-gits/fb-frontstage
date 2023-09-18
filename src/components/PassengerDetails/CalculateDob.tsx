@@ -1,10 +1,23 @@
-export const calculateDob = (dateString: string) => {
-  const today = new Date();
-  const birthDate = new Date(dateString?.replace(/-/g, '/'));
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+export const calculateDob = (originDate:Date, returnDate: Date, dateString: string) => {
+  
+  let age = null;
+  if (returnDate) {
+    const today = returnDate;
+    const birthDate = new Date(dateString?.replace(/-/g, '/'));
+    age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+  } 
+}else{
+    const today = originDate;
+    const birthDate = new Date(dateString?.replace(/-/g, '/'));
+    age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
   }
+  console.log("Age", age);
   return age;
 };

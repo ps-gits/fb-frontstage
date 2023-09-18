@@ -483,11 +483,11 @@ const YourCart = () => {
             Surname: item?.Surname,
             Firstname: item?.Firstname,
             Ref: prepareFlightDetails?.Passengers[index]?.Ref,
-            PassengerType: calculateDob(item?.Dob) >= 11 ? 'AD' : 'CHD',
+            PassengerType: calculateDob(new Date(), new Date(),item?.Dob) >= 11 ? 'AD' : 'CHD',
             Homecontact: postData?.Mobile,
           },
           SpecialServices:
-            calculateDob(item?.Dob) >= 11
+            calculateDob(new Date(), new Date(),item?.Dob) >= 11
               ? {
                   CTCE: item.Email,
                   CTCH: postData?.Mobile,

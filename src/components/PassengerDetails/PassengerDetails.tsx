@@ -570,7 +570,7 @@ const PassengerDetails = () => {
     if (validateValues(values?.details, index)) {
       if (
         values?.details[index]?.Dob?.length > 0 &&
-        calculateDob(values?.details[index]?.Dob) < 4
+        calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , values?.details[index]?.Dob) < 4
       ) {
         setShowModal({
           young: true,
@@ -583,7 +583,7 @@ const PassengerDetails = () => {
         !ageChangesAccecpted?.includes(index) &&
         passengerDetails[index] === 'Child' &&
         values?.details[index]?.Dob?.length > 0 &&
-        calculateDob(values?.details[index]?.Dob) > 11
+        calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , values?.details[index]?.Dob) > 11
       ) {
         setDisplayError(false);
         setShowModal({
@@ -824,11 +824,11 @@ const PassengerDetails = () => {
               Surname: item?.Surname,
               Firstname: item?.Firstname,
               Ref: prepareFlightDetails?.Passengers[index]?.Ref,
-              PassengerType: calculateDob(item?.Dob) >= 11 ? 'AD' : 'CHD',
+              PassengerType: calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , item?.Dob) >= 11 ? 'AD' : 'CHD',
               Homecontact: postData?.Mobile,
             },
             SpecialServices:
-              calculateDob(item?.Dob) >= 11
+              calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , item?.Dob) >= 11
                 ? {
                     CTCE: item.Email,
                     CTCH: postData?.Mobile,
