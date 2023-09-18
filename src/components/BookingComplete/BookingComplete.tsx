@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import moment from 'moment';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AnyAction } from 'redux';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
