@@ -526,7 +526,8 @@ const ChooseSeats = () => {
             Surname: item?.Surname,
             Firstname: item?.Firstname,
             Ref: prepareFlightDetails?.Passengers[index]?.Ref,
-            PassengerType: flightInformation?.FaireFamilies?.length()>1 ? (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[1]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') : (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[0]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') ,
+            //PassengerType: flightInformation?.FaireFamilies?.length()>1 ? (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[1]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') : (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[0]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') ,
+            PassengerType: calculateDob(new Date(), new Date() , item?.Dob) >= 11 ? 'AD' : 'CHD' ,
             Homecontact: postData?.Mobile,
             
           },
