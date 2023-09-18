@@ -72,8 +72,8 @@ const SearchFlight = () => {
     originCode: '',
     dateFlexible: false,
     destinationCode: 'MLE',
-    departDate: new Date(),
-    returnDate: new Date(),
+    departDate: new Date() ? new Date() : '',
+    returnDate: new Date() ? new Date() : '',
   });
   const [getLocation, setGetLocation] = useState({
     display: false,
