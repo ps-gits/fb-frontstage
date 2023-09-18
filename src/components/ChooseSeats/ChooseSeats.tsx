@@ -159,7 +159,7 @@ const ChooseSeats = () => {
   const modifyBookingInfo = useSelector((state: RootState) => state?.flightDetails?.modifyBooking);
   // const reviewTripContent = useSelector((state: RootState) => state?.sitecore?.reviewTrip?.fields);
   const chooseSeatsContent = useSelector((state: RootState) => state?.sitecore?.chooseSeat?.fields);
-  useSelector((state : RootState)=> {;
+  useSelector((state : RootState)=> {
   useEffect(() => { 
          console.log("flightInfo", state?.flightDetails)
   }, [])});
