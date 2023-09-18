@@ -47,6 +47,7 @@ const ChooseSeats = () => {
   const modifyDataFromBooking = useSelector(
     (state: RootState) => state?.flightDetails?.modifyDataFromBooking
   );
+  const flightInformation = useSelector((state: RootState) => state?.flightDetails);
   const modifySeat = useSelector((state: RootState) => state?.flightDetails?.modifySeat);
   const modifyData = useSelector((state: RootState) => state?.flightDetails?.modifyData);
   const seatMaps = useSelector((state: RootState) =>
@@ -159,10 +160,7 @@ const ChooseSeats = () => {
   const modifyBookingInfo = useSelector((state: RootState) => state?.flightDetails?.modifyBooking);
   // const reviewTripContent = useSelector((state: RootState) => state?.sitecore?.reviewTrip?.fields);
   const chooseSeatsContent = useSelector((state: RootState) => state?.sitecore?.chooseSeat?.fields);
-  useSelector((state : RootState)=> {
-  useEffect(() => { 
-         console.log("flightInfo", state?.flightDetails)
-  }, [])});
+  
   const allSeats = modifyBookingInfo?.PassengersDetails?.map(
     (item: { fields: { Code: string }[] }) =>
       item?.fields?.filter((item: { Code: string }) => item?.Code === 'SEAT')?.map((item) => item)
@@ -480,6 +478,10 @@ const ChooseSeats = () => {
       (item: { returnMealCode: string }) => item?.returnMealCode?.length > 0
     );
 
+    useEffect(() => {
+      console.log("SelectedFlight", flightInformation);
+    }, []);
+
     const dataToPost = passengerDetails?.map(
       (
         item: {
@@ -515,6 +517,7 @@ const ChooseSeats = () => {
         // delete postData?.dialCodeHomeContact;
 
         return {
+          
           PassengerDetails: {
             ...postData,
             CivilityCode: civilityCodeOptions?.find(
