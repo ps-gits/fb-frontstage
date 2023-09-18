@@ -47,7 +47,7 @@ const ChooseSeats = () => {
   const modifyDataFromBooking = useSelector(
     (state: RootState) => state?.flightDetails?.modifyDataFromBooking
   );
-  const flightInformation = useSelector((state: RootState) => state?.flightDetails);
+  // const flightInformation = useSelector((state: RootState) => state?.flightDetails);
   const modifySeat = useSelector((state: RootState) => state?.flightDetails?.modifySeat);
   const modifyData = useSelector((state: RootState) => state?.flightDetails?.modifyData);
   const seatMaps = useSelector((state: RootState) =>
