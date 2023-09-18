@@ -40,8 +40,8 @@ export const getEligibleOriginToDestinations =
     originDestination: getEligibleOriginDestinationDates,
     editDate?: boolean,
     flightDetails?: {
-      departDate: Date;
-      returnDate: Date;
+      departDate: Date | string; //new-added
+      returnDate: Date | string; //new-added
       adult: number;
       children: number;
       originCode: string;
@@ -56,8 +56,8 @@ export const getEligibleOriginToDestinations =
           originCode: string;
           dateFlexible: boolean;
           destinationCode: string;
-          departDate: Date;
-          returnDate: Date;
+          departDate: Date | string; //new-added
+          returnDate: Date | string; //new-added
         }>
       ): void;
       (arg0: {
@@ -67,8 +67,8 @@ export const getEligibleOriginToDestinations =
         originCode: string;
         dateFlexible: boolean;
         destinationCode: string;
-        departDate: Date;
-        returnDate: Date;
+        departDate: Date | string;
+        returnDate: Date | string;
       }): void;
     },
     tabName?: string
@@ -632,7 +632,7 @@ export const postExchangeCreateBooking =
       .then((res) => {
         router.push('/reviewchange');
         dispatch(setExchangeCreateBookingData(res?.data?.data));
-        res?.data?.data?.Amount?.TotalAmount &&
+        res?.data?.data?.Amount?.TotalAmount !== 0 &&
           res?.data?.data?.Amount?.TotalAmount !== null &&
           dispatch(
             postPaymentAmount({

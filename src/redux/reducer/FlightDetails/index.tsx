@@ -14,6 +14,7 @@ const initalState = {
   prepareFlight: [],
   createBooking: [],
   modifyBooking: [],
+  isOneWay: false,
   footerTC: false,
   updateCart: false,
   paymentStatus: '',
@@ -43,6 +44,9 @@ const flightDetailsSlice = createSlice({
   reducers: {
     setYourCart: (state, action) => {
       state.yourCart = action.payload;
+    },
+    setIsOneWay: (state, action) => {
+      state.isOneWay = action.payload;
     },
     setFooterTC: (state, action) => {
       state.footerTC = action.payload;
@@ -148,6 +152,7 @@ const flightDetailsSlice = createSlice({
 
 export const {
   setYourCart,
+  setIsOneWay,
   setFooterTC,
   setFareFamily,
   setModifyMeal,

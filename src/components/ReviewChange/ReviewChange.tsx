@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { AnyAction } from 'redux';
 import parse from 'html-react-parser';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +19,9 @@ import SavingDataLoader from '../Loader/SavingData';
 import SearchSeatLoader from '../Loader/SearchSeat';
 import FlightSchedule from '../ReviewTrip/FlightSchedule';
 import FareBaggageModal from 'components/Modal/FareBaggageModal';
+import { postCreateTicket } from 'src/redux/action/SearchFlights';
 import SearchFlightLoader from 'components/Loader/SearchFlightLoader';
+import { fieldsWithCode } from 'components/PassengerDetails/FieldsData';
 import DepartReturnDateModal from 'components/Modal/DepartReturnDateModal';
 import { getImageSrc, getFieldName } from 'components/SearchFlight/SitecoreContent';
 
@@ -53,6 +56,27 @@ const ReviewChange = () => {
   );
   const passengerDetails = useSelector(
     (state: RootState) => state?.flightDetails?.prepareExchangeFlight?.Passengers
+  );
+  const createTicketPassenger = useSelector((state: RootState) =>
+    state?.flightDetails?.prepareExchangeFlight?.Passengers?.map(
+      (item: { NameElement: { Firstname: string; Surname: string } }, index: number) => {
+        const otherFields = Object.fromEntries(
+          (state?.flightDetails?.prepareExchangeFlight?.PassengersDetails[index]?.fields || [])
+            .map((dt: { Code: string; Text: string }) => {
+              const matchingItem = fieldsWithCode?.find((item1) => item1?.Code === dt?.Code);
+              return matchingItem ? [matchingItem?.name, dt?.Text] : null;
+            })
+            ?.filter(Boolean)
+        );
+        return {
+          ...item?.NameElement,
+          ...otherFields,
+        };
+      }
+    )
+  );
+  const storedPassengerData = useSelector(
+    (state: RootState) => state?.passenger?.passengersData?.details
   );
   const modifyData = useSelector((state: RootState) => state?.flightDetails?.modifyData);
   const updateCart = useSelector((state: RootState) => state?.flightDetails?.updateCart);
@@ -121,14 +145,14 @@ const ReviewChange = () => {
               (modifyMeal || modifySeat || updateCart
                 ? modifyBookingSeats?.Amount?.TotalAmount
                   ? modifyBookingSeats?.Amount?.TotalAmount?.toLocaleString('en-GB')
-                  : ''
+                  : '0'
                 : !selectSeatLater && chooseSeats?.length === 0
                 ? selectedFlight?.details?.TotalAmount
                   ? selectedFlight?.details?.TotalAmount?.toLocaleString('en-GB')
-                  : ''
+                  : '0'
                 : createExchangeBookingInfo?.Amount?.TotalAmount
                 ? createExchangeBookingInfo?.Amount?.TotalAmount?.toLocaleString('en-GB')
-                : '')}
+                : '0')}
           </p>
         </div>
         <div className="flex justify-between ">
@@ -178,64 +202,124 @@ const ReviewChange = () => {
           </div>
         ) : (
           <>
-            <div className="flex items-center my-2">
-              <input
-                id="default-checkbox"
-                type="checkbox"
-                checked={termsConditionsAccepted}
-                onChange={(e) => {
-                  dispatch(setAcceptTermsConditions(e?.target?.checked));
-                }}
-                className="accent-orange-600	 text-white w-4 h-4 opacity-70"
-              />
+            {modifyDataFromBooking && createExchangeBookingInfo?.Amount?.TotalAmount === 0 ? (
+              <>
+                <div className="flex flex-wrap -mb-px text-sm font-medium text-center  text-black ">
+                  <div className="flex md:flex block h-full items-center justify-center relative gap-3 py-3 xs:w-full  ">
+                    <button
+                      type="submit"
+                      form="hpp"
+                      className="xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center py-2 text-center w-full "
+                      onClick={() => {
+                        dispatch(
+                          loader({
+                            show: true,
+                            name: 'payment',
+                          })
+                        );
+                        dispatch(
+                          postCreateTicket(
+                            {
+                              ID: modifySeat
+                                ? modifyBookingSeats?.PnrInformation?.PnrCode
+                                : !modifyData && !modifyDataFromBooking
+                                ? createExchangeBookingInfo?.PnrInformation?.PnrCode
+                                : createExchangeBookingInfo?.PnrInformation?.PnrCode,
+                              PassengerName: modifySeat
+                                ? createTicketPassenger &&
+                                  createTicketPassenger?.length > 0 &&
+                                  createTicketPassenger[0]
+                                  ? createTicketPassenger[0]?.Surname
+                                  : ''
+                                : !modifyData && !modifyDataFromBooking
+                                ? storedPassengerData &&
+                                  storedPassengerData?.length > 0 &&
+                                  storedPassengerData[0]
+                                  ? storedPassengerData[0]?.Surname
+                                  : ''
+                                : createTicketPassenger &&
+                                  createTicketPassenger?.length > 0 &&
+                                  createTicketPassenger[0]
+                                ? createTicketPassenger[0]?.Surname
+                                : '',
+                              Amount: modifySeat
+                                ? modifyBookingSeats?.Amount?.TotalAmount
+                                : !modifyData && !modifyDataFromBooking
+                                ? createExchangeBookingInfo?.Amount?.TotalAmount
+                                : createExchangeBookingInfo?.Amount?.TotalAmount,
+                            },
+                            router
+                          ) as unknown as AnyAction
+                        );
+                      }}
+                    >
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center my-2">
+                  <input
+                    id="default-checkbox"
+                    type="checkbox"
+                    checked={termsConditionsAccepted}
+                    onChange={(e) => {
+                      dispatch(setAcceptTermsConditions(e?.target?.checked));
+                    }}
+                    className="accent-orange-600	 text-white w-4 h-4 opacity-70"
+                  />
 
-              <label className="ml-2 text-sm font-medium text-black">
-                I accept the{' '}
-                <a
-                  className="text-sm text-aqua font-medium cursor-pointer"
-                  href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/CoC_Beond_MS_080823_v2.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* {getFieldName(reviewTripContent, 'termsConditions')} */}
-                  Conditions of Carriage
-                </a>
-                <span className="text-sm font-medium"> and </span>
-                <span
-                  className="text-sm text-aqua font-medium cursor-pointer"
-                  onClick={() => {
-                    setFareModal(true);
-                    document.body.style.overflow = 'hidden';
-                  }}
-                >
-                  Fare & Baggage Rules
-                </span>
-              </label>
-            </div>
-            <div className="py-3 lg:flex md:flex block h-full items-center justify-center relative gap-3 w-full   m-auto">
-              <button
-                type="submit"
-                form="hpp"
-                disabled={
-                  !termsConditionsAccepted ||
-                  (modifyMeal || modifySeat || updateCart
-                    ? modifyBookingSeats
-                    : createExchangeBookingInfo
-                  )?.Amount?.TotalAmount === undefined
-                }
-                className={`w-full xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center px-5 py-2 text-center ${
-                  !termsConditionsAccepted ||
-                  (modifyMeal || modifySeat || updateCart
-                    ? modifyBookingSeats
-                    : createExchangeBookingInfo
-                  )?.Amount?.TotalAmount === undefined
-                    ? 'opacity-40'
-                    : ''
-                }`}
-              >
-                {getFieldName(reviewChangeContent, 'confirmPayButton')}
-              </button>
-            </div>
+                  <label className="ml-2 text-sm font-medium text-black">
+                    I accept the{' '}
+                    <a
+                      className="text-sm text-aqua font-medium cursor-pointer"
+                      href="https://edge.sitecorecloud.io/arabesquefl0f70-demoproject-demoenv-79bc/media/flightbooking/Legal-Docs/CoC_Beond_MS_080823_v2.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {/* {getFieldName(reviewTripContent, 'termsConditions')} */}
+                      Conditions of Carriage
+                    </a>
+                    <span className="text-sm font-medium"> and </span>
+                    <span
+                      className="text-sm text-aqua font-medium cursor-pointer"
+                      onClick={() => {
+                        setFareModal(true);
+                        document.body.style.overflow = 'hidden';
+                      }}
+                    >
+                      Fare & Baggage Rules
+                    </span>
+                  </label>
+                </div>
+                <div className="py-3 lg:flex md:flex block h-full items-center justify-center relative gap-3 w-full   m-auto">
+                  <button
+                    type="submit"
+                    form="hpp"
+                    disabled={
+                      !termsConditionsAccepted ||
+                      (modifyMeal || modifySeat || updateCart
+                        ? modifyBookingSeats
+                        : createExchangeBookingInfo
+                      )?.Amount?.TotalAmount === 0
+                    }
+                    className={`w-full xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center px-5 py-2 text-center ${
+                      !termsConditionsAccepted ||
+                      (modifyMeal || modifySeat || updateCart
+                        ? modifyBookingSeats
+                        : createExchangeBookingInfo
+                      )?.Amount?.TotalAmount === 0
+                        ? 'opacity-40'
+                        : ''
+                    }`}
+                  >
+                    {getFieldName(reviewChangeContent, 'confirmPayButton')}
+                  </button>
+                </div>
+              </>
+            )}
           </>
         )}
         {showFare && (

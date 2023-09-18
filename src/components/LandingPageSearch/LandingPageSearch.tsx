@@ -26,6 +26,7 @@ import {
 } from 'src/redux/action/SearchFlights';
 import {
   setYourCart,
+  setIsOneWay,
   setModifySeat,
   setUpdateCart,
   setModifyMeal,
@@ -92,6 +93,8 @@ const LandingPageSearch = () => {
   const selectedFlightInfo = useSelector(
     (state: RootState) => state?.flightDetails?.selectedFlightCodesWithDate
   );
+  const isOneWay = useSelector((state: RootState) => state?.flightDetails?.isOneWay);
+
   // const landingPageSearchContent = useSelector(
   //   (state: RootState) => state?.sitecore?.landingPageSearch?.fields
   // );
@@ -116,7 +119,7 @@ const LandingPageSearch = () => {
     promoCode: false,
     destination: false,
   });
-  const [tabName, setTabName] = useState('return');
+  const [tabName, setTabName] = useState(isOneWay ? 'oneway' : 'return');
   const [tabIndex, setTabIndex] = useState(0);
   const [flightDetails, setFlightDetails] = useState({
     adult: checkDate && adult ? adult : 1,
@@ -127,8 +130,8 @@ const LandingPageSearch = () => {
     destinationCode: checkDate && destinationCode ? destinationCode : '',
     // departDate: checkDate && departDate ? new Date(departDate) : new Date(),
     // returnDate: checkDate && returnDate ? new Date(returnDate) : new Date(),
-    departDate: checkDate && departDate && new Date(departDate),
-    returnDate: checkDate && returnDate && new Date(returnDate),
+    departDate: checkDate && departDate ? new Date(departDate) : '',
+    returnDate: checkDate && returnDate ? new Date(returnDate) : '',
   });
   const [errorMessage, setErrorMessage] = useState({
     departure: '',
@@ -179,6 +182,17 @@ const LandingPageSearch = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isOneWay && originCode?.length && destinationCode?.length) {
+      dispatch(
+        getEligibleDestinationsToOrigin({
+          DestinationCode: originCode,
+          OriginCode: destinationCode,
+        }) as unknown as AnyAction
+      );
+    }
+  }, [destinationCode, dispatch, isOneWay, originCode]);
 
   useEffect(() => {
     dispatch(setYourCart([]));
@@ -284,7 +298,15 @@ const LandingPageSearch = () => {
       moment(type === 'depart' ? flightDetails?.departDate : flightDetails?.returnDate)
         .format('LL')
         ?.split(',')[1];
-    return finalDate === 'date Invundefined' ? 'Select Date' : finalDate;
+    // return finalDate === 'date Invundefined' ? 'Select Date' : finalDate;
+    //new-added
+    return type === 'depart'
+      ? typeof flightDetails?.departDate === 'object'
+        ? finalDate
+        : 'Select Date'
+      : typeof flightDetails?.returnDate === 'object'
+      ? finalDate
+      : 'Select Date';
   };
 
   const selectedFareFamily = flightAvailabilityContent?.find(
@@ -375,6 +397,7 @@ const LandingPageSearch = () => {
                                 } font-medium text-md`}
                                 type="button"
                                 onClick={() => {
+                                  dispatch(setIsOneWay(false));
                                   setTabName('return');
                                   setErrorMessage({
                                     departure: '',
@@ -419,6 +442,7 @@ const LandingPageSearch = () => {
                                 }   hover:blue  font-medium text-md`}
                                 type="button"
                                 onClick={() => {
+                                  dispatch(setIsOneWay(true));
                                   setTabName('oneway');
                                   setErrorMessage({
                                     departure: '',

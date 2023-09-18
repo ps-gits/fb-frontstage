@@ -12,8 +12,8 @@ interface modalType {
   destinationCode?: string;
   adult?: number;
   childrens?: number;
-  departDate?: Date;
-  returnDate?: Date;
+  departDate?: Date | string; //new-added
+  returnDate?: Date | string; //new-added
   setShowModal?: Dispatch<
     SetStateAction<{
       destination: boolean;
@@ -44,8 +44,8 @@ interface modalType {
   setShowFlightInfo?: Dispatch<SetStateAction<boolean>>;
   flightDetails?:
     | {
-        departDate: Date;
-        returnDate: Date;
+        departDate: Date | string; //new-added
+        returnDate: Date | string; //new-added
         adult: number;
         dateFlexible: boolean;
         children: number;
@@ -59,8 +59,8 @@ interface modalType {
     | { departDate: Date; returnDate: Date; dateFlexible: boolean };
   setFlightDetails?: Dispatch<
     SetStateAction<{
-      departDate: Date;
-      returnDate: Date;
+      departDate: Dat | string;
+      returnDate: Dat | string;
       adult: number;
       children: number;
       originCode: string;
@@ -108,8 +108,8 @@ interface tabType {
     }>
   >;
   flightDetails: {
-    departDate: Date;
-    returnDate: Date;
+    departDate: Date | string; //new-added
+    returnDate: Date | string; //new-added
     adult: number;
     dateFlexible: boolean;
     children: number;
@@ -118,8 +118,8 @@ interface tabType {
   };
   setFlightDetails: Dispatch<
     SetStateAction<{
-      departDate: Date;
-      returnDate: Date;
+      departDate: Date | string;
+      returnDate: Date | string;
       dateFlexible: boolean;
       adult: number;
       children: number;
@@ -127,8 +127,8 @@ interface tabType {
       destinationCode: string;
     }>
   >;
-  departDate: Date;
-  returnDate?: Date;
+  departDate: Date | string;
+  returnDate?: Date | string;
   originCode: string;
   destinationCode: string;
   adult: number;
@@ -208,8 +208,8 @@ interface dropdownModal {
     Label: string;
   }[];
   flightDetails: {
-    departDate: Date;
-    returnDate: Date;
+    departDate: Date | string; //new-added
+    returnDate: Date | string; //new-added
     adult: number;
     dateFlexible: boolean;
     children: number;
@@ -218,8 +218,8 @@ interface dropdownModal {
   };
   setFlightDetails: Dispatch<
     SetStateAction<{
-      departDate: Date;
-      returnDate: Date;
+      departDate: Date | string; //new-added
+      returnDate: Date | string; //new-added
       adult: number;
       dateFlexible: boolean;
       children: number;
@@ -458,8 +458,8 @@ interface promoCodeModal {
   showModal: boolean;
   closeModal: () => void;
   flightDetails: {
-    departDate: Date;
-    returnDate: Date;
+    departDate: Date | string; //new-added
+    returnDate: Date | string; //new-added
     adult: number;
     children: number;
     originCode: string;
@@ -467,8 +467,8 @@ interface promoCodeModal {
   };
   setFlightDetails: Dispatch<
     SetStateAction<{
-      departDate: Date;
-      returnDate: Date;
+      departDate: Date | string;
+      returnDate: Date | string;
       adult: number;
       children: number;
       originCode: string;

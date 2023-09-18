@@ -87,6 +87,24 @@ const DropdownModal = ({
         ) as unknown as AnyAction
       );
     }
+    //new-added
+    if (originCode === 'MLE' && destinationCode !== code && destinationCode?.length > 0) {
+      dispatch(
+        getEligibleOriginToDestinations(
+          {
+            OriginCode: code,
+            DestinationCode: destinationCode,
+          },
+          true,
+          {
+            ...flightDetails,
+            originCode: code as string,
+          },
+          setFlightDetails,
+          name
+        ) as unknown as AnyAction
+      );
+    }
     dispatch(getDestinationDetails(code) as unknown as AnyAction);
   };
 
@@ -96,6 +114,24 @@ const DropdownModal = ({
       ...flightDetails,
       destinationCode: code,
     });
+    //new-added
+    if (destinationCode?.length > 0 && destinationCode !== code) {
+      dispatch(
+        getEligibleOriginToDestinations(
+          {
+            OriginCode: originCode,
+            DestinationCode: code,
+          },
+          true,
+          {
+            ...flightDetails,
+            destinationCode: code,
+          },
+          setFlightDetails,
+          tabName
+        ) as unknown as AnyAction
+      );
+    }
     (
       errorMessage as {
         departure: string;
