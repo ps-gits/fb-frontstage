@@ -67,7 +67,7 @@ const LandingPageSearchBar = (props: tabType) => {
       DateFlexible: dateFlexible,
       Passengers:
         childrens > 0
-          ? [
+          ? [ 
               {
                 Ref: 'P1',
                 RefClient: '',
