@@ -47,7 +47,7 @@ const ChooseSeats = () => {
   const modifyDataFromBooking = useSelector(
     (state: RootState) => state?.flightDetails?.modifyDataFromBooking
   );
-  // const flightInformation = useSelector((state: RootState) => state?.flightDetails);
+  const flightInformation = useSelector((state: RootState) => state?.flightDetails);
   const modifySeat = useSelector((state: RootState) => state?.flightDetails?.modifySeat);
   const modifyData = useSelector((state: RootState) => state?.flightDetails?.modifyData);
   const seatMaps = useSelector((state: RootState) =>
@@ -526,8 +526,9 @@ const ChooseSeats = () => {
             Surname: item?.Surname,
             Firstname: item?.Firstname,
             Ref: prepareFlightDetails?.Passengers[index]?.Ref,
-            PassengerType: calculateDob(new Date(), new Date(), item?.Dob) >= 11 ? 'AD' : 'CHD',
+            PassengerType: flightInformation?.FaireFamilies?.length()>1 ? (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[1]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') : (calculateDob(flightInformation?.FaireFamilies[0]?.orginDepartureDate, flightInformation?.FaireFamilies[0]?.orginDepartureDate , item?.Dob) >= 11 ? 'AD' : 'CHD') ,
             Homecontact: postData?.Mobile,
+            
           },
           SpecialServices:
             calculateDob(new Date(), new Date(),item?.Dob) >= 11
