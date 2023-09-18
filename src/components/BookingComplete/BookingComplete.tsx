@@ -347,8 +347,8 @@ const BookingComplete = () => {
   }
 
   const detailedPixelLoader = () => {
-    return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+{getPnrDetails}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
-        
+    // return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+${createBookingInfo?.PnrInformation?.PnrCode}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
+    return `https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID=+${createBookingInfo?.PnrInformation?.PnrCode}+&revenue=+${getFareDetails}+&currency=+${bookingCompleteInfo?.Amount?.TotalAmount}`    
   }
 
   return (
