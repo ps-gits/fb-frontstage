@@ -159,7 +159,10 @@ const ChooseSeats = () => {
   const modifyBookingInfo = useSelector((state: RootState) => state?.flightDetails?.modifyBooking);
   // const reviewTripContent = useSelector((state: RootState) => state?.sitecore?.reviewTrip?.fields);
   const chooseSeatsContent = useSelector((state: RootState) => state?.sitecore?.chooseSeat?.fields);
-
+  useSelector((state : RootState)=> {;
+  useEffect(() => { 
+         console.log("flightInfo", state?.flightDetails)
+  }, [])});
   const allSeats = modifyBookingInfo?.PassengersDetails?.map(
     (item: { fields: { Code: string }[] }) =>
       item?.fields?.filter((item: { Code: string }) => item?.Code === 'SEAT')?.map((item) => item)
@@ -290,10 +293,6 @@ const ChooseSeats = () => {
   useEffect(() => {
     dispatch(getSitecoreContent('Terms-Conditions') as unknown as AnyAction);
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log("SelectedFlight",selectedFlight);
-  }, []);
 
   const findCodeInModifySeat = (indexNumber: number, codeType: string) => {
     return flightWay?.find(
