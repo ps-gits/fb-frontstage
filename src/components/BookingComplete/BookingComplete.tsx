@@ -320,6 +320,12 @@ const BookingComplete = () => {
   }
 
   const getPnrDetails = () => {
+    const val = router?.query?.error !== undefined && router?.query?.error?.length > 0
+    ? createBookingInfo?.PnrInformation?.PnrCode
+    : bookingCompleteInfo?.PnrInformation?.PnrCode;
+    console.log("Val", createBookingInfo?.PnrInformation?.PnrCode)
+    console.log("Val2",bookingCompleteInfo?.PnrInformation?.PnrCode)
+    console.log("Val3", val);
     return router?.query?.error !== undefined && router?.query?.error?.length > 0
                       ? createBookingInfo?.PnrInformation?.PnrCode
                       : bookingCompleteInfo?.PnrInformation?.PnrCode
