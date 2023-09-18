@@ -310,15 +310,6 @@ const BookingComplete = () => {
     (item: { mapIndex: number }) => item?.mapIndex === 1
   );
 
-  const imageLoader = () => {
-    return `https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i`
-  }
-
-  const detailedPixelLoader = () => {
-    return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+{getPnrDetails}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
-        
-  }
-
   const getPnrDetails = () => {
     const val = router?.query?.error !== undefined && router?.query?.error?.length > 0
     ? createBookingInfo?.PnrInformation?.PnrCode
@@ -339,6 +330,15 @@ const BookingComplete = () => {
 
   const getFareDetails = () => {
     return bookingCompleteInfo?.Amount?.TotalAmount
+  }
+
+  const imageLoader = () => {
+    return `https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i`
+  }
+
+  const detailedPixelLoader = () => {
+    return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+{getPnrDetails}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
+        
   }
 
   return (
