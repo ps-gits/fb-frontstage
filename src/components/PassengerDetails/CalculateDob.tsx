@@ -1,6 +1,7 @@
 export const calculateDob = (originDate:Date, returnDate: Date, dateString: string) => {
   
   let age = null;
+  console.log("AgeIntital", returnDate, originDate, dateString);
   if (returnDate) {
     const today = returnDate;
     const birthDate = new Date(dateString?.replace(/-/g, '/'));
