@@ -2249,14 +2249,14 @@ const FlightAvailability = () => {
       ) : (
         load.name === 'exp' && <SavingExpLoader open={load?.show} />
       )}
-      <noscript>
+      <script>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-WHMT2ZS3"
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
-      </noscript>
+      </script>
       
     </main>
   );
