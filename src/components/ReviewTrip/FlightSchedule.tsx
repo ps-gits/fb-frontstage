@@ -11,7 +11,7 @@ const FlightSchedule = (props: flightSchedule) => {
     seats,
     meals,
     Stops,
-    special,
+    // special,
     Remarks,
     WebClass,
     Duration,
@@ -409,7 +409,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 </Accordion>
               </div>
             )}
-            {special && (
+            {/* {special && (
               <div className='shedule-accordian'>
                 <Accordion className="" collapseAll>
                   <Accordion.Panel>
@@ -456,7 +456,7 @@ const FlightSchedule = (props: flightSchedule) => {
                   </Accordion.Panel>
                 </Accordion>
               </div>
-            )}
+            )} */}
             {/* <div className="flex gap-3 py-2 items-center">
               <Image
                 className="h-6 w-6 object-cover"
