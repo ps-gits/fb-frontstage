@@ -542,6 +542,7 @@ const BookingComplete = () => {
                                   originToDestinationSeatData={originToDestinationSeatData}
                                   destinationToOriginSeatData={destinationToOriginSeatData}
                                   DestinationAirportTerminal={item?.DestinationAirportTerminal}
+                                  WebClass={item?.WebClass ? item?.WebClass : flightInfo?.name}
                                 />
                               </div>
                             );
