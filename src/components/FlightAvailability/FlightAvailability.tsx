@@ -309,14 +309,14 @@ const FlightAvailability = () => {
         height={1}
         alt="pixel" 
         />
-        <noscript>
+        
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-WHMT2ZS3"
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
-      </noscript>
+      
       {!load?.show ? (
         <Fragment>
           <div className="relative">
