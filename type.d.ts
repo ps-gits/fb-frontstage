@@ -649,6 +649,7 @@ interface bookingDetails {
   OriginName: string;
   DestinationName: string;
   Remarks: string;
+  WebClass : string;
   Stops: {
     LocationCode: string;
   }[];

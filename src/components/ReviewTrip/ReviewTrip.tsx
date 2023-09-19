@@ -294,7 +294,7 @@ const ReviewTrip = () => {
                                 AircraftType={item?.AircraftType}
                                 loungeAccess={item?.Lounge}
                                 luxuryPickup={item?.Luxury}
-                                WebClass={flightInfo?.name}
+                                WebClass={item?.WebClass ? item?.WebClass : flightInfo?.name}
                                 originCode={item?.OriginCode}
                                 arrivalDate={item?.ArrivalDate}
                                 FlightNumber={item?.FlightNumber}
