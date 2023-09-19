@@ -148,7 +148,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
           <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
             <Layout>
               <Component {...rest} >
-              <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHMT2ZS3" height="0" width="0"></iframe></noscript>
+              <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHMT2ZS3" height="0" width="0"></iframe>
               </Component>
             </Layout>
           </I18nProvider>

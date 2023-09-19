@@ -329,12 +329,7 @@ const BookingComplete = () => {
     return bookingCompleteInfo?.Amount?.TotalAmount
   }
 
-  const imageLoader = () => {
-    return `https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i`
-  }
-
   const detailedPixelLoader = () => {
-    // return 'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+${createBookingInfo?.PnrInformation?.PnrCode}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}
     return `https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID=${getPnrDetails()}&revenue=${getFareDetails()}&currency=${getCurrencyDetails()}`    
   }
 
@@ -365,13 +360,6 @@ const BookingComplete = () => {
         };
       }}
     >
-      <Image
-        src={'https://ipac.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i'}
-        loader={imageLoader}
-        width={1}
-        height={1}
-        alt="pixel"
-      />
       <Image
         src={'https://i.ctnsnet.com/int/integration?pixel=79124023&nid=2142538&cont=i&orderID='+{getPnrDetails}+'&revenue='+{getFareDetails}+'&currency='+{getCurrencyDetails}}
         loader={detailedPixelLoader}
@@ -822,14 +810,6 @@ const BookingComplete = () => {
       ) : (
         load?.name === 'payment' && <PaymentGatewayLoader open={load?.show} />
       )}
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-WHMT2ZS3"
-          height="0"
-          width="0"
-          style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
-      </noscript>
     </main>
   );
 };
