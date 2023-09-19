@@ -1029,6 +1029,10 @@ svg.h-6.w-6.shrink-0 {
   overflow: hidden;
 }
 
+.toaster-modal.right-6 {
+  right: 40% !important;
+}
+
 @media screen and (max-width: 1536.1px) {
   .flight-img {
     width: 650px;
