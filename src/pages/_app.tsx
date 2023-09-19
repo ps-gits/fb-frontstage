@@ -78,7 +78,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   }, [isLoad]);
 
   useEffect(() => {
-    console.log("Here");
+    
     const adrollScriptCode = `
       adroll_adv_id = "HHDIC2MYFZC7NJPXQ25UIH";
       adroll_pix_id = "IMDARVLXGJEUZF5RSPKPO6";
@@ -109,6 +109,24 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
 
     try {
       const executeAdrollScript = new Function(adrollScriptCode);
+      executeAdrollScript();
+    } catch (error) {
+      console.error("Error executing script:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    
+    const gtmScript = `
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WHMT2ZS3');
+    `;
+
+    try {
+      const executeAdrollScript = new Function(gtmScript);
       executeAdrollScript();
     } catch (error) {
       console.error("Error executing script:", error);

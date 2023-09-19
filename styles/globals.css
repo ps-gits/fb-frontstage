@@ -1030,7 +1030,7 @@ svg.h-6.w-6.shrink-0 {
 }
 
 .toaster-modal.right-6 {
-  right: 40% !important;
+  left: 45% !important;
 }
 
 @media screen and (max-width: 1536.1px) {
@@ -1045,7 +1045,7 @@ svg.h-6.w-6.shrink-0 {
     height: 376px;
   }
   .toaster-modal.right-6 {
-    right: 40% !important;
+    left: 45% !important;
   }
 }
 
@@ -1065,7 +1065,7 @@ svg.h-6.w-6.shrink-0 {
     height: 336px;
   }
   .toaster-modal.right-6 {
-    right: 40% !important;
+    left: 45% !important;
   }
 }
 
@@ -1093,7 +1093,7 @@ svg.h-6.w-6.shrink-0 {
     margin-left: 15px;
   }
   .toaster-modal.right-6 {
-    right: 40% !important;
+    left: 45% !important;
   }
 
 }
@@ -1121,7 +1121,7 @@ svg.h-6.w-6.shrink-0 {
     height: 9rem !important;
   }
   .toaster-modal.right-6 {
-    right: 40% !important;
+    left: 45% !important;
   }
 }
 
@@ -1158,7 +1158,7 @@ svg.h-6.w-6.shrink-0 {
     margin: -80px auto 0;
   }
   .toaster-modal.right-6 {
-    right: 40% !important;
+    left: 45% !important;
   }
 }
 
