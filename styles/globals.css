@@ -1163,7 +1163,7 @@ svg.h-6.w-6.shrink-0 {
     margin: -30px auto 0;
   }
   .toaster-modal.right-6 {
-    right: 25% !important;
+    left: 25% !important;
   }
 }
 
@@ -1181,7 +1181,7 @@ svg.h-6.w-6.shrink-0 {
   }
 
   .toaster-modal.right-6 {
-    right: 25% !important;
+    left: 25% !important;
   }
 }
 
@@ -1191,6 +1191,6 @@ svg.h-6.w-6.shrink-0 {
     top: 25rem !important;
   }
   .toaster-modal.right-6 {
-    right: 25% !important;
+    left: 25% !important;
   }
 }
