@@ -485,6 +485,7 @@ const ReviewChange = () => {
                           destinationAirportName={item?.destinationName}
                           OriginAirportTerminal={item?.OriginAirportTerminal}
                           DestinationAirportTerminal={item?.DestinationAirportTerminal}
+                          WebClass={item?.WebClass ? item?.WebClass : 'Bliss'}
                         />
                       </div>
                     );

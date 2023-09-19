@@ -617,6 +617,7 @@ const ModifyBooking = () => {
                                 originToDestinationSeatData={originToDestinationSeatData}
                                 destinationToOriginSeatData={destinationToOriginSeatData}
                                 DestinationAirportTerminal={item?.DestinationAirportTerminal}
+                                WebClass={item?.WebClass ? item?.WebClass : 'Bliss'}
                                 // originAirportName={
                                 //   flightInfo?.details?.FaireFamilies[index]?.originName
                                 // }

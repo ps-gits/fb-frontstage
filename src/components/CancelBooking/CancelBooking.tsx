@@ -245,6 +245,7 @@ const CancelBooking = () => {
                                 destinationAirportName={item?.DestinationName}
                                 OriginAirportTerminal={item?.OriginAirportTerminal}
                                 DestinationAirportTerminal={item?.DestinationAirportTerminal}
+                                WebClass={item?.WebClass ? item?.WebClass : flightInfo?.name}
                               />
                             </div>
                           );

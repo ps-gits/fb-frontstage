@@ -512,6 +512,7 @@ interface selectedFareFamily {
   AircraftType?: string;
   OriginAirportTerminal: string;
   DestinationAirportTerminal: string;
+  WebClass: string;
 }
 
 interface youngAdultAgeModal {
