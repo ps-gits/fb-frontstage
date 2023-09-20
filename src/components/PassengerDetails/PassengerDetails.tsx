@@ -794,6 +794,7 @@ const PassengerDetails = () => {
             validMobile: string;
             // Homecontact: string;
             dialCodeMobile: string;
+            offerUpdate: string;
             // flagHomeContact: string;
             // validHomeContact: string;
             // dialCodeHomeContact: string;
