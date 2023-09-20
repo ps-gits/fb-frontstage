@@ -181,8 +181,8 @@ const LandingPageSearch = () => {
 
     const timer = setTimeout(() => {
       setShowOffer(true);
-      document.body.style.overflow = 'hidden';
-    }, 3000);
+      
+    }, 5000);
 
     return () => {
       clearTimeout(timer);
