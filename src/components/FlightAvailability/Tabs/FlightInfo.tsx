@@ -96,7 +96,7 @@ const FlightInfo = (props: flightDetails) => {
                           seats={false}
                           Stops={item?.Stops}
                           Remarks={item?.Remarks}
-                          WebClass={selectedFlight?.name}
+                          WebClass={item?.WebClass ? item?.WebClass : 'Bliss'}
                           FlightNumber={item?.FlightNumber}
                           bagAllowances={item?.BagAllowances}
                           originAirportName={item?.originName}

@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   setUpdateCart,
   setModifyDates,
-  setModifyBookingFromBooking,
   setAcceptTermsConditions,
+  setModifyBookingFromBooking,
 } from 'src/redux/reducer/FlightDetails';
 import { RootState } from 'src/redux/store';
 import { loader } from 'src/redux/reducer/Loader';
@@ -202,7 +202,8 @@ const ReviewChange = () => {
           </div>
         ) : (
           <>
-            {modifyDataFromBooking && createExchangeBookingInfo?.Amount?.TotalAmount === 0 ? (
+            {(modifyData || modifyDataFromBooking) &&
+            createExchangeBookingInfo?.Amount?.TotalAmount === 0 ? (
               <>
                 <div className="flex flex-wrap -mb-px text-sm font-medium text-center  text-black ">
                   <div className="flex md:flex block h-full items-center justify-center relative gap-3 py-3 xs:w-full  ">

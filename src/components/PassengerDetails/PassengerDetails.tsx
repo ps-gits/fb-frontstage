@@ -794,7 +794,6 @@ const PassengerDetails = () => {
             validMobile: string;
             // Homecontact: string;
             dialCodeMobile: string;
-            offerUpdate: boolean;
             // flagHomeContact: string;
             // validHomeContact: string;
             // dialCodeHomeContact: string;
@@ -823,11 +822,10 @@ const PassengerDetails = () => {
                 (dt) => dt?.label === postData?.CivilityCode || dt?.Code === postData?.CivilityCode
               )?.Code,
               Surname: item?.Surname,
-              Firstname: String(offerUpdate),
+              Firstname: item?.Firstname,
               Ref: prepareFlightDetails?.Passengers[index]?.Ref,
               PassengerType: calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , item?.Dob) >= 11 ? 'AD' : 'CHD',
               Homecontact: postData?.Mobile,
-              OfferUpdate: offerUpdate
             },
             SpecialServices:
               calculateDob(selectedDetailsForFlight?.departDate,selectedDetailsForFlight?.returnDate , item?.Dob) >= 11
