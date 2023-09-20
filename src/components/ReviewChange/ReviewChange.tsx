@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AnyAction } from 'redux';
 import parse from 'html-react-parser';
 import { useRouter } from 'next/router';
