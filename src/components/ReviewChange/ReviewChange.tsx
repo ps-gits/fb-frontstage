@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import parse from 'html-react-parser';
 import { useRouter } from 'next/router';
@@ -112,16 +112,16 @@ const ReviewChange = () => {
       item && item?.OriginCode !== undefined && item?.DestinationCode !== undefined
   );
 
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   console.log("Webclass", modifyBookingSeats?.OriginDestination)
-  //   console.log("Web",selectedFlight?.details?.FaireFamilies)
-  //   const vala = (modifyMeal || modifySeat || updateCart
-  //     ? modifyBookingSeats?.OriginDestination
-  //     : selectedFlight?.details?.FaireFamilies
-  //   )
-  //   console.log("Webclass", vala)
-  // }, []);
+    console.log("Webclass", modifyBookingSeats?.OriginDestination)
+    console.log("Web",selectedFlight?.details?.FaireFamilies)
+    const vala = (modifyMeal || modifySeat || updateCart
+      ? modifyBookingSeats?.OriginDestination
+      : selectedFlight?.details?.FaireFamilies
+    )
+    console.log("Webclass", vala)
+  }, []);
 
   const TotalPrice = () => {
     return (
