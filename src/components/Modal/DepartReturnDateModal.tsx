@@ -2,7 +2,7 @@ import moment from 'moment';
 import { AnyAction } from 'redux';
 import { useRouter } from 'next/router';
 import enGb from 'date-fns/locale/en-GB';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -55,7 +55,6 @@ const DepartReturnDateModal = (props: modalType) => {
   const destinationToOriginDates = useSelector(
     (state: RootState) => state?.flightDetails?.destinationToOriginDates
   );
-
   const modalContent = useSelector((state: RootState) => state?.sitecore?.dateModal?.fields);
   const findBookingInfo = useSelector((state: RootState) => state?.flightDetails?.findBooking);
   const searchFlightData = useSelector((state: RootState) => state?.flightDetails?.reviewFlight);
@@ -83,23 +82,8 @@ const DepartReturnDateModal = (props: modalType) => {
         dateFlexible: dateFlexible,
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showModal]);
-  //new-added
-  useEffect(() => {
-    if (departDate === datesInfo?.departDate && returnDate === datesInfo?.returnDate) {
-      setFlightDetails({
-        ...flightDetails,
-        departDate: '',
-        returnDate: '',
-      });
-      setDatesInfo({
-        departDate: '' as unknown as Date,
-        returnDate: '' as unknown as Date,
-        dateFlexible: dateFlexible,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [originCode, destinationCode, originToDestinationDates, destinationToOriginDates]);
+  }, [showModal, departDate]);
+
   const selectedFareFamily = flightAvailablityContent?.find(
     (item: { name: string }) => item?.name === 'delight'
   );
@@ -113,27 +97,36 @@ const DepartReturnDateModal = (props: modalType) => {
     return allowedDates.includes(moment(calendarDate).format('YYYY-MM-DD'));
   };
 
-  const highlightDates = useCallback(() => {
-    const datesToHighlight = (
-      name === 'Departure' ? originToDestinationDates : destinationToOriginDates
-    )?.map((item: { TargetDate: string }) => {
-      return item?.TargetDate?.split('T')[0];
-    });
+  const datesToHighlight = (
+    name === 'Departure' ? originToDestinationDates : destinationToOriginDates
+  )?.map((item: { TargetDate: string; OriginCode: string }) => {
+    return item?.TargetDate?.split('T')[0];
+  });
 
+  const highlightDates = () => {
     const datesArray = datesToHighlight
       ?.filter(
         (item: string) =>
-          new Date(item).valueOf() >= new Date(new Date().toJSON().split('T')[0]).valueOf()
+          new Date(item).valueOf() >=
+          (name === 'Departure'
+            ? new Date(new Date().toJSON().split('T')[0]).valueOf()
+            : typeof departDate === 'object'
+            ? new Date(new Date(departDate as Date).toJSON().split('T')[0]).valueOf()
+            : new Date(new Date().toJSON().split('T')[0]).valueOf())
       )
       ?.map((item: string) => new Date(item));
 
     return datesArray;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [destinationToOriginDates, name, originToDestinationDates, showModal]);
+  };
 
-  useEffect(() => {
-    highlightDates();
-  }, [highlightDates, showModal, destinationToOriginDates, originToDestinationDates]);
+  const findMinimumDate = () => {
+    return new Date(
+      datesToHighlight?.find(
+        (item: string) =>
+          new Date(item).valueOf() >= new Date(new Date().toJSON().split('T')[0]).valueOf()
+      )
+    );
+  };
 
   const tripLength = () => {
     const count =
@@ -339,7 +332,7 @@ const DepartReturnDateModal = (props: modalType) => {
                     selectsRange
                     locale="en-gb"
                     // minDate={name === 'Departure' ? moment().toDate() : datesInfo?.departDate}
-                    minDate={name === 'Departure' ? highlightDates()[0] : datesInfo?.departDate}
+                    minDate={name === 'Departure' ? findMinimumDate() : datesInfo?.departDate}
                     startDate={name === 'Return' ? datesInfo?.departDate : undefined}
                     filterDate={
                       (name === 'Departure'

@@ -26,7 +26,6 @@ import {
 } from 'src/redux/action/SearchFlights';
 import {
   setYourCart,
-  setIsOneWay,
   setModifySeat,
   setUpdateCart,
   setModifyMeal,
@@ -90,11 +89,12 @@ const LandingPageSearch = () => {
   const originToDestinationDates = useSelector(
     (state: RootState) => state?.flightDetails?.originToDestinationDates
   );
+  const destinationToOriginDates = useSelector(
+    (state: RootState) => state?.flightDetails?.destinationToOriginDates
+  );
   const selectedFlightInfo = useSelector(
     (state: RootState) => state?.flightDetails?.selectedFlightCodesWithDate
   );
-  const isOneWay = useSelector((state: RootState) => state?.flightDetails?.isOneWay);
-
   // const landingPageSearchContent = useSelector(
   //   (state: RootState) => state?.sitecore?.landingPageSearch?.fields
   // );
@@ -119,7 +119,7 @@ const LandingPageSearch = () => {
     promoCode: false,
     destination: false,
   });
-  const [tabName, setTabName] = useState(isOneWay ? 'oneway' : 'return');
+  const [tabName, setTabName] = useState('return');
   const [tabIndex, setTabIndex] = useState(0);
   const [flightDetails, setFlightDetails] = useState({
     adult: checkDate && adult ? adult : 1,
@@ -148,51 +148,48 @@ const LandingPageSearch = () => {
   const [openSelectModal, setOpenSelectModal] = useState(false);
 
   useEffect(() => {
-    if (
-      checkDate &&
-      originCode &&
-      destinationCode &&
+    if (checkDate && originCode && destinationCode) {
       originToDestinationDates?.find(
         (item: { OriginCode: string; DestinationCode: string }) =>
           item?.OriginCode === originCode && item?.DestinationCode === destinationCode
-      ) === undefined
-    ) {
-      dispatch(
-        getEligibleOriginToDestinations({
-          OriginCode: originCode,
-          DestinationCode: destinationCode,
-        }) as unknown as AnyAction
-      );
-      dispatch(
-        getEligibleDestinationsToOrigin({
-          DestinationCode: originCode,
-          OriginCode: destinationCode,
-        }) as unknown as AnyAction
-      );
+      ) === undefined &&
+        dispatch(
+          getEligibleOriginToDestinations({
+            OriginCode: originCode,
+            DestinationCode: destinationCode,
+          }) as unknown as AnyAction
+        );
+
+      destinationToOriginDates?.find(
+        (item: { OriginCode: string; DestinationCode: string }) =>
+          item?.OriginCode === destinationCode && item?.DestinationCode === originCode
+      ) === undefined &&
+        dispatch(
+          getEligibleDestinationsToOrigin({
+            DestinationCode: originCode,
+            OriginCode: destinationCode,
+          }) as unknown as AnyAction
+        );
     }
+
     destinationCode?.length > 0 &&
       dropdownOptionDestination?.find((item: { code: string }) => item?.code === destinationCode)
         ?.Label === undefined &&
       dispatch(getDestinationDetails(originCode) as unknown as AnyAction);
+
+    typeof departDate === 'object' && typeof returnDate === 'string' && setTabName('oneway');
+
     const timer = setTimeout(() => {
       setShowOffer(true);
-    }, 5000);
+      document.body.style.overflow = 'hidden';
+    }, 3000);
+
     return () => {
       clearTimeout(timer);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    if (isOneWay && originCode?.length && destinationCode?.length) {
-      dispatch(
-        getEligibleDestinationsToOrigin({
-          DestinationCode: originCode,
-          OriginCode: destinationCode,
-        }) as unknown as AnyAction
-      );
-    }
-  }, [destinationCode, dispatch, isOneWay, originCode]);
 
   useEffect(() => {
     dispatch(setYourCart([]));
@@ -397,7 +394,32 @@ const LandingPageSearch = () => {
                                 } font-medium text-md`}
                                 type="button"
                                 onClick={() => {
-                                  dispatch(setIsOneWay(false));
+                                  flightDetails?.originCode?.length > 0 &&
+                                    flightDetails?.destinationCode?.length > 0 &&
+                                    originToDestinationDates?.find(
+                                      (item: { OriginCode: string; DestinationCode: string }) =>
+                                        item?.OriginCode === flightDetails?.originCode &&
+                                        item?.DestinationCode === flightDetails?.destinationCode
+                                    ) === undefined &&
+                                    dispatch(
+                                      getEligibleOriginToDestinations({
+                                        OriginCode: flightDetails?.originCode,
+                                        DestinationCode: flightDetails?.destinationCode,
+                                      }) as unknown as AnyAction
+                                    );
+                                  flightDetails?.originCode?.length > 0 &&
+                                    flightDetails?.destinationCode?.length > 0 &&
+                                    destinationToOriginDates?.find(
+                                      (item: { OriginCode: string; DestinationCode: string }) =>
+                                        item?.OriginCode === flightDetails?.destinationCode &&
+                                        item?.DestinationCode === flightDetails?.originCode
+                                    ) === undefined &&
+                                    dispatch(
+                                      getEligibleDestinationsToOrigin({
+                                        DestinationCode: flightDetails?.originCode,
+                                        OriginCode: flightDetails?.destinationCode,
+                                      }) as unknown as AnyAction
+                                    );
                                   setTabName('return');
                                   setErrorMessage({
                                     departure: '',
@@ -442,7 +464,20 @@ const LandingPageSearch = () => {
                                 }   hover:blue  font-medium text-md`}
                                 type="button"
                                 onClick={() => {
-                                  dispatch(setIsOneWay(true));
+                                  flightDetails?.originCode?.length > 0 &&
+                                    flightDetails?.destinationCode?.length > 0 &&
+                                    originToDestinationDates?.find(
+                                      (item: { OriginCode: string; DestinationCode: string }) =>
+                                        item?.OriginCode === flightDetails?.originCode &&
+                                        item?.DestinationCode === flightDetails?.destinationCode
+                                    ) === undefined &&
+                                    dispatch(
+                                      getEligibleOriginToDestinations({
+                                        OriginCode: flightDetails?.originCode,
+                                        DestinationCode: flightDetails?.destinationCode,
+                                      }) as unknown as AnyAction
+                                    );
+
                                   setTabName('oneway');
                                   setErrorMessage({
                                     departure: '',

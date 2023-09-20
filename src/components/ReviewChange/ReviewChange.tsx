@@ -207,8 +207,7 @@ const ReviewChange = () => {
                 <div className="flex flex-wrap -mb-px text-sm font-medium text-center  text-black ">
                   <div className="flex md:flex block h-full items-center justify-center relative gap-3 py-3 xs:w-full  ">
                     <button
-                      type="submit"
-                      form="hpp"
+                      type="button"
                       className="xs:justify-center  xs:text-center text-white bg-aqua  font-black rounded-lg text-lg inline-flex items-center py-2 text-center w-full "
                       onClick={() => {
                         dispatch(

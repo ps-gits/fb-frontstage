@@ -70,7 +70,7 @@ const FlightSchedule = (props: flightSchedule) => {
           <div className="absolute w-11 left-0 top-1/2 flex flex-col items-center ">
             <div
               key={index}
-              className="bg-white text-center flex flex-col group items-center relative group"
+              className="bg-white text-center flex flex-col group items-center relative group color-black"
             >
               <span className="cursor-pointer group">
                 <Image

@@ -39,38 +39,38 @@ export const getEligibleOriginToDestinations =
   (
     originDestination: getEligibleOriginDestinationDates,
     editDate?: boolean,
-    flightDetails?: {
-      departDate: Date | string; //new-added
-      returnDate: Date | string; //new-added
-      adult: number;
-      children: number;
-      originCode: string;
-      destinationCode: string;
-    },
-    setFlightDetails?: {
-      (
-        value: SetStateAction<{
-          adult: number;
-          children: number;
-          promoCode: string;
-          originCode: string;
-          dateFlexible: boolean;
-          destinationCode: string;
-          departDate: Date | string; //new-added
-          returnDate: Date | string; //new-added
-        }>
-      ): void;
-      (arg0: {
-        adult: number;
-        children: number;
-        promoCode: string;
-        originCode: string;
-        dateFlexible: boolean;
-        destinationCode: string;
-        departDate: Date | string;
-        returnDate: Date | string;
-      }): void;
-    },
+    // flightDetails?: {
+    //   departDate: Date | string; //new-added
+    //   returnDate: Date | string; //new-added
+    //   adult: number;
+    //   children: number;
+    //   originCode: string;
+    //   destinationCode: string;
+    // },
+    // setFlightDetails?: {
+    //   (
+    //     value: SetStateAction<{
+    //       adult: number;
+    //       children: number;
+    //       promoCode: string;
+    //       originCode: string;
+    //       dateFlexible: boolean;
+    //       destinationCode: string;
+    //       departDate: Date | string; //new-added
+    //       returnDate: Date | string; //new-added
+    //     }>
+    //   ): void;
+    //   (arg0: {
+    //     adult: number;
+    //     children: number;
+    //     promoCode: string;
+    //     originCode: string;
+    //     dateFlexible: boolean;
+    //     destinationCode: string;
+    //     departDate: Date;
+    //     returnDate: Date;
+    //   }): void;
+    // },
     tabName?: string
   ) =>
   (dispatch: Dispatch) => {
@@ -119,20 +119,20 @@ export const getEligibleOriginToDestinations =
                 name: '',
               })
             );
-            setFlightDetails &&
-              setFlightDetails({
-                ...(flightDetails as {
-                  adult: number;
-                  children: number;
-                  promoCode: string;
-                  originCode: string;
-                  dateFlexible: boolean;
-                  destinationCode: string;
-                  departDate: Date;
-                  returnDate: Date;
-                }),
-                // departDate: utcDate,
-              });
+            // setFlightDetails &&
+            //   setFlightDetails({
+            //     ...(flightDetails as {
+            //       adult: number;
+            //       children: number;
+            //       promoCode: string;
+            //       originCode: string;
+            //       dateFlexible: boolean;
+            //       destinationCode: string;
+            //       departDate: Date;
+            //       returnDate: Date;
+            //     }),
+            //      departDate: utcDate,
+            //   });
           }
         } else {
           dispatch(
@@ -632,7 +632,7 @@ export const postExchangeCreateBooking =
       .then((res) => {
         router.push('/reviewchange');
         dispatch(setExchangeCreateBookingData(res?.data?.data));
-        res?.data?.data?.Amount?.TotalAmount !== 0 &&
+        res?.data?.data?.Amount?.TotalAmount &&
           res?.data?.data?.Amount?.TotalAmount !== null &&
           dispatch(
             postPaymentAmount({

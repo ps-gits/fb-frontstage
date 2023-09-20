@@ -45,73 +45,46 @@ const DropdownModal = ({
     //     name: 'search',
     //   })
     // );
-    if (destinationCode?.length > 0 && destinationCode !== code) {
-      setFlightDetails({
-        ...flightDetails,
-        originCode: code as string,
-      });
-    } else if (destinationCode?.length > 0 && destinationCode === code) {
-      setFlightDetails({
-        ...flightDetails,
-        originCode: code as string,
-        destinationCode: code !== 'MLE' ? 'MLE' : '',
-      });
-    } else {
-      setFlightDetails({
-        ...flightDetails,
-        originCode: code as string,
-        destinationCode: '',
-      });
-    }
-    errorMessage?.departure?.length &&
-      setErrorMessage({
-        ...errorMessage,
-        departure: '',
-      });
-    setOpenSelectModal(false);
-    document.body.style.overflow = 'unset';
-    if (destinationCode !== code && destinationCode?.length > 0) {
-      dispatch(
-        getEligibleOriginToDestinations(
-          {
-            OriginCode: code,
-            DestinationCode: destinationCode,
-          },
-          true,
-          {
-            ...flightDetails,
-            originCode: code as string,
-          },
-          setFlightDetails,
-          name
-        ) as unknown as AnyAction
-      );
-    }
     //new-added
-    if (originCode === 'MLE' && destinationCode !== code && destinationCode?.length > 0) {
-      dispatch(
-        getEligibleOriginToDestinations(
-          {
-            OriginCode: code,
-            DestinationCode: destinationCode,
-          },
-          true,
-          {
-            ...flightDetails,
-            originCode: code as string,
-          },
-          setFlightDetails,
-          name
-        ) as unknown as AnyAction
-      );
-    }
-    dispatch(getDestinationDetails(code) as unknown as AnyAction);
+    // if (originCode === 'MLE' && destinationCode !== code && destinationCode?.length > 0) {
+    //   dispatch(
+    //     getEligibleOriginToDestinations(
+    //       {
+    //         OriginCode: code,
+    //         DestinationCode: destinationCode,
+    //       },
+    //       true,
+    //       // {
+    //       //   ...flightDetails,
+    //       //   originCode: code as string,
+    //       // },
+    //       // setFlightDetails,
+    //       name
+    //     ) as unknown as AnyAction
+    //   );
+    // }
+    dispatch(
+      getDestinationDetails(
+        code,
+        name,
+        destinationCode,
+        flightDetails,
+        setFlightDetails,
+        errorMessage,
+        setErrorMessage,
+        setOpenSelectModal
+      ) as unknown as AnyAction
+    );
   };
 
   const dropdownEventArrival = (code: string) => {
     setLoading(false);
     setFlightDetails({
       ...flightDetails,
+      departDate:
+        destinationCode?.length > 0 && destinationCode !== code ? '' : flightDetails?.departDate,
+      returnDate:
+        destinationCode?.length > 0 && destinationCode !== code ? '' : flightDetails?.returnDate,
       destinationCode: code,
     });
     //new-added
@@ -123,15 +96,11 @@ const DropdownModal = ({
             DestinationCode: code,
           },
           true,
-          {
-            ...flightDetails,
-            destinationCode: code,
-          },
-          setFlightDetails,
           tabName
         ) as unknown as AnyAction
       );
     }
+
     (
       errorMessage as {
         departure: string;
@@ -143,13 +112,8 @@ const DropdownModal = ({
         ...errorMessage,
         arrival: '',
       });
+
     if (destinationCode?.length === 0) {
-      // dispatch(
-      //   loader({
-      //     show: true,
-      //     name: 'search',
-      //   })
-      // );
       dispatch(
         getEligibleOriginToDestinations(
           {
@@ -157,11 +121,6 @@ const DropdownModal = ({
             DestinationCode: code,
           },
           true,
-          {
-            ...flightDetails,
-            destinationCode: code,
-          },
-          setFlightDetails,
           tabName
         ) as unknown as AnyAction
       );

@@ -232,11 +232,6 @@ const SearchFlight = () => {
               DestinationCode: 'MLE' as string,
             },
             true,
-            {
-              ...flightDetails,
-              destinationCode: 'MLE' as string,
-            },
-            setFlightDetails
           ) as unknown as AnyAction
         );
         tabName === 'return' &&
