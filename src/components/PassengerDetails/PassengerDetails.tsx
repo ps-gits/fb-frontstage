@@ -2062,7 +2062,7 @@ const PassengerDetails = () => {
                                                                   className="ml-2 text-sm font-medium text-black"
                                                                 >
                                                                   {/* <Text
-                                                                    field={props.fields.dietaryMeal}
+                                                                    field={props.fields.dietaryMeal} 
                                                                   /> */}
                                                                   {/* Special Meal */}Special Meal
                                                                 </label>
@@ -2234,9 +2234,9 @@ const PassengerDetails = () => {
                                                     onChange={(e) => {
                                                       setOfferUpdates(e?.target?.checked);
                                                     }}
-                                                    disabled={
-                                                      tabIndex !== values?.details?.length - 1
-                                                    }
+                                                    // disabled={
+                                                    //   tabIndex !== values?.details?.length - 1
+                                                    // }
                                                     className="w-4 h-4 text-black-600 bg-gray-100 border-gray-300 rounded  accent-orange-600"
                                                   />
                                                   <label
