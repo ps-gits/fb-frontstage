@@ -26,8 +26,21 @@ import DepartReturnDateModal from 'components/Modal/DepartReturnDateModal';
 import { getImageSrc, getFieldName } from 'components/SearchFlight/SitecoreContent';
 
 const ReviewChange = () => {
+
+  
   const router = useRouter();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    
+    console.log("Webclass", modifyBookingSeats?.OriginDestination)
+    console.log("Web",selectedFlight?.details?.FaireFamilies)
+    const vala = (modifyMeal || modifySeat || updateCart
+      ? modifyBookingSeats?.OriginDestination
+      : selectedFlight?.details?.FaireFamilies
+    )
+    console.log("Webclass", vala)
+  }, []); 
 
   const reviewChangeContent = useSelector(
     (state: RootState) => state?.sitecore?.reviewTrip?.fields
@@ -111,17 +124,6 @@ const ReviewChange = () => {
     (item: { OriginCode: string; DestinationCode: string }) =>
       item && item?.OriginCode !== undefined && item?.DestinationCode !== undefined
   );
-
-  useEffect(() => {
-    
-    console.log("Webclass", modifyBookingSeats?.OriginDestination)
-    console.log("Web",selectedFlight?.details?.FaireFamilies)
-    const vala = (modifyMeal || modifySeat || updateCart
-      ? modifyBookingSeats?.OriginDestination
-      : selectedFlight?.details?.FaireFamilies
-    )
-    console.log("Webclass", vala)
-  }, []);
 
   const TotalPrice = () => {
     return (
