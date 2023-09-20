@@ -127,7 +127,7 @@ const FlightSchedule = (props: flightSchedule) => {
                 width={8}
                 height={8}
               />
-              <p className="font-black text-sm text-black">Duration:</p>
+              <p className="font-black text-sm text-black">Flight Duration:</p>
               <p className="font-normal text-xs text-pearlgray">{Duration}</p>
             </div>
             {FlightNumber && (
