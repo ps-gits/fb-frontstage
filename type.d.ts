@@ -349,6 +349,7 @@ interface detailsObj {
   flagMobile?: string;
   validMobile?: string;
   dialCodeMobile: string;
+  marketingInfo?: boolean;
 }
 
 interface flightDetails {
@@ -830,4 +831,62 @@ interface toastMessageType {
       message: string;
     }>
   >;
+}
+
+interface bookingSummaryType {	
+  adult: number;	
+  child: number;	
+  currency?: string;	
+  TaxAmount?: number;	
+  reviewTrip?: boolean;	
+  BaseAmount?: number;	
+  TotalAmount?: number;	
+  reviewChange?: boolean;	
+  modifyBooking?: boolean;	
+  bookingComplete?: boolean;	
+  flightAvailability?: boolean;	
+  setShowToast?: Dispatch<	
+    SetStateAction<{	
+      show: boolean;	
+      status: number;	
+      message: string;	
+    }>	
+  >;	
+  selectFlight?: {	
+    name: string;	
+    index: number;	
+    display: boolean;	
+    details: {	
+      DepartureDate: string;	
+      ArrivalDate: string;	
+      OriginCode: string;	
+      Otr: string;	
+      Dtr: string;	
+      DestinationCode: string;	
+      TotalAmount: number;	
+      BestPrice: string;	
+      BaseAmount: number;	
+      TaxAmount: number;	
+      Ref: string;	
+      RefItinerary: string;	
+      FaireFamilies: {	
+        orginDepartureDate: string;	
+        orginDepartureTime: string;	
+        originName: string;	
+        luxuryPickup: boolean;	
+        loungeAccess: boolean;	
+        BagAllowances: {	
+          Quantity: number;	
+          WeightMeasureQualifier: string;	
+          Weight: number;	
+        }[];	
+        destinationName: string;	
+        destinationArrivalDate: string;	
+        destinationArrivalTime: string;	
+      }[];	
+      cpd_code: string;	
+      symbol: string;	
+      currency: string;	
+    };	
+  };	
 }

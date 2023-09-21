@@ -76,7 +76,7 @@ const PassengerDetails = () => {
     selectedDetailsForFlight;
 
   const [tabIndex, setTabIndex] = useState(0);
-  const [offerUpdate, setOfferUpdates] = useState(false);
+  // const [offerUpdate, setOfferUpdates] = useState(false);
   const [showToast, setShowToast] = useState({
     show: false,
     status: 0,
@@ -621,6 +621,7 @@ const PassengerDetails = () => {
             flagMobile: values?.details[0]?.flagMobile,
             validMobile: values?.details[0]?.validMobile,
             dialCodeMobile: values?.details[0]?.dialCodeMobile,
+            marketingInfo: values?.details[0]?.marketingInfo,
           };
           if (passengerDetails[index] === 'Child') {
             delete data?.Email;
@@ -648,21 +649,51 @@ const PassengerDetails = () => {
     setDisplayError(true);
   };
 
-  const validateValues = (values: detailsObj[], index: number) => {
-    const checkLength =
-      values && values[index]
-        ? Object.keys(values[index])?.map((item) =>
-            !optionalFields?.includes(item)
-              ? values[index][item as keyof detailsObj]?.length
-              : undefined
-          )
-        : [];
-    const findLengthZero =
-      modifyMeal || modifyData || modifyDataFromBooking
-        ? undefined
-        : checkLength?.filter((item) => item !== undefined)?.find((item) => item === 0);
-
-    return findLengthZero !== undefined ? false : checkValuesForMeals(index) ? true : false;
+  const validateValues = (	
+    values: {	
+      Email?: string;	
+      Mobile: string;	
+      Firstname: string;	
+      Middlename: string;	
+      Surname: string;	
+      Dob: string;	
+      CivilityCode: string;	
+      Traveldocument: string;	
+      Homecontact: string;	
+      flagMobile?: string;	
+      validMobile?: string;	
+      dialCodeMobile: string;	
+    }[],	
+    index: number	
+  ) => {	
+    const checkLength =	
+      values && values[index]	
+        ? Object.keys(values[index])?.map((item) =>	
+            !optionalFields?.includes(item)	
+              ? values[index][	
+                  item as keyof {	
+                    Email?: string;	
+                    Mobile: string;	
+                    Firstname: string;	
+                    Middlename: string;	
+                    Surname: string;	
+                    Dob: string;	
+                    CivilityCode: string;	
+                    Traveldocument: string;	
+                    Homecontact: string;	
+                    flagMobile?: string;	
+                    validMobile?: string;	
+                    dialCodeMobile: string;	
+                  }	
+                ]?.length	
+              : undefined	
+          )	
+        : [];	
+    const findLengthZero =	
+      modifyMeal || modifyData || modifyDataFromBooking	
+        ? undefined	
+        : checkLength?.filter((item) => item !== undefined)?.find((item) => item === 0);	
+    return findLengthZero !== undefined ? false : checkValuesForMeals(index) ? true : false;	
   };
 
   const finalSubmit = (values: { details: detailsObj[] }) => {
@@ -1023,6 +1054,7 @@ const PassengerDetails = () => {
               ])
             : []
         ),
+        ['marketingInfo']: false,
       };
     });
   };
@@ -2223,21 +2255,29 @@ const PassengerDetails = () => {
                                                 </Accordion.Content>
                                               </Accordion.Panel>
                                             </Accordion>
-                                            {!modifyMeal &&
-                                              !modifyData &&
-                                              !modifyDataFromBooking && (
-                                                <div className="flex items-center py-4">
-                                                  <input
-                                                    id="default-checkbox"
-                                                    type="checkbox"
-                                                    checked={offerUpdate}
-                                                    onChange={(e) => {
-                                                      setOfferUpdates(e?.target?.checked);
-                                                    }}
-                                                    // disabled={
-                                                    //   tabIndex !== values?.details?.length - 1
-                                                    // }
-                                                    className="w-4 h-4 text-black-600 bg-gray-100 border-gray-300 rounded  accent-orange-600"
+                                            {!modifyMeal &&	
+                                              !modifyData &&	
+                                              !modifyDataFromBooking &&	
+                                              tabIndex === 0 && (	
+                                                <div className="flex items-center py-4">	
+                                                  <input	
+                                                    id="default-checkbox"	
+                                                    type="checkbox"	
+                                                    name={`details[${index}].marketingInfo`}	
+                                                    checked={	
+                                                      values?.details[index]['marketingInfo']	
+                                                    }	
+                                                    onChange={(e) => {	
+                                                      // setOfferUpdates(e?.target?.checked);	
+                                                      setFieldValue(	
+                                                        `details[${index}].marketingInfo`,	
+                                                        e?.target?.checked	
+                                                      );	
+                                                    }}	
+                                                    // disabled={	
+                                                    //   tabIndex !== values?.details?.length - 1	
+                                                    // }	
+                                                    className="w-4 h-4 text-black-600 bg-gray-100 border-gray-300 rounded  accent-orange-600"	
                                                   />
                                                   <label
                                                     htmlFor="default-checkbox"
