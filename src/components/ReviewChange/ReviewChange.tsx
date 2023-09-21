@@ -464,8 +464,8 @@ const ReviewChange = () => {
                           seats={false}
                           meals={false}
                           special={false}
-                          loungeAccess={true}
-                          luxuryPickup={true}
+                          loungeAccess={item?.loungeAccess}
+                          luxuryPickup={item?.luxuryPickup}
                           Stops={item?.Stops}
                           Duration={item?.Duration}
                           AircraftType={item?.AircraftType}
